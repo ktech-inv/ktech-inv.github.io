@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ochrana osobních údajů — KAI Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#070d1f;--navy2:#0c1530;--blue:#1e6bff;--cyan:#00c2ff;--white:#fff;--gray:#8899bb;--gray2:#c4d0e8;--border:rgba(100,140,255,0.15)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(7,13,31,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+@media(max-width:640px){nav{padding:1rem 1.25rem}}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.nav-logo span{color:var(--cyan)}
+.nav-back{font-size:.85rem;color:var(--gray);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+.container{max-width:780px;margin:0 auto;padding:7rem 2rem 5rem}
+.doc-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
+h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem}
+.doc-meta{font-size:.82rem;color:var(--gray);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin:2.5rem 0 .75rem}
+p{font-size:.95rem;color:var(--gray2);margin-bottom:.75rem}
+ul{margin:.5rem 0 .75rem 1.25rem;color:var(--gray2);font-size:.95rem}
+ul li{margin-bottom:.35rem}
+strong{color:var(--white);font-weight:600}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.88rem}
+th{background:rgba(30,107,255,.1);color:var(--white);font-weight:600;padding:.75rem 1rem;text-align:left;border:1px solid var(--border)}
+td{padding:.65rem 1rem;color:var(--gray2);border:1px solid var(--border);vertical-align:top}
+.highlight-box{background:rgba(30,107,255,.06);border:1px solid rgba(30,107,255,.2);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.highlight-box p{margin:0;color:var(--gray2);font-size:.9rem}
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:1.5rem 3rem;text-align:center;font-size:.78rem;color:var(--gray)}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="32" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs><linearGradient id="kaiG2" x1="0" y1="40" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#7eb3ff"/></linearGradient></defs>
+      <path d="M4 36 Q18 28 32 36" stroke="url(#kaiG2)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M18 4 L31 34 L5 34 Z" fill="url(#kaiG2)" opacity="0.9"/>
+      <path d="M18 18 L23 30 L13 30 Z" fill="#070d1f"/>
+      <circle cx="18" cy="3" r="2.2" fill="#00c2ff"/>
+      <line x1="18" y1="0.5" x2="18" y2="5.5" stroke="#00c2ff" stroke-width="1" opacity="0.6"/>
+    </svg>
+    KAI<span>Tech</span>
+  </a>
+  <a href="/" class="nav-back">← Zpět na hlavní stránku</a>
+</nav>
+
+<div class="container">
+  <div class="doc-tag">Právní dokumenty</div>
+  <h1>Zásady ochrany osobních údajů</h1>
+  <div class="doc-meta">Platné od 1. 9. 2026 · KAI Tech · Ctibor Klíma · IČO: 02235471</div>
+
+  <h2>1. Správce osobních údajů</h2>
+  <p>
+    <strong>Ctibor Klíma</strong> (obchodní název: KAI Tech)<br>
+    IČO: 02235471<br>
+    Provozovna: Renneská třída 765/42, 639 00 Brno – Štýřice<br>
+    E-mail: <a href="mailto:info@kaitechinvest.com">info@kaitechinvest.com</a>
+  </p>
+  <p>Jako správce zpracováváme vaše údaje v souladu s nařízením (EU) 2016/679 (GDPR)
+     a zákonem č. 110/2019 Sb.</p>
+  <p>Tyto zásady se vztahují na weby <strong>kaitechinvest.com</strong>,
+     <strong>audit.kaitechinvest.com</strong> a <strong>kontrola.kaitechinvest.com</strong>
+     a na všechny služby uvedené v obchodních podmínkách.</p>
+
+  <h2>2. Jaké údaje zpracováváme</h2>
+  <table>
+    <tr><th>Kategorie</th><th>Konkrétní údaje</th><th>Účel</th></tr>
+    <tr><td><strong>Kontaktní údaje</strong></td><td>E-mailová adresa, jméno</td><td>Doručení reportu, komunikace</td></tr>
+    <tr><td><strong>Technické údaje</strong></td><td>Adresa analyzované stránky a její veřejně dostupný obsah</td><td>Provedení objednané analýzy</td></tr>
+    <tr><td><strong>Platební údaje</strong></td><td>Čas a výše platby, ID transakce</td><td>Fakturace, účetní záznamy</td></tr>
+    <tr><td><strong>Provozní záznamy</strong></td><td>Datum zpracování, status reportu</td><td>Provoz služby, řešení chyb</td></tr>
+    <tr><td><strong>Údaje z návštěvy webu</strong></td><td>Cookies a identifikátory analytických a reklamních nástrojů</td><td>Měření návštěvnosti a účinnosti reklamy — pouze s vaším souhlasem</td></tr>
+  </table>
+  <p>Čísla karet ani jiné citlivé platební údaje nezpracováváme — zpracovává je výlučně
+     Stripe, Inc. podle vlastních zásad.</p>
+
+  <h2>3. Právní základ zpracování</h2>
+  <ul>
+    <li><strong>Plnění smlouvy</strong> (čl. 6 odst. 1 písm. b) — e-mail a adresa stránky jsou nezbytné pro poskytnutí služby</li>
+    <li><strong>Právní povinnost</strong> (čl. 6 odst. 1 písm. c) — uchování účetních dokladů</li>
+    <li><strong>Oprávněný zájem</strong> (čl. 6 odst. 1 písm. f) — provozní záznamy pro funkčnost a bezpečnost služby</li>
+    <li><strong>Souhlas</strong> (čl. 6 odst. 1 písm. a) — analytické a reklamní cookies</li>
+  </ul>
+
+  <h2>4. Doba uchování údajů</h2>
+  <table>
+    <tr><th>Údaj</th><th>Doba uchování</th><th>Důvod</th></tr>
+    <tr><td>E-mail a adresa stránky</td><td>90 dní od zpracování</td><td>Řešení případných reklamací</td></tr>
+    <tr><td>Platební záznamy</td><td>10 let</td><td>Zákon o účetnictví</td></tr>
+    <tr><td>Vygenerovaný report</td><td>bez časového omezení, dokud nepožádáte o smazání</td><td>Trvalá dostupnost pro zákazníka</td></tr>
+    <tr><td>Provozní logy</td><td>30 dní</td><td>Diagnostika chyb</td></tr>
+  </table>
+
+  <h2>5. Příjemci osobních údajů</h2>
+  <p>Údaje sdílíme pouze se zpracovateli, kteří zajišťují provoz služby:</p>
+  <ul>
+    <li><strong>Stripe, Inc.</strong> — platební brána (USA, standardní smluvní doložky)</li>
+    <li><strong>OpenAI, L.L.C.</strong> — analýza obsahu stránky (USA, standardní smluvní doložky)</li>
+    <li><strong>ApiFlash</strong> — pořízení snímků analyzované stránky (standardní smluvní doložky)</li>
+    <li><strong>GitHub, Inc.</strong> — hosting reportů a webových stránek (USA, standardní smluvní doložky)</li>
+    <li><strong>Vercel, Inc.</strong> — hosting webových stránek (USA, standardní smluvní doložky)</li>
+    <li><strong>Resend, Inc.</strong> — doručení e-mailů (USA, standardní smluvní doložky)</li>
+    <li><strong>Google LLC</strong> — provozní záznamy v Google Sheets a měření návštěvnosti (Google Analytics)</li>
+    <li><strong>Meta Platforms Ireland Ltd.</strong> — měření účinnosti reklamy (Meta Pixel)</li>
+    <li><strong>n8n GmbH</strong> — automatizační platforma (EU, Německo)</li>
+  </ul>
+  <p>Údaje neprodáváme třetím stranám.</p>
+
+  <h2>6. Přenos dat do třetích zemí</h2>
+  <p>Někteří zpracovatelé sídlí mimo EU, zejména v USA. Přenos je zajištěn standardními
+     smluvními doložkami schválenými Evropskou komisí, případně rozhodnutím o odpovídající
+     ochraně (EU–US Data Privacy Framework).</p>
+
+  <h2>7. Vaše práva</h2>
+  <ul>
+    <li><strong>Právo na přístup</strong> — přehled zpracovávaných údajů</li>
+    <li><strong>Právo na opravu</strong> — oprava nepřesných údajů</li>
+    <li><strong>Právo na výmaz</strong> — smazání údajů s výjimkou zákonně uchovávaných</li>
+    <li><strong>Právo na omezení zpracování</strong></li>
+    <li><strong>Právo na přenositelnost</strong> — údaje ve strukturovaném formátu</li>
+    <li><strong>Právo vznést námitku</strong> proti zpracování z oprávněného zájmu</li>
+    <li><strong>Právo odvolat souhlas</strong> se zpracováním cookies, kdykoli a bez následků</li>
+  </ul>
+  <p>Žádosti zasílejte na <a href="mailto:info@kaitechinvest.com">info@kaitechinvest.com</a>. Odpovíme do 30 dnů.</p>
+
+  <div class="highlight-box">
+    <p>Máte také právo podat stížnost u dozorového úřadu — <strong>Úřad pro ochranu osobních
+       údajů</strong>, Pplk. Sochora 27, 170 00 Praha 7,
+       <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a>, tel. +420 234 665 111.</p>
+  </div>
+
+  <h2>8. Cookies a analytika</h2>
+  <p>Na našich webech používáme:</p>
+  <table>
+    <tr><th>Nástroj</th><th>Účel</th><th>Základ</th></tr>
+    <tr><td>Technické cookies</td><td>Zajištění provozu webu a platební brány</td><td>Nezbytné, bez souhlasu</td></tr>
+    <tr><td>Google Analytics 4</td><td>Měření návštěvnosti a chování na webu</td><td>Souhlas</td></tr>
+    <tr><td>Meta Pixel</td><td>Měření účinnosti reklamy na Facebooku a Instagramu</td><td>Souhlas</td></tr>
+  </table>
+  <p>Analytické a reklamní nástroje se spouští až po udělení souhlasu. Souhlas můžete
+     kdykoli odvolat změnou nastavení v cookie liště nebo smazáním cookies v prohlížeči.</p>
+
+  <h2>9. Bezpečnost dat</h2>
+  <ul>
+    <li>Šifrovaný přenos dat (HTTPS/TLS)</li>
+    <li>Omezený přístup k datům (pouze provozovatel)</li>
+    <li>Automatické mazání dat po uplynutí doby uchování</li>
+  </ul>
+
+  <h2>10. Změny zásad</h2>
+  <p>Tyto zásady můžeme aktualizovat. O podstatných změnách budeme informovat e-mailem nebo
+     oznámením na webu. Aktuální verze je vždy na této stránce.</p>
+
+  <h2>11. Kontakt</h2>
+  <p>Dotazy k ochraně osobních údajů: <a href="mailto:info@kaitechinvest.com">info@kaitechinvest.com</a></p>
+</div>
+
+<footer>
+  © 2026 KAI Tech · Ctibor Klíma · IČO: 02235471 ·
+  <a href="/vop.html">Obchodní podmínky</a> ·
+  <a href="/gdpr.html">Ochrana osobních údajů</a>
+</footer>
+
+</body>
+</html>
