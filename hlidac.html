@@ -65,6 +65,8 @@ th,td{text-align:left;padding:.8rem .9rem;border-bottom:1px solid var(--border);
 th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);font-weight:600;}
 td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
 tr.us td{color:var(--white);background:rgba(30,107,255,.07);font-weight:500;}
+.was{text-decoration:line-through;color:var(--gray);}
+td.free{color:var(--green);font-weight:500;}
 
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.5rem;max-width:760px;}
 .plan{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;}
@@ -185,11 +187,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <h2 class="s-title">Jedno předplatné za všechny tři kontroly</h2>
   <div class="compare">
     <table>
-      <thead><tr><th>Co dostanete</th><th>Jednorázově u nás</th><th>S Hlídačem</th></tr></thead>
+      <thead><tr><th>Co dostanete každý měsíc</th><th>Samostatně</th><th>V Hlídači</th></tr></thead>
       <tbody>
-        <tr><td>Kompletní prověrka (CRO + právo)</td><td class="num">2 490 Kč za jednu</td><td>každý měsíc</td></tr>
-        <tr><td>Konkurenční analýza</td><td class="num">1 490 Kč za jednu</td><td>každý týden</td></tr>
-        <tr class="us"><td>Celkem za měsíc</td><td class="num">3 980 Kč za jeden snímek</td><td class="num">1 990 Kč</td></tr>
+        <tr><td>Kompletní prověrka (CRO audit + právní kontrola)</td><td class="num"><span class="was">2 490 Kč</span></td><td>v ceně</td></tr>
+        <tr><td>Konkurenční analýza každý týden (4×)</td><td class="num"><span class="was">4 × 1 490 Kč</span></td><td class="free">zdarma</td></tr>
+        <tr><td>Porovnání se změnami od minula</td><td class="num">—</td><td class="free">zdarma</td></tr>
+        <tr class="us"><td>Celkem za měsíc</td><td class="num"><span class="was">8 450 Kč</span></td><td class="num">1 990 Kč</td></tr>
       </tbody>
     </table>
   </div>
@@ -197,7 +200,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <div class="plan featured">
       <h3>Měsíčně</h3>
       <div class="price">1 990 <small>Kč / měsíc</small></div>
-      <p class="note">zrušíte kdykoli, platí do konce zaplaceného měsíce</p>
+      <p class="note">samostatně <span class="was">8 450 Kč</span> · zrušíte kdykoli</p>
       <ul>
         <li>Report konkurence každý týden</li>
         <li>Kompletní prověrka každý měsíc</li>
