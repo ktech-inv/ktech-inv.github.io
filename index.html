@@ -76,6 +76,8 @@ h1 .grad{
 }
 .hero-sub{font-size:1.02rem;color:var(--gray2);max-width:480px;margin:0 auto 2.5rem;font-weight:300;line-height:1.7;}
 .hero-actions{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;}
+.hero-proof{margin-top:1.1rem;font-size:.82rem;color:var(--gray);letter-spacing:.01em;}
+.grid-note{margin-top:1.25rem;font-size:.85rem;color:var(--gray);max-width:640px;}
 .btn-p{display:inline-block;padding:.8rem 1.85rem;font-size:.92rem;font-weight:500;background:var(--blue);color:#fff;border-radius:7px;text-decoration:none;transition:background .2s,transform .15s;}
 .btn-p:hover{background:#2a7dff;transform:translateY(-1px);}
 .btn-g{display:inline-block;padding:.8rem 1.85rem;font-size:.92rem;font-weight:500;border:1px solid var(--border);color:var(--gray2);border-radius:7px;text-decoration:none;transition:border-color .2s,color .2s;}
@@ -120,7 +122,7 @@ h1 .grad{
 .card-desc{font-size:.82rem;color:var(--gray);line-height:1.55;}
 .card-cta{
   display:inline-block;margin-top:1rem;font-size:.78rem;font-weight:500;color:var(--cyan);
-  text-decoration:none;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;
+  text-decoration:none;
 }
 
 /* CENIK */
@@ -185,7 +187,7 @@ footer{
 
 @media(max-width:768px){
   nav{padding:.8rem 1.25rem;}
-  .nav-links{display:none;}
+  .nav-links a:not(.nav-cta){display:none;}
   .why-grid{grid-template-columns:1fr;}
 }
 @media(prefers-reduced-motion:reduce){
@@ -230,6 +232,7 @@ footer{
     <a href="#produkty" class="btn-p">Prohlédnout produkty</a>
     <a href="https://audit.kaitechinvest.com" class="btn-g">CRO Audit webu →</a>
   </div>
+  <p class="hero-proof">Hotové reporty do 5 minut · od 990 Kč · bez registrace a instalace</p>
 
   <div class="ticker-wrap">
     <div class="ticker">
@@ -398,14 +401,14 @@ footer{
       <h3>Kompletní prověrka</h3>
       <p class="desc">Konverze i právní soulad v jednom reportu.</p>
       <div class="price">2 490 <small>Kč</small></div>
-      <div class="price-note">úspora 490 Kč proti samostatnému nákupu</div>
+      <div class="price-note">samostatně 2 980 Kč (1 990 + 990) — ušetříte 490 Kč</div>
       <ul>
         <li>Vše z CRO auditu</li>
         <li>Vše z právní kontroly</li>
         <li>Všech 12 kontrolních bodů</li>
         <li>Jeden report, jedno místo</li>
       </ul>
-      <a href="__STRIPE_LINK_BUNDLE__" class="btn-p">Objednat prověrku</a>
+      <a href="https://buy.stripe.com/aFa28rfd3cIpavg9oVcAo04" class="btn-p">Objednat prověrku</a>
     </div>
 
     <div class="plan">
@@ -419,13 +422,14 @@ footer{
         <li>Konkrétní návod na nápravu</li>
         <li>Index souladu 0–100</li>
       </ul>
-      <a href="__STRIPE_LINK_COMPLIANCE__" class="btn-g">Objednat kontrolu</a>
+      <a href="https://buy.stripe.com/eVqbJ1fd337Pavg44BcAo03" class="btn-g">Objednat kontrolu</a>
     </div>
 
   </div>
 
   <p class="price-foot">Ceny jsou konečné, nejsem plátcem DPH. Platba kartou přes Stripe, daňový doklad přijde e-mailem.<br>
-  Kontrola se týká výhradně stránky na zadané URL a jde o automatickou technickou kontrolu, ne o právní stanovisko advokáta.</p>
+  Kontrola se týká výhradně stránky na zadané URL a jde o automatickou technickou kontrolu, ne o právní stanovisko advokáta.<br>
+  Informace o odstoupení od smlouvy a reklamaci najdete v <a href="https://kaitechinvest.com/vop.html" style="color:inherit">obchodních podmínkách</a>.</p>
 </section>
 
 <!-- PROCES -->
@@ -455,6 +459,7 @@ footer{
       <div class="step-t">Škálujeme</div>
       <p class="step-p">Co funguje, rozvineme do dalšího produktu nebo přidáme do existujícího jako novou funkci.</p>
     </div>
+    <p class="grid-note">Nasazení na míru: napište nám, co chcete automatizovat a jaké nástroje používáte (e-shop, CRM, e-mail, kalendář). Ozveme se s návrhem řešení a cenou.</p>
   </div>
 </section>
 
@@ -485,11 +490,11 @@ footer{
 
 <!-- CTA -->
 <div class="cta-s">
-  <h2>Chcete začít s AI ve svém byznysu?</h2>
-  <p>Začněte tím, co běží dnes — CRO audit stránky, právní kontrola e-shopu, nebo obojí v jednom reportu do 5 minut.</p>
+  <h2>Vyberte si report do 5 minut</h2>
+  <p>Nejvíc za peníze dostanete s Kompletní prověrkou: konverzní bariéry i právní soulad v jednom reportu.</p>
   <div class="hero-actions">
-    <a href="#cena" class="btn-p">Zobrazit ceník →</a>
-    <a href="https://audit.kaitechinvest.com" class="btn-g">Více o CRO auditu</a>
+    <a href="https://buy.stripe.com/aFa28rfd3cIpavg9oVcAo04" class="btn-p">Kompletní prověrka — 2 490 Kč →</a>
+    <a href="#cena" class="btn-g">Porovnat varianty</a>
   </div>
 </div>
 
