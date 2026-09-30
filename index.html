@@ -193,6 +193,22 @@ footer{
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
 }
+
+.nl{max-width:1080px;margin:0 auto 5.5rem;padding:0 1.5rem}
+.nl-box{background:var(--navy2);border:1px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+@media(max-width:760px){.nl-box{grid-template-columns:1fr;padding:1.5rem}}
+.nl-box h3{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem}
+.nl-box p{font-size:.9rem;color:var(--gray2)}
+.nl-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.nl-row input[type=email]{flex:1 1 220px;min-width:0;padding:.75rem 1rem;border-radius:7px;border:1px solid var(--border);background:var(--navy);color:var(--white);font:inherit;font-size:.92rem}
+.nl-row button{padding:.75rem 1.4rem;border:0;border-radius:7px;background:var(--blue);color:#fff;font:inherit;font-weight:500;cursor:pointer}
+.nl-row button:disabled{opacity:.6;cursor:default}
+.nl-souhlas{display:flex;gap:.55rem;align-items:flex-start;margin-top:.8rem;font-size:.78rem;color:var(--gray);line-height:1.5;cursor:pointer}
+.nl-souhlas input{margin-top:.2rem;accent-color:var(--blue)}
+.nl-souhlas a{color:var(--cyan)}
+.nl-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nl-msg{margin-top:.7rem;font-size:.85rem;min-height:1.2em}
+.nl-msg.ok{color:var(--cyan)}.nl-msg.err{color:#ff9a7a}
 </style>
 </head>
 <body>
@@ -509,6 +525,49 @@ footer{
     </div>
   </div>
 </section>
+
+<!-- NEWSLETTER -->
+<section class="nl" id="newsletter">
+  <div class="nl-box">
+    <div>
+      <div class="s-tag">Newsletter + checklist zdarma</div>
+      <h3>12 bodů, které na e-shopu kontroluje ČOI</h3>
+      <p>Přihlaste se k odběru a hned pošleme checklist s paragrafy a návodem na opravu. Pak nejvýše jeden e-mail měsíčně: co nejčastěji nacházíme na e-shopech a co se mění v pravidlech.</p>
+    </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-row">
+        <input type="email" name="email" placeholder="váš@e-mail.cz" autocomplete="email" required aria-label="E-mail">
+        <button type="submit">Poslat checklist</button>
+      </div>
+      <div class="nl-hp" aria-hidden="true"><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+      <label class="nl-souhlas"><input type="checkbox" name="souhlas" value="true">
+        <span>Souhlasím se zasíláním newsletteru KAI Tech (nejvýše 1× měsíčně) a se zpracováním e-mailu podle <a href="/gdpr.html#newsletter">zásad ochrany osobních údajů</a>. Souhlas mohu kdykoli odvolat odkazem v každém e-mailu.</span></label>
+      <p class="nl-msg" id="nl-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+<script>
+(function () {
+  var f = document.getElementById('nl-form'), m = document.getElementById('nl-msg');
+  function hlaska(t, ok) { m.textContent = t; m.className = 'nl-msg ' + (ok ? 'ok' : 'err'); }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return hlaska('Zadejte prosím platný e-mail.', false);
+    if (!f.souhlas.checked) return hlaska('Bez vašeho souhlasu vám newsletter posílat nemůžeme.', false);
+    var b = f.querySelector('button'); b.disabled = true; hlaska('Odesílám…', true);
+    var data = new URLSearchParams({ email: email, souhlas: 'true', web: f.web.value, zdroj: 'kaitechinvest.com' });
+    fetch('https://ck01.app.n8n.cloud/webhook/newsletter-prihlasit', { method: 'POST', body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) { hlaska('Hotovo. Zkontrolujte e-mail a potvrďte odběr — pak vám hned pošleme checklist.', true); f.reset(); }
+        else { hlaska((j && j.chyba) || 'Něco se nepovedlo, zkuste to prosím znovu.', false); }
+      })
+      .catch(function () { hlaska('Něco se nepovedlo. Napište nám na info@kaitechinvest.com.', false); })
+      .then(function () { b.disabled = false; });
+  });
+})();
+</script>
 
 <!-- CTA -->
 <div class="cta-s">
