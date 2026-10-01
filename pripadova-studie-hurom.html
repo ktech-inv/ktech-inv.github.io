@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Případová studie: hurom.cz — KAI Tech</title>
+<meta name="description" content="Co CRO audit najde na e-shopu s prémiovými odšťavňovači: úvod bez hlavní akce, blog v slideru, důvody k nákupu schované před zákazníkem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#070d1f;--navy2:#0c1530;--blue:#1e6bff;--cyan:#00c2ff;--white:#fff;--gray:#8899bb;--gray2:#c4d0e8;--border:rgba(100,140,255,0.15)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(7,13,31,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+@media(max-width:640px){nav{padding:1rem 1.25rem}}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.nav-logo span{color:var(--cyan)}
+.nav-back{font-size:.85rem;color:var(--gray);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+.container{max-width:780px;margin:0 auto;padding:7rem 2rem 5rem}
+.doc-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
+h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem}
+.doc-meta{font-size:.82rem;color:var(--gray);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin:2.5rem 0 .75rem}
+p{font-size:.95rem;color:var(--gray2);margin-bottom:.75rem}
+ul{margin:.5rem 0 .75rem 1.25rem;color:var(--gray2);font-size:.95rem}
+ul li{margin-bottom:.35rem}
+strong{color:var(--white);font-weight:600}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.88rem}
+th{background:rgba(30,107,255,.1);color:var(--white);font-weight:600;padding:.75rem 1rem;text-align:left;border:1px solid var(--border)}
+td{padding:.65rem 1rem;color:var(--gray2);border:1px solid var(--border);vertical-align:top}
+.highlight-box{background:rgba(30,107,255,.06);border:1px solid rgba(30,107,255,.2);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.highlight-box p{margin:0;color:var(--gray2);font-size:.9rem}
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:1.5rem 3rem;text-align:center;font-size:.78rem;color:var(--gray)}
+footer a{color:inherit}
+
+.lead{font-size:1.05rem;color:var(--gray2);margin-bottom:2rem}
+.fakta{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:0 0 2.5rem}
+.fakt{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.fakt b{display:block;font-family:'Syne',sans-serif;font-size:1.4rem;color:var(--cyan);line-height:1.2}
+.fakt span{font-size:.8rem;color:var(--gray)}
+.osa{border-left:2px solid var(--border);margin:1rem 0 1.5rem .4rem;padding-left:1.25rem}
+.osa-bod{position:relative;margin-bottom:1.4rem}
+.osa-bod::before{content:'';position:absolute;left:-1.62rem;top:.45rem;width:.6rem;height:.6rem;border-radius:50%;background:var(--blue)}
+.osa-datum{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.osa-bod h3{font-family:'Syne',sans-serif;font-size:1rem;margin:.15rem 0 .35rem}
+.osa-bod p,.osa-bod li{font-size:.92rem}
+.nalez{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.75rem}
+.nalez h3{font-family:'Syne',sans-serif;font-size:.98rem;margin-bottom:.3rem}
+.nalez p{margin:0 0 .35rem;font-size:.9rem}
+.nalez .navrh{color:var(--white)}
+.cta{margin-top:3rem;background:rgba(30,107,255,.06);border:1px solid rgba(30,107,255,.2);border-radius:12px;padding:1.5rem}
+.cta h2{margin-top:0}
+.btn{display:inline-block;margin:.5rem .5rem 0 0;padding:.75rem 1.5rem;background:var(--blue);color:#fff;border-radius:7px;font-weight:500}
+.btn:hover{text-decoration:none;background:#2a7dff}
+.btn.g{background:transparent;border:1px solid var(--border);color:var(--gray2)}
+@media(max-width:640px){.container{padding:6rem 1rem 4rem}h1{font-size:1.6rem}.fakta{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="32" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs><linearGradient id="kaiG2" x1="0" y1="40" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#7eb3ff"/></linearGradient></defs>
+      <path d="M4 36 Q18 28 32 36" stroke="url(#kaiG2)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M18 4 L31 34 L5 34 Z" fill="url(#kaiG2)" opacity="0.9"/>
+      <path d="M18 18 L23 30 L13 30 Z" fill="#070d1f"/>
+      <circle cx="18" cy="3" r="2.2" fill="#00c2ff"/>
+      <line x1="18" y1="0.5" x2="18" y2="5.5" stroke="#00c2ff" stroke-width="1" opacity="0.6"/>
+    </svg>
+    KAI<span>Tech</span>
+  </a>
+  <a href="/" class="nav-back">← Zpět na hlavní stránku</a>
+</nav>
+
+<div class="container">
+
+  <div class="doc-tag">Případová studie</div>
+  <h1>hurom.cz: co audit najde na e-shopu s prémiovým zbožím</h1>
+  <div class="doc-meta">hurom.cz · e-shop se šnekovými odšťavňovači · audit 6. 9. 2026</div>
+  <p class="lead">hurom.cz prodává odšťavňovače za 8–17 tisíc korun. U takového zboží se zákazník rozhoduje pomalu a potřebuje vědět, proč koupit právě tady. Audit domovské stránky ukázal, že e-shop dobré důvody má — jen je zákazník na první pohled nevidí.</p>
+
+  <div class="fakta">
+    <div class="fakt"><b>10</b><span>prioritních bodů seřazených podle dopadu</span></div>
+    <div class="fakt"><b>7</b><span>sekcí stránky s navrženou novou podobou</span></div>
+    <div class="fakt"><b>2 týdny</b><span>plán oprav pro webmastera</span></div>
+  </div>
+
+  <h2>Co audit našel</h2>
+  <div class="nalez">
+    <h3>1. Úvod nemá hlavní akci</h3>
+    <p>Úvodní text je dlouhý a obecný. Chybí tlačítko, které by zákazníka poslalo vybírat nebo kupovat.</p>
+    <p class="navrh">Návrh: nadpis „Vyberte si odšťavňovač HUROM podle toho, co odšťavňujete“ a dvě tlačítka — „Zobrazit odšťavňovače“ a „Jak vybrat typ“.</p>
+  </div>
+  <div class="nalez">
+    <h3>2. Blog v úvodním slideru odvádí od nákupu</h3>
+    <p>Jeden ze slidů na první obrazovce vede na blog — zákazník odchází z nákupní cesty dřív, než vůbec uvidí produkty.</p>
+    <p class="navrh">Návrh: blog přesunout níž, v úvodu nechat značku a nejoblíbenější model.</p>
+  </div>
+  <div class="nalez">
+    <h3>3. Důvody k nákupu jsou jen pro vyhledávače</h3>
+    <p>Doprava zdarma, odeslání do 24 hodin a možnost vyzkoušení jsou v popisu stránky pro Google, ale u úvodu je zákazník nevidí.</p>
+    <p class="navrh">Návrh: pod úvod lišta jistot se čtyřmi body — doprava zdarma, odeslání do 24 hodin, záruka, možnost vyzkoušení.</p>
+  </div>
+  <div class="nalez">
+    <h3>4. Chyba šablony v nadpisu</h3>
+    <p>Nadpis bloku produktů zněl „Top produkty COUNT-3#“ — v textu zůstala proměnná ze šablony e-shopu.</p>
+    <p class="navrh">Návrh: „Nejoblíbenější odšťavňovače“ a v bloku jen odšťavňovače, doplňky zvlášť.</p>
+  </div>
+  <div class="nalez">
+    <h3>5. Hodnocení zákazníků je moc nízko</h3>
+    <p>Blok s posledními hodnoceními je až pod uvítacím textem, daleko od produktů, u kterých se zákazník rozhoduje.</p>
+    <p class="navrh">Návrh: hodnocení přesunout hned pod nejoblíbenější produkty.</p>
+  </div>
+  <p>Dalších pět bodů se týkalo popisků tlačítek u produktů, cesty pro nerozhodnuté zákazníky v menu, uvítacího textu a umístění častých dotazů.</p>
+
+  <h2>Co report obsahoval navíc</h2>
+  <ul>
+    <li><strong>Novou podobu stránky</strong> pro 7 sekcí — od menu po patičku, se skutečnými produkty a cenami z e-shopu.</li>
+    <li><strong>Plán oprav na dva týdny</strong> s náročností každého kroku a přesnými texty pro webmastera.</li>
+    <li><strong>Právní kontrolu</strong> 12 bodů, na které se zaměřuje ČOI.</li>
+  </ul>
+
+  <h2>Co si z toho vzít</h2>
+  <ul>
+    <li><strong>Mít dobré důvody nestačí, musí být vidět.</strong> Doprava zdarma, kterou zákazník nevidí, neprodává.</li>
+    <li><strong>První obrazovka patří nákupu.</strong> Blog, příběh značky a novinky mají své místo, ale níž.</li>
+    <li><strong>Chyby šablon nikdo nehlásí.</strong> Zákazník je vidí, ale nenapíše vám — prostě odejde.</li>
+  </ul>
+
+  <div class="cta">
+    <h2>Chcete to samé pro svůj e-shop?</h2>
+    <p>Hlídač e-shopu dělá přesně tohle každý měsíc: CRO audit a právní kontrolu vašeho webu, k tomu každý týden konkurenční analýzu. 1 990 Kč měsíčně, zrušíte kdykoli.</p>
+    <a class="btn" href="/hlidac.html?utm_source=pripadova-studie&amp;utm_medium=web">Nechat e-shop hlídat →</a>
+    <a class="btn g" href="/#pripadove-studie">Další případová studie</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 KAI Tech · Ctibor Klíma · IČO: 02235471 ·
+  <a href="/vop.html">Obchodní podmínky</a> ·
+  <a href="/gdpr.html">Ochrana osobních údajů</a>
+</footer>
+
+</body>
+</html>

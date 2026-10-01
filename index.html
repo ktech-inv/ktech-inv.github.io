@@ -209,6 +209,15 @@ footer{
 .nl-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .nl-msg{margin-top:.7rem;font-size:.85rem;min-height:1.2em}
 .nl-msg.ok{color:var(--cyan)}.nl-msg.err{color:#ff9a7a}
+
+.studie-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.studie{display:block;background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;transition:border-color .2s}
+.studie:hover{border-color:rgba(100,140,255,.35)}
+.studie-tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.5rem}
+.studie h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.5rem;line-height:1.3}
+.studie p{font-size:.85rem;color:var(--gray);line-height:1.55;margin-bottom:.9rem}
+.studie-cta{font-size:.82rem;font-weight:500;color:var(--cyan)}
+@media(max-width:760px){.studie-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -399,6 +408,27 @@ footer{
 </div>
 
 <!-- CENÍK -->
+<!-- PRIPADOVE STUDIE -->
+<section class="s" id="pripadove-studie">
+  <div class="s-tag">Případové studie</div>
+  <h2 class="s-title">Co reporty skutečně najdou</h2>
+  <p class="s-sub">Dva weby, na kterých jsme audity zkoušeli jako první — včetně našeho vlastního.</p>
+  <div class="studie-grid">
+    <a class="studie" href="/pripadova-studie-kaitech.html">
+      <div class="studie-tag">kaitechinvest.com</div>
+      <h3>Hlídač hlídá i náš vlastní web</h3>
+      <p>První audit našel v ceníku tlačítka k objednávce, která nikam nevedla. Tři kola úprav později: přímá objednávka, ukázka výstupu a právní kontrola 100/100.</p>
+      <span class="studie-cta">Celá studie →</span>
+    </a>
+    <a class="studie" href="/pripadova-studie-hurom.html">
+      <div class="studie-tag">hurom.cz</div>
+      <h3>E-shop s prémiovými odšťavňovači</h3>
+      <p>Doprava zdarma a odeslání do 24 hodin byly jen v popisu pro Google, úvod neměl hlavní akci a v nadpisu zůstala chyba šablony. 10 bodů a plán oprav na dva týdny.</p>
+      <span class="studie-cta">Celá studie →</span>
+    </a>
+  </div>
+</section>
+
 <section class="s" id="cena">
   <div class="s-tag">Ceník</div>
   <h2 class="s-title">Jednorázový report, nebo pravidelné hlídání</h2>
