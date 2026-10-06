@@ -11,7 +11,8 @@
   z atributů data-plan, data-value a data-currency u odkazu.
 
   Na stránku stačí <script src="/cookies.js" defer></script> a v patičce odkaz
-  s atributem data-cookie-settings, který lištu znovu otevře.
+  s atributem data-cookie-settings, který lištu znovu otevře. Subdomény (konkurence.)
+  ho načítají z https://kaitechinvest.com/cookies.js, proto jsou odkazy absolutní.
 */
 (function () {
   var KLIC = 'kai_cookie_consent';
@@ -24,14 +25,14 @@
           'Analytics and marketing tools (Google Analytics, Meta Pixel) load only with your consent; ' +
           'until then none of their scripts run. You can change your choice at any time via ' +
           '“Cookie settings” in the footer. More in our ',
-    odkaz: 'Privacy Policy', href: '/en/privacy.html',
+    odkaz: 'Privacy Policy', href: 'https://kaitechinvest.com/en/privacy.html',
     odmitnout: 'Reject', prijmout: 'Accept', popis: 'Cookie settings'
   } : {
     nadpis: 'Cookies a měření návštěvnosti',
     text: 'Technicky nutné cookies pro fungování webu používáme vždy. Analytické a marketingové ' +
           'nástroje (Google Analytics, Meta Pixel) načteme až s vaším souhlasem – do té doby se žádný ' +
           'jejich skript nespustí. Souhlas můžete kdykoli změnit odkazem „Nastavení cookies“ v patičce. Více v ',
-    odkaz: 'Ochraně osobních údajů', href: '/gdpr.html',
+    odkaz: 'Ochraně osobních údajů', href: 'https://kaitechinvest.com/gdpr.html',
     odmitnout: 'Odmítnout', prijmout: 'Přijmout', popis: 'Nastavení cookies'
   };
 
