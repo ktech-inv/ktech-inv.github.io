@@ -187,10 +187,14 @@ footer{
 @media(max-width:768px){.f-copy{text-align:left;}}
 
 @media(max-width:768px){
-  nav{padding:.8rem 1.25rem;}
+  nav{padding:.8rem 1.25rem;gap:.75rem;}
+  .nav-links{gap:.9rem;}
+  .nav-cta{white-space:nowrap;}
   .nav-links a:not(.nav-cta):not([href="#cena"]){display:none;}
   .why-grid{grid-template-columns:1fr;}
 }
+/* Pod 420 px se logo, Ceník a tlačítko Hlídače nevejdou do jednoho řádku. */
+@media(max-width:420px){.nav-links a[href="#cena"]{display:none;}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
 }
