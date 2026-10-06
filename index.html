@@ -193,8 +193,9 @@ footer{
   .nav-links a:not(.nav-cta):not([href="#cena"]){display:none;}
   .why-grid{grid-template-columns:1fr;}
 }
-/* Pod 420 px se logo, Ceník a tlačítko Hlídače nevejdou do jednoho řádku. */
-@media(max-width:420px){.nav-links a[href="#cena"]{display:none;}}
+/* Pod 420 px se celé „Hlídač e-shopu →“ vedle loga a Ceníku nevejde,
+   tlačítko se zkrátí na „Hlídač →“ (plný název nese aria-label). */
+@media(max-width:420px){.nav-cta-dlouhy{display:none;}.nav-links{gap:.75rem;}.nav-cta{padding:.42rem .8rem;}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
 }
@@ -271,7 +272,7 @@ footer{
     <a href="#proc-ai">Proč AI</a>
     <a href="#cena">Ceník</a>
     <a href="/en/" lang="en" style="font-size:.78rem;border:1px solid var(--border);border-radius:5px;padding:.2rem .5rem;">EN</a>
-    <a href="/hlidac.html" class="nav-cta">Hlídač e-shopu →</a>
+    <a href="/hlidac.html" class="nav-cta" aria-label="Hlídač e-shopu">Hlídač<span class="nav-cta-dlouhy"> e-shopu</span> →</a>
   </div>
 </nav>
 
