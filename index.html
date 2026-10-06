@@ -45,7 +45,7 @@ nav{
 /* HERO */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden;
+  text-align:center;padding:7rem 1.5rem 5rem;position:relative;overflow:hidden;
 }
 .hero-bg{
   position:absolute;inset:0;pointer-events:none;
@@ -69,7 +69,7 @@ nav{
 h1{
   font-family:'Syne',sans-serif;font-weight:800;
   font-size:clamp(2.2rem,5.5vw,4rem);letter-spacing:-.04em;line-height:1.07;
-  max-width:780px;margin-bottom:1.4rem;
+  max-width:940px;margin-bottom:1.4rem;
 }
 h1 .grad{
   background:linear-gradient(135deg,#1e6bff 0%,#7c5cfc 50%,#00c2ff 100%);
@@ -219,6 +219,33 @@ footer{
 .studie p{font-size:.85rem;color:var(--gray);line-height:1.55;margin-bottom:.9rem}
 .studie-cta{font-size:.82rem;font-weight:500;color:var(--cyan)}
 @media(max-width:760px){.studie-grid{grid-template-columns:1fr}}
+/* KARTY: celá karta je odkaz přes .card-cta, bez JS */
+.product-card.live .card-cta::after{content:'';position:absolute;inset:0;}
+.product-card.live .card-cta:focus-visible{outline:none;}
+.product-card.live .card-cta:focus-visible::after{outline:2px solid var(--cyan);outline-offset:-3px;}
+
+/* JISTOTY */
+.trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem 1.4rem;margin:1.25rem auto 0;max-width:980px;}
+.trust li{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--gray2);}
+.trust li::before{content:'✓';color:#4ade80;font-weight:700;}
+.trust a{color:inherit;text-decoration:underline;text-decoration-color:rgba(184,202,224,.35);text-underline-offset:3px;}
+.trust a:hover{color:var(--white);}
+
+/* UKÁZKA VÝSTUPU V HERU */
+.hero-samples{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin:1.6rem auto 0;max-width:720px;width:100%;text-align:left;}
+.hs-label{grid-column:1/-1;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);text-align:center;}
+.hs{display:block;text-decoration:none;color:inherit;background:rgba(10,18,40,.8);border:1px solid var(--border);border-radius:12px;padding:1rem 1.15rem;transition:border-color .2s;}
+.hs:hover{border-color:rgba(100,140,255,.35);}
+.hs b{display:block;font-family:'Syne',sans-serif;font-size:.92rem;margin-bottom:.25rem;}
+.hs span{display:block;font-size:.8rem;color:var(--gray);line-height:1.5;}
+.hs em{display:block;margin-top:.5rem;font-style:normal;font-size:.78rem;color:var(--cyan);}
+@media(max-width:640px){.hero-samples{grid-template-columns:1fr;}}
+
+/* CENÍK: co dostanete a jistota u každého tarifu */
+.get-label{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.3rem;}
+.plan-sure{display:flex;gap:.45rem;font-size:.78rem;color:var(--gray2);margin:-.6rem 0 1.1rem;line-height:1.45;}
+.plan-sure::before{content:'✓';color:#4ade80;font-weight:700;}
+.plan-sure a{color:inherit;}
 </style>
 </head>
 <body>
@@ -259,7 +286,28 @@ footer{
     <a href="/hlidac.html" class="btn-p">Hlídač e-shopu →</a>
     <a href="#produkty" class="btn-g">Prohlédnout produkty</a>
   </div>
-  <p class="hero-proof">Konkurence každý týden · právo a konverze každý měsíc · 1 990 Kč měsíčně, zrušíte kdykoli<br><a href="https://kaitechinvest.com/cro-reports/mumy42d1fxzq.html" style="color:var(--cyan)">Ukázka: takhle Hlídač zkontroloval náš vlastní web →</a></p>
+  <p class="hero-proof">Konkurence každý týden · právo a konverze každý měsíc · 1 990 Kč měsíčně</p>
+
+  <ul class="trust" aria-label="Jistoty">
+    <li>Reporty do pár minut e-mailem</li>
+    <li>Bez registrace a instalace</li>
+    <li><a href="/vop.html#odstoupeni">Nedoručíme do 48 hodin? Vrátíme peníze</a></li>
+    <li>Předplatné zrušíte kdykoli sami</li>
+  </ul>
+
+  <div class="hero-samples">
+    <div class="hs-label">Ukázka výstupu · skutečné reporty našeho webu</div>
+    <a class="hs" href="https://kaitechinvest.com/cro-reports/mummvqf74e6p.html">
+      <b>Kompletní prověrka</b>
+      <span>Conversion score 40/100, deset konverzních bariér a pět právních nálezů.</span>
+      <em>Otevřít report →</em>
+    </a>
+    <a class="hs" href="https://kaitechinvest.com/cro-reports/p9-mummvq61g20ll2-cusvlhe5xd7rrwgv3.html">
+      <b>Konkurenční analýza</b>
+      <span>Tři dohledaní konkurenti a osm rozdílů proti nám, s doporučením, co doplnit.</span>
+      <em>Otevřít report →</em>
+    </a>
+  </div>
 
   <div class="ticker-wrap">
     <div class="ticker">
@@ -300,7 +348,7 @@ footer{
     <div class="products-grid">
 
       <!-- LIVE -->
-      <div class="product-card live" onclick="location.href='/hlidac.html'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(0,194,255,.1);">🛡️</div>
         <div class="card-tag tag-new">Novinka</div>
         <div class="card-title">Hlídač e-shopu</div>
@@ -308,7 +356,7 @@ footer{
         <a href="/hlidac.html" class="card-cta">Začít hlídat →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='https://audit.kaitechinvest.com'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(30,107,255,.12);">🔍</div>
         <div class="card-tag tag-live">Spuštěno</div>
         <div class="card-title">CRO Audit webu</div>
@@ -316,7 +364,7 @@ footer{
         <a href="https://audit.kaitechinvest.com" class="card-cta">Spustit audit →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='#cena'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(245,158,11,.13);">⚖️</div>
         <div class="card-tag tag-new">Novinka</div>
         <div class="card-title">Právní kontrola e-shopu</div>
@@ -324,7 +372,7 @@ footer{
         <a href="#cena" class="card-cta">Zobrazit ceník →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='https://konkurence.kaitechinvest.com'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(124,92,252,.1);">📊</div>
         <div class="card-tag tag-new">Novinka</div>
         <div class="card-title">AI konkurenční analýza</div>
@@ -333,7 +381,7 @@ footer{
       </div>
 
       <!-- NASAZENÍ NA MÍRU -->
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Videa%20%26%20YouTube%20automatizace'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(0,194,255,.08);">▶️</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Videa & YouTube automatizace</div>
@@ -341,7 +389,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Videa%20%26%20YouTube%20automatizace" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Soci%C3%A1ln%C3%AD%20s%C3%ADt%C4%9B%20na%20autopilotu'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(0,194,255,.08);">📱</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Sociální sítě na autopilotu</div>
@@ -349,7 +397,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Soci%C3%A1ln%C3%AD%20s%C3%ADt%C4%9B%20na%20autopilotu" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20z%C3%A1kaznick%C3%A1%20podpora'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(34,197,94,.08);">💬</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">AI zákaznická podpora</div>
@@ -357,7 +405,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20z%C3%A1kaznick%C3%A1%20podpora" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20asistent%20pro%20makl%C3%A9%C5%99e'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(251,191,36,.08);">🏠</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">AI asistent pro makléře</div>
@@ -365,7 +413,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20asistent%20pro%20makl%C3%A9%C5%99e" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Kvalifikace%20%26%20scoring%20lead%C5%AF'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(124,92,252,.1);">🎯</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Kvalifikace & scoring leadů</div>
@@ -373,7 +421,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Kvalifikace%20%26%20scoring%20lead%C5%AF" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Tvorba%20obsahu%20na%20LinkedIn'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(0,194,255,.08);">✍️</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Tvorba obsahu na LinkedIn</div>
@@ -381,7 +429,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Tvorba%20obsahu%20na%20LinkedIn" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Email%20sekvence%20na%20autopilotu'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(239,68,68,.08);">📧</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Email sekvence na autopilotu</div>
@@ -389,7 +437,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Email%20sekvence%20na%20autopilotu" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20onboarding%20pro%20SaaS'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(34,197,94,.08);">🤝</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">AI onboarding pro SaaS</div>
@@ -397,7 +445,7 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20AI%20onboarding%20pro%20SaaS" class="card-cta">Poptat nasazení →</a>
       </div>
 
-      <div class="product-card live" onclick="location.href='mailto:info@kaitechinvest.com?subject=Nasazen%C3%AD%3A%20Fakturace%20%26%20admin%20na%20AI'">
+      <div class="product-card live">
         <div class="card-icon" style="background:rgba(251,191,36,.08);">⚙️</div>
         <div class="card-tag tag-soon">Nasazení na míru</div>
         <div class="card-title">Fakturace & admin na AI</div>
@@ -441,57 +489,65 @@ footer{
     <div class="plan featured">
       <span class="plan-tag">Nejvýhodnější</span>
       <h3>Hlídač e-shopu</h3>
-      <p class="desc">Konkurence každý týden, právní kontrola a CRO audit každý měsíc.<br><strong>Výstup:</strong> týdenní report konkurence + měsíční Kompletní prověrka e-mailem.</p>
+      <p class="desc">Konkurence každý týden, právní kontrola a CRO audit každý měsíc.</p>
       <div class="price">1 990 <small>Kč</small></div>
       <div class="price-note">měsíčně · samostatně <span class="was">8 450 Kč</span></div>
+      <div class="get-label">Co dostanete</div>
       <ul>
-        <li>Kompletní prověrka každý měsíc (samostatně <span class="was">2 490 Kč</span>)</li>
-        <li>Konkurenční analýza každý týden zdarma (samostatně <span class="was">1 490 Kč</span>)</li>
-        <li>Změny od minula e-mailem</li>
-        <li>Zrušíte kdykoli sami</li>
+        <li>Report konkurence každé pondělí (samostatně <span class="was">4 × 1 490 Kč</span>)</li>
+        <li>Kompletní prověrku první den v měsíci (samostatně <span class="was">2 490 Kč</span>)</li>
+        <li>V každém reportu změny od minula</li>
+        <li>První reporty hned po zaplacení</li>
       </ul>
+      <p class="plan-sure">Zrušíte kdykoli sami v zákaznickém portálu</p>
       <a href="/hlidac.html" class="btn-p">Začít hlídat</a>
     </div>
 
     <div class="plan">
       <h3>CRO Audit</h3>
-      <p class="desc">Proč vám návštěvníci odcházejí bez nákupu.<br><strong>Výstup:</strong> interaktivní report se screenshoty, wireframem a roadmapou.</p>
+      <p class="desc">Proč vám návštěvníci odcházejí bez nákupu.</p>
       <div class="price">1 990 <small>Kč</small></div>
       <div class="price-note">jednorázově</div>
+      <div class="get-label">Co dostanete</div>
       <ul>
-        <li>Analýza konverzních bariér</li>
-        <li>Wireframe návrhy oprav</li>
-        <li>Roadmapa podle dopadu</li>
+        <li>Interaktivní report se screenshoty vaší stránky</li>
+        <li>Konverzní bariéry a 10+ doporučení s prioritami</li>
+        <li>Wireframe návrhy oprav a roadmapu podle dopadu</li>
         <li>Report do 5 minut e-mailem</li>
       </ul>
+      <p class="plan-sure"><a href="/vop.html#odstoupeni">Nedoručíme do 48 hodin? Vrátíme peníze</a></p>
       <a href="https://buy.stripe.com/7sYdR9c0R37Pbzk6cJcAo00" class="btn-g">Objednat CRO Audit</a>
     </div>
 
     <div class="plan">
       <h3>Kompletní prověrka</h3>
-      <p class="desc">Pro e-shopy, které chtějí řešit konverze i ČOI naráz.<br><strong>Výstup:</strong> jeden report — CRO audit + 12 právních bodů.</p>
+      <p class="desc">Pro e-shopy, které chtějí řešit konverze i ČOI naráz.</p>
       <div class="price">2 490 <small>Kč</small></div>
       <div class="price-note">samostatně 2 980 Kč (1 990 + 990) — ušetříte 490 Kč</div>
+      <div class="get-label">Co dostanete</div>
       <ul>
-        <li>Vše z CRO auditu</li>
-        <li>Vše z právní kontroly</li>
-        <li>Všech 12 kontrolních bodů</li>
-        <li>Jeden report, jedno místo</li>
+        <li>Jeden report: CRO audit i právní kontrolu</li>
+        <li>Vše z CRO auditu: bariéry, wireframy, roadmapu</li>
+        <li>Všech 12 právních bodů s předpisem a návodem</li>
+        <li>Report do 5 minut e-mailem</li>
       </ul>
+      <p class="plan-sure"><a href="/vop.html#odstoupeni">Nedoručíme do 48 hodin? Vrátíme peníze</a></p>
       <a href="https://buy.stripe.com/aFa28rfd3cIpavg9oVcAo04" class="btn-g">Objednat prověrku</a>
     </div>
 
     <div class="plan">
       <h3>Právní kontrola e-shopu</h3>
-      <p class="desc">Jen soulad s předpisy — 12 kontrolních bodů.<br><strong>Výstup:</strong> index souladu 0–100, u nálezu paragraf a návod.</p>
+      <p class="desc">Jen soulad s předpisy — 12 kontrolních bodů.</p>
       <div class="price">990 <small>Kč</small></div>
       <div class="price-note">jednorázově</div>
+      <div class="get-label">Co dostanete</div>
       <ul>
-        <li>12 kontrolních bodů</li>
-        <li>U nálezu odkaz na předpis</li>
-        <li>Konkrétní návod na nápravu</li>
         <li>Index souladu 0–100</li>
+        <li>12 bodů, na které nejčastěji míří ČOI a ÚOOÚ</li>
+        <li>U nálezu odkaz na předpis a návod na nápravu</li>
+        <li>Report do 5 minut e-mailem</li>
       </ul>
+      <p class="plan-sure"><a href="/vop.html#odstoupeni">Nedoručíme do 48 hodin? Vrátíme peníze</a></p>
       <a href="https://buy.stripe.com/eVqbJ1fd337Pavg44BcAo03" class="btn-g">Objednat kontrolu</a>
     </div>
 
