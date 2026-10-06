@@ -101,9 +101,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
 
 @media(max-width:768px){
   nav{padding:.8rem 1rem;}
+  .nav-links{gap:.85rem;}
+  .nav-cta{white-space:nowrap;}
   .nav-links a:not(.nav-cta):not(.lang){display:none;}
   .hero{padding-top:7rem;}
 }
+@media(max-width:420px){.nav-cta{padding:.42rem .75rem;font-size:.78rem;}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 </style>
 </head>
