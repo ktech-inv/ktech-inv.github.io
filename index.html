@@ -41,6 +41,8 @@ nav{
 .nav-links a:hover{color:var(--white);}
 .nav-cta{font-size:.82rem;font-weight:500;background:var(--blue);color:#fff;padding:.42rem 1.1rem;border-radius:6px;text-decoration:none;transition:background .2s;}
 .nav-cta:hover{background:#2a7dff;}
+/* .nav-links a (šedá) má vyšší prioritu než .nav-cta, tlačítko pak vypadalo neaktivní */
+.nav-links a.nav-cta,.nav-links a.nav-cta:hover{color:#fff;}
 
 /* HERO */
 .hero{
