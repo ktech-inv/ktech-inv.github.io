@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case study: hurom.cz — KAI Tech</title>
+<meta name="description" content="What a CRO audit finds on an online store with premium juicers: an introduction without a main action, a blog in the slider, reasons to buy hidden from the customer.">
+<link rel="alternate" hreflang="en" href="https://kaitechinvest.com/en/case-study-hurom.html">
+<link rel="alternate" hreflang="cs" href="https://kaitechinvest.com/pripadova-studie-hurom.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#070d1f;--navy2:#0c1530;--blue:#1e6bff;--cyan:#00c2ff;--white:#fff;--gray:#8899bb;--gray2:#c4d0e8;--border:rgba(100,140,255,0.15)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(7,13,31,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+@media(max-width:640px){nav{padding:1rem 1.25rem}}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.nav-logo span{color:var(--cyan)}
+.nav-back{font-size:.85rem;color:var(--gray);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+.container{max-width:780px;margin:0 auto;padding:7rem 2rem 5rem}
+.doc-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
+h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem}
+.doc-meta{font-size:.82rem;color:var(--gray);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin:2.5rem 0 .75rem}
+p{font-size:.95rem;color:var(--gray2);margin-bottom:.75rem}
+ul{margin:.5rem 0 .75rem 1.25rem;color:var(--gray2);font-size:.95rem}
+ul li{margin-bottom:.35rem}
+strong{color:var(--white);font-weight:600}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.88rem}
+th{background:rgba(30,107,255,.1);color:var(--white);font-weight:600;padding:.75rem 1rem;text-align:left;border:1px solid var(--border)}
+td{padding:.65rem 1rem;color:var(--gray2);border:1px solid var(--border);vertical-align:top}
+.highlight-box{background:rgba(30,107,255,.06);border:1px solid rgba(30,107,255,.2);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0}
+.highlight-box p{margin:0;color:var(--gray2);font-size:.9rem}
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:1.5rem 3rem;text-align:center;font-size:.78rem;color:var(--gray)}
+footer a{color:inherit}
+
+.lead{font-size:1.05rem;color:var(--gray2);margin-bottom:2rem}
+.fakta{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:0 0 2.5rem}
+.fakt{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.fakt b{display:block;font-family:'Syne',sans-serif;font-size:1.4rem;color:var(--cyan);line-height:1.2}
+.fakt span{font-size:.8rem;color:var(--gray)}
+.osa{border-left:2px solid var(--border);margin:1rem 0 1.5rem .4rem;padding-left:1.25rem}
+.osa-bod{position:relative;margin-bottom:1.4rem}
+.osa-bod::before{content:'';position:absolute;left:-1.62rem;top:.45rem;width:.6rem;height:.6rem;border-radius:50%;background:var(--blue)}
+.osa-datum{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.osa-bod h3{font-family:'Syne',sans-serif;font-size:1rem;margin:.15rem 0 .35rem}
+.osa-bod p,.osa-bod li{font-size:.92rem}
+.nalez{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.75rem}
+.nalez h3{font-family:'Syne',sans-serif;font-size:.98rem;margin-bottom:.3rem}
+.nalez p{margin:0 0 .35rem;font-size:.9rem}
+.nalez .navrh{color:var(--white)}
+.cta{margin-top:3rem;background:rgba(30,107,255,.06);border:1px solid rgba(30,107,255,.2);border-radius:12px;padding:1.5rem}
+.cta h2{margin-top:0}
+.btn{display:inline-block;margin:.5rem .5rem 0 0;padding:.75rem 1.5rem;background:var(--blue);color:#fff;border-radius:7px;font-weight:500}
+.btn:hover{text-decoration:none;background:#2a7dff}
+.btn.g{background:transparent;border:1px solid var(--border);color:var(--gray2)}
+@media(max-width:640px){.container{padding:6rem 1rem 4rem}h1{font-size:1.6rem}.fakta{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/en/" class="nav-logo">
+    <svg width="28" height="32" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs><linearGradient id="kaiG2" x1="0" y1="40" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1e6bff"/><stop offset="100%" stop-color="#7eb3ff"/></linearGradient></defs>
+      <path d="M4 36 Q18 28 32 36" stroke="url(#kaiG2)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M18 4 L31 34 L5 34 Z" fill="url(#kaiG2)" opacity="0.9"/>
+      <path d="M18 18 L23 30 L13 30 Z" fill="#070d1f"/>
+      <circle cx="18" cy="3" r="2.2" fill="#00c2ff"/>
+      <line x1="18" y1="0.5" x2="18" y2="5.5" stroke="#00c2ff" stroke-width="1" opacity="0.6"/>
+    </svg>
+    KAI<span>Tech</span>
+  </a>
+  <a href="/en/" class="nav-back">← Back to the homepage</a>
+</nav>
+
+<div class="container">
+
+  <div class="doc-tag">Case study</div>
+  <h1>hurom.cz: what an audit finds on an online store with premium goods</h1>
+  <div class="doc-meta">hurom.cz · online store with slow juicers · CRO audit 6 September 2026 · competitor analysis 1 October 2026</div>
+  <p class="lead">hurom.cz sells juicers for CZK 8,000–17,000. With goods like these, customers decide slowly and need to know why to buy here. The CRO audit and the competitor analysis independently showed the same thing: the store has good reasons, but customers do not see them at first glance, while the competitors show them.</p>
+
+  <div class="fakta">
+    <div class="fakt"><b>10</b><span>priority points ranked by impact</span></div>
+    <div class="fakt"><b>7</b><span>page sections with a proposed new design</span></div>
+    <div class="fakt"><b>2 weeks</b><span>fix plan for the webmaster</span></div>
+  </div>
+
+  <h2>What the audit found</h2>
+  <div class="nalez">
+    <h3>1. The introduction has no main action</h3>
+    <p>The introductory text is long and generic. There is no button that sends the customer to choose or buy.</p>
+    <p class="navrh">Proposal: the headline “Choose a HUROM juicer based on what you juice” and two buttons, “Show juicers” and “How to choose a type”.</p>
+  </div>
+  <div class="nalez">
+    <h3>2. A blog in the opening slider leads away from buying</h3>
+    <p>One of the slides on the first screen leads to the blog, so the customer leaves the buying path before even seeing the products.</p>
+    <p class="navrh">Proposal: move the blog lower, keep the brand and the most popular model in the introduction.</p>
+  </div>
+  <div class="nalez">
+    <h3>3. Reasons to buy are only for search engines</h3>
+    <p>Free shipping, dispatch within 24 hours and the option to try the product are in the page description for Google, but the customer does not see them in the introduction.</p>
+    <p class="navrh">Proposal: a trust bar under the introduction with four points: free shipping, dispatch within 24 hours, warranty, option to try.</p>
+  </div>
+  <div class="nalez">
+    <h3>4. A template error in a headline</h3>
+    <p>The product block headline read “Top produkty COUNT-3#”: a variable from the store template had stayed in the text.</p>
+    <p class="navrh">Proposal: “Most popular juicers”, with only juicers in the block and accessories separately.</p>
+  </div>
+  <div class="nalez">
+    <h3>5. Customer ratings are too low on the page</h3>
+    <p>The block with the latest ratings sits below the welcome text, far from the products where the customer decides.</p>
+    <p class="navrh">Proposal: move the ratings right below the most popular products.</p>
+  </div>
+  <p>Five more points concerned button labels on products, a path for undecided customers in the menu, the welcome text and the placement of FAQs.</p>
+
+  <h2>Competitor analysis: what the competitors show</h2>
+  <p>We compared the homepage of hurom.cz with three online stores selling juicers of the same category: eujuicers.cz (also sells Hurom), odstavnovac.cz and kuvings.cz (a competing brand).</p>
+  <div class="nalez">
+    <h3>odstavnovac.cz shows what hurom.cz hides</h3>
+    <p>Right on the homepage: free shipping over CZK 3,500, a warranty of more than 24 months, delivery within 24 hours and same-day dispatch for orders received by 11:00.</p>
+    <p class="navrh">hurom.cz also has free shipping and dispatch within 24 hours, just in the description for search engines. This is exactly what the trust bar from the CRO audit (point 3) solves.</p>
+  </div>
+  <div class="nalez">
+    <h3>kuvings.cz has stronger social proof</h3>
+    <p>Its homepage shows customer reviews and ratings. hurom.cz only shows a block of the latest ratings, and only below the welcome text.</p>
+    <p class="navrh">This matches point 5 of the CRO audit: move the ratings to the products.</p>
+  </div>
+  <div class="nalez">
+    <h3>Where hurom.cz leads</h3>
+    <p>Payments: the homepage offers instalments, Twisto and Skip Pay, which the competitors do not communicate as prominently. Compared with odstavnovac.cz it also has a newsletter, compared with eujuicers.cz customer ratings.</p>
+  </div>
+  <p>The next measurement will compare the state with this one and show what changed at the competitors.</p>
+
+  <h2>What else the report contained</h2>
+  <ul>
+    <li><strong>A new design of the page</strong> for 7 sections, from the menu to the footer, with real products and prices from the store.</li>
+    <li><strong>A two-week fix plan</strong> with the effort of each step and exact texts for the webmaster.</li>
+    <li><strong>A legal check</strong> of the 12 points the Czech Trade Inspection Authority (ČOI) focuses on.</li>
+  </ul>
+
+  <h2>Takeaways</h2>
+  <ul>
+    <li><strong>Having good reasons is not enough, they have to be visible.</strong> Free shipping the customer does not see does not sell.</li>
+    <li><strong>The first screen belongs to buying.</strong> The blog, the brand story and news have their place, but lower down.</li>
+    <li><strong>Nobody reports template errors.</strong> Customers see them, but they do not write to you. They just leave.</li>
+    <li><strong>Customers compare you.</strong> When a competitor puts free shipping and a warranty on the first screen and you do not, they look like the better deal, even if you offer the same.</li>
+  </ul>
+
+  <div class="cta">
+    <h2>Want the same for your online store?</h2>
+    <p>Shop Watch does exactly this every month: a CRO audit and a legal check of your website, plus a competitor analysis every week. $89 a month, cancel anytime.</p>
+    <a class="btn" href="/en/shop-watch.html?utm_source=case-study&amp;utm_medium=web">Have your store watched →</a>
+    <a class="btn g" href="/en/#case-studies">Another case study</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 KAI Tech · Ctibor Klíma · Company ID: 02235471 ·
+  <a href="/en/terms.html">Terms of Service</a> ·
+  <a href="/en/privacy.html">Privacy Policy</a> ·
+  <a href="#" data-cookie-settings>Cookie settings</a>
+</footer>
+
+<script src="/cookies.js" defer></script>
+</body>
+</html>

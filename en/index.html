@@ -303,6 +303,20 @@ footer{
     <li>Cancel your subscription anytime yourself</li>
   </ul>
 
+  <div class="hero-samples">
+    <div class="hs-label">Sample output · real reports of our website</div>
+    <a class="hs" href="https://kaitechinvest.com/cro-reports/muzkanems0pk.html">
+      <b>Full review</b>
+      <span>Conversion score 40/100 and ten conversion barriers, each with a screenshot and a proposed fix.</span>
+      <em>Open the report →</em>
+    </a>
+    <a class="hs" href="https://kaitechinvest.com/cro-reports/p9-muzk3d42tdhmob-internikaitech.html">
+      <b>Competitor analysis</b>
+      <span>Three competitors found for us and five differences, with a recommendation on what to change.</span>
+      <em>Open the report →</em>
+    </a>
+  </div>
+
   <div class="ticker-wrap">
     <div class="ticker">
       <!-- twice for a smooth loop -->
@@ -455,19 +469,19 @@ footer{
 <section class="s" id="case-studies">
   <div class="s-tag">Case studies</div>
   <h2 class="s-title">What the reports actually find</h2>
-  <p class="s-sub">Two websites where we first tried the audits, including our own. The case studies are in Czech.</p>
+  <p class="s-sub">Two websites where we first tried the audits, including our own.</p>
   <div class="studie-grid">
-    <a class="studie" href="/pripadova-studie-kaitech.html" hreflang="cs">
+    <a class="studie" href="/en/case-study-kaitech.html">
       <div class="studie-tag">kaitechinvest.com</div>
       <h3>Shop Watch watches our own website too</h3>
       <p>The CRO audit found order buttons in our pricing that led nowhere. The competitor analysis showed what three companies with similar services have and we don’t. Three rounds of changes later: direct ordering, a newsletter, case studies and a legal check score of 100/100.</p>
-      <span class="studie-cta">Full study (in Czech) →</span>
+      <span class="studie-cta">Full study →</span>
     </a>
-    <a class="studie" href="/pripadova-studie-hurom.html" hreflang="cs">
+    <a class="studie" href="/en/case-study-hurom.html">
       <div class="studie-tag">hurom.cz</div>
       <h3>An online store with premium juicers</h3>
       <p>Free shipping and dispatch within 24 hours were only in the description for Google, while competitors show them on the first screen. The CRO audit and the competitor analysis reached the same conclusion independently.</p>
-      <span class="studie-cta">Full study (in Czech) →</span>
+      <span class="studie-cta">Full study →</span>
     </a>
   </div>
 </section>
@@ -604,6 +618,49 @@ footer{
     </div>
   </div>
 </section>
+
+<!-- NEWSLETTER -->
+<section class="nl" id="newsletter">
+  <div class="nl-box">
+    <div>
+      <div class="s-tag">Newsletter + free checklist</div>
+      <h3>12 points of EU law online stores most often fail</h3>
+      <p>Subscribe and we will send you the checklist with legal references and how to fix each point right away. After that, occasional updates, at most once a month.</p>
+    </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-row">
+        <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required aria-label="Email">
+        <button type="submit">Send the checklist</button>
+      </div>
+      <div class="nl-hp" aria-hidden="true"><label>Website <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+      <label class="nl-souhlas"><input type="checkbox" name="souhlas" value="true">
+        <span>I agree to receive the KAI Tech newsletter (at most once a month) and to the processing of my email address under the <a href="/en/privacy.html#newsletter">privacy policy</a>. I can withdraw my consent at any time via the link in every email.</span></label>
+      <p class="nl-msg" id="nl-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+<script>
+(function () {
+  var f = document.getElementById('nl-form'), m = document.getElementById('nl-msg');
+  function msg(t, ok) { m.textContent = t; m.className = 'nl-msg ' + (ok ? 'ok' : 'err'); }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return msg('Please enter a valid email address.', false);
+    if (!f.souhlas.checked) return msg('Without your consent we cannot send you the newsletter.', false);
+    var b = f.querySelector('button'); b.disabled = true; msg('Sending…', true);
+    var data = new URLSearchParams({ email: email, souhlas: 'true', web: f.web.value, zdroj: 'kaitechinvest.com-en', jazyk: 'en' });
+    fetch('https://ck01.app.n8n.cloud/webhook/newsletter-prihlasit', { method: 'POST', body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) { msg('Done. Check your inbox and confirm the subscription, then we will send you the checklist right away.', true); f.reset(); }
+        else { msg('Something went wrong, please try again.', false); }
+      })
+      .catch(function () { msg('Something went wrong. Write to us at info@kaitechinvest.com.', false); })
+      .then(function () { b.disabled = false; });
+  });
+})();
+</script>
 
 <!-- CTA -->
 <div class="cta-s">
