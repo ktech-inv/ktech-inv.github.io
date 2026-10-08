@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="alternate" hreflang="en" href="https://kaitechinvest.com/en/shop-watch.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hlídač e-shopu — KAI Tech</title>
-<meta name="description" content="Předplatné, které každý týden hlídá vaši konkurenci a každý měsíc zkontroluje právní soulad a konverzní bariéry vašeho e-shopu. 1 990 Kč měsíčně, zrušíte kdykoli.">
+<title>Shop Watch — KAI Tech</title>
+<meta name="description" content="A subscription that monitors your competitors every week and checks your online store for EU legal compliance and conversion barriers every month. $89 per month, cancel anytime.">
+<link rel="alternate" hreflang="en" href="https://kaitechinvest.com/en/shop-watch.html">
+<link rel="alternate" hreflang="cs" href="https://kaitechinvest.com/hlidac.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +28,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links{display:flex;gap:1.75rem;align-items:center;}
 .nav-links a{font-size:.85rem;color:var(--gray);text-decoration:none;}
 .nav-links a:hover{color:var(--white);}
+.lang{font-size:.78rem;color:var(--gray);text-decoration:none;border:1px solid var(--border);border-radius:5px;padding:.2rem .5rem;}
 .nav-cta{font-size:.82rem;font-weight:500;background:var(--blue);color:#fff!important;padding:.42rem 1.1rem;border-radius:6px;text-decoration:none;}
 
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8.5rem 1.5rem 4.5rem;position:relative;overflow:hidden;}
@@ -100,148 +102,124 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
 
 @media(max-width:768px){
   nav{padding:.8rem 1rem;}
-  .nav-links a:not(.nav-cta){display:none;}
+  .nav-links{gap:.85rem;}
+  .nav-cta{white-space:nowrap;}
+  .nav-links a:not(.nav-cta):not(.lang){display:none;}
   .hero{padding-top:7rem;}
 }
+@media(max-width:420px){.nav-cta{padding:.42rem .75rem;font-size:.78rem;}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="logo">KAI<span>Tech</span></a>
+  <a href="/en/" class="logo">KAI<span>Tech</span></a>
   <div class="nav-links">
-    <a href="#co-hlidame">Co hlídáme</a>
-    <a href="#jak">Jak to funguje</a>
-    <a href="#cena">Cena</a>
-    <a href="#otazky">Otázky</a>
-    <a href="/en/shop-watch.html" lang="en" style="font-size:.78rem;border:1px solid var(--border);border-radius:5px;padding:.2rem .5rem;">EN</a>
-    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="nav-cta">Začít hlídat →</a>
+    <a href="#what">What we watch</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="/hlidac.html" class="lang" lang="cs">CZ</a>
+    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="nav-cta">Start watching →</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="badge">Hlídač e-shopu · předplatné</div>
-  <h1>Hlídáme váš e-shop,<br><span class="grad">abyste nemuseli vy</span></h1>
-  <p class="hero-sub">Každý týden porovnáme vaši konkurenci, každý měsíc zkontrolujeme právní soulad a konverzní bariéry. Co se změnilo, vám přijde e-mailem.</p>
+  <div class="badge">Shop Watch · subscription</div>
+  <h1>We watch your online store,<br><span class="grad">so you don’t have to</span></h1>
+  <p class="hero-sub">Every week we compare your competitors, every month we check your store for legal compliance and conversion barriers. What changed lands in your inbox.</p>
   <div class="actions">
-    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="btn-p">Začít za 1 990 Kč měsíčně</a>
-    <a href="#cena" class="btn-g">Ročně za 19 900 Kč</a>
+    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">Start for $89 a month</a>
+    <a href="#pricing" class="btn-g">$890 a year</a>
   </div>
-  <p class="proof">První reporty hned po zaplacení · zrušíte kdykoli sami · bez registrace a instalace</p>
+  <p class="proof">First reports right after payment · cancel anytime yourself · no sign-up or installation</p>
 </section>
 
-<section class="s" id="co-hlidame">
-  <div class="s-tag">Co hlídáme</div>
-  <h2 class="s-title">Tři věci, které se mění, i když na web nesáhnete</h2>
-  <p class="s-sub">Konkurence mění nabídku, zákony se novelizují a web se tiše rozbíjí při každé aktualizaci. Jednorázový audit platí jen v den, kdy vznikl.</p>
+<section class="s" id="what">
+  <div class="s-tag">What we watch</div>
+  <h2 class="s-title">Three things that change even when you don’t touch your website</h2>
+  <p class="s-sub">Competitors change their offer, laws get amended and websites quietly break with every update. A one-off audit is only valid on the day it was made.</p>
   <div class="watch">
     <div class="w">
-      <span class="freq">každý týden</span>
-      <h3>Konkurence</h3>
-      <p>Až tři konkurenty dohledáme za vás, nebo je zadáte sami. Porovnáme, co na domovské stránce komunikují oni a co vy, a upozorníme na změny od minula.</p>
+      <span class="freq">every week</span>
+      <h3>Competitors</h3>
+      <p>We find up to three competitors for you, or you enter them yourself. We compare what they communicate on their homepage with what you do and flag what changed since last time.</p>
     </div>
     <div class="w">
-      <span class="freq m">každý měsíc</span>
-      <h3>Právní soulad</h3>
-      <p>Dvanáct bodů, na kterých firmy v Česku nejčastěji narážejí u ČOI: slevy, recenze, cookies, povinné údaje. U každého nálezu paragraf a návod, co změnit. Navíc hlídáme připravenost na tlačítko pro odstoupení od smlouvy, které novela zavádí pravděpodobně od ledna 2027.</p>
+      <span class="freq m">every month</span>
+      <h3>Legal compliance</h3>
+      <p>Twelve points of EU consumer and data protection law where online stores most often fail: discounts, reviews, cookies, mandatory information. Each finding comes with the legal reference and a fix. Selling outside the EU? We check the rules of your country on request.</p>
     </div>
     <div class="w">
-      <span class="freq m">každý měsíc</span>
-      <h3>Konverzní bariéry</h3>
-      <p>CRO audit vaší domovské stránky: co zákazníky zdržuje od nákupu, návrhy oprav a pořadí, ve kterém je udělat.</p>
+      <span class="freq m">every month</span>
+      <h3>Conversion barriers</h3>
+      <p>A CRO audit of your homepage: what keeps customers from buying, proposed fixes and the order in which to make them.</p>
     </div>
   </div>
 </section>
 
-<section class="s" id="jak">
-  <div class="s-tag">Jak to funguje</div>
-  <h2 class="s-title">Od platby k prvním reportům za pár minut</h2>
+<section class="s" id="how">
+  <div class="s-tag">How it works</div>
+  <h2 class="s-title">From payment to your first reports in minutes</h2>
   <div class="steps">
-    <div class="step"><h3>Zadáte adresu e-shopu</h3><p>Při platbě vyplníte adresu. Konkurenty zadat můžete, ale nemusíte.</p></div>
-    <div class="step"><h3>Přijdou první reporty</h3><p>Hned po zaplacení dostanete e-mailem report konkurence a Kompletní prověrku.</p></div>
-    <div class="step"><h3>Hlídáme dál</h3><p>Každé pondělí report konkurence, první den v měsíci právní a konverzní kontrola.</p></div>
-    <div class="step"><h3>Spravujete sami</h3><p>Kartu, faktury i zrušení si řešíte v zákaznickém portálu. Odkaz je v každém e-mailu.</p></div>
+    <div class="step"><h3>Enter your store address</h3><p>You enter the address at checkout. You can add competitors, but you don’t have to.</p></div>
+    <div class="step"><h3>Get your first reports</h3><p>Right after payment you receive the competitor report and the Full Store Review by email.</p></div>
+    <div class="step"><h3>We keep watching</h3><p>A competitor report every Monday, the legal and conversion check on the first day of every month.</p></div>
+    <div class="step"><h3>You stay in control</h3><p>Manage your card, invoices and cancellation in the customer portal. The link is in every email.</p></div>
   </div>
 </section>
 
-<section class="s">
-  <div class="s-tag">Ukázka</div>
-  <h2 class="s-title">Takhle jsme zkontrolovali vlastní web</h2>
-  <p class="s-sub">Skutečné reporty z 29. září 2026, ne ilustrace. Podle nich jsme náš web hned opravili.</p>
-  <div class="samples">
-    <a class="sample" href="https://kaitechinvest.com/cro-reports/mummvqf74e6p.html">
-      <b>Kompletní prověrka kaitechinvest.com</b>
-      <span>Conversion score 40/100, deset konverzních bariér a pět právních nálezů.</span>
-      <em>Otevřít report →</em>
-    </a>
-    <a class="sample" href="https://kaitechinvest.com/cro-reports/p9-mummvq61g20ll2-cusvlhe5xd7rrwgv3.html">
-      <b>Konkurenční analýza</b>
-      <span>Tři dohledaní konkurenti a osm rozdílů proti nám, s doporučením, co doplnit.</span>
-      <em>Otevřít report →</em>
-    </a>
-  </div>
-</section>
-
-<section class="s" id="cena">
-  <div class="s-tag">Cena</div>
-  <h2 class="s-title">Jedno předplatné za všechny tři kontroly</h2>
-  <div class="compare">
-    <table>
-      <thead><tr><th>Co dostanete každý měsíc</th><th>Samostatně</th><th>V Hlídači</th></tr></thead>
-      <tbody>
-        <tr><td>Kompletní prověrka (CRO audit + právní kontrola)</td><td class="num"><span class="was">2 490 Kč</span></td><td>v ceně</td></tr>
-        <tr><td>Konkurenční analýza každý týden (4×)</td><td class="num"><span class="was">4 × 1 490 Kč</span></td><td class="free">zdarma</td></tr>
-        <tr><td>Porovnání se změnami od minula</td><td class="num">—</td><td class="free">zdarma</td></tr>
-        <tr class="us"><td>Celkem za měsíc</td><td class="num"><span class="was">8 450 Kč</span></td><td class="num">1 990 Kč</td></tr>
-      </tbody>
-    </table>
-  </div>
+<section class="s" id="pricing">
+  <div class="s-tag">Pricing</div>
+  <h2 class="s-title">One subscription for all three checks</h2>
   <div class="plans">
     <div class="plan featured">
-      <h3>Měsíčně</h3>
-      <div class="price">1 990 <small>Kč / měsíc</small></div>
-      <p class="note">samostatně <span class="was">8 450 Kč</span> · zrušíte kdykoli</p>
+      <h3>Monthly</h3>
+      <div class="price">$89 <small>/ month</small></div>
+      <p class="note">cancel anytime</p>
       <ul>
-        <li>Report konkurence každý týden</li>
-        <li>Kompletní prověrka každý měsíc</li>
-        <li>Až 3 sledovaní konkurenti</li>
+        <li>Competitor report every week</li>
+        <li>Full Store Review every month</li>
+        <li>Up to 3 competitors monitored</li>
       </ul>
-      <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="btn-p">Začít měsíčně</a>
+      <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">Start monthly</a>
     </div>
     <div class="plan">
-      <h3>Ročně</h3>
-      <div class="price">19 900 <small>Kč / rok</small></div>
-      <p class="note">dva měsíce zdarma proti měsíční platbě</p>
+      <h3>Yearly</h3>
+      <div class="price">$890 <small>/ year</small></div>
+      <p class="note">two months free compared to monthly billing</p>
       <ul>
-        <li>Vše z měsíční varianty</li>
-        <li>Jedna platba a faktura za rok</li>
-        <li>Zrušení platí ke konci roku</li>
+        <li>Everything in the monthly plan</li>
+        <li>One payment and one invoice per year</li>
+        <li>Cancellation takes effect at the end of the year</li>
       </ul>
-      <a href="https://buy.stripe.com/9B628r7KB9wddHseJfcAo0a" data-plan="hlidac-rocne" data-value="19900" data-currency="CZK" class="btn-g">Začít ročně</a>
+      <a href="https://buy.stripe.com/aFadR9c0R8s9fPA30xcAo0d" data-plan="shopwatch-yearly" data-value="890" data-currency="USD" class="btn-g">Start yearly</a>
     </div>
   </div>
-  <p class="foot">Ceny jsou konečné, nejsem plátcem DPH. Platba kartou přes Stripe, daňový doklad přijde e-mailem. Kontroly se týkají domovské stránky zadané adresy a jde o automatickou technickou kontrolu, ne o právní stanovisko advokáta. Informace o odstoupení a reklamaci najdete v <a href="https://kaitechinvest.com/vop.html">obchodních podmínkách</a>.</p>
+  <p class="foot">Prices are final; the provider is not registered for VAT. Card payment via Stripe, the receipt arrives by email. The checks cover the homepage of the address you enter and are an automated technical check, not legal advice from a lawyer. Cancellation and refunds are described in the <a href="/en/terms.html">Terms of Service</a>.</p>
 </section>
 
-<section class="s" id="otazky">
-  <div class="s-tag">Otázky</div>
-  <h2 class="s-title">Než začnete</h2>
+<section class="s" id="faq">
+  <div class="s-tag">FAQ</div>
+  <h2 class="s-title">Before you start</h2>
   <div class="faq">
-    <details><summary>Jak předplatné zruším?</summary><p>V zákaznickém portálu, odkaz je v každém e-mailu s reportem. Přihlásíte se e-mailem, na který reporty chodí. Předplatné doběhne do konce zaplaceného období a pak se už nic neúčtuje.</p></details>
-    <details><summary>Nevím, kdo je moje konkurence.</summary><p>Nevadí. Z vašeho webu odvodíme obor a dohledáme tři firmy, které nabízejí srovnatelné zboží nebo služby. Když se netrefíme, napište nám a příště je vynecháme.</p></details>
-    <details><summary>Je právní kontrola náhrada advokáta?</summary><p>Ne. Je to automatická kontrola veřejně dostupné stránky proti dvanácti bodům, které ČOI kontroluje nejčastěji. Upozorní vás na riziko včas, u závažných nálezů doporučujeme konzultaci s advokátem.</p></details>
-    <details><summary>Co přesně kontrolujete?</summary><p>Domovskou stránku adresy, kterou zadáte. Údaje uvedené jen na jiných podstránkách (obchodní podmínky, kontakty) do výsledku nevstupují.</p></details>
-    <details><summary>Dostanu fakturu?</summary><p>Ano, daňový doklad přijde e-mailem po každé platbě a najdete ho i v zákaznickém portálu.</p></details>
+    <details><summary>How do I cancel?</summary><p>In the customer portal — the link is in every report email. You sign in with the email address the reports are sent to. The subscription runs until the end of the paid period and nothing more is charged.</p></details>
+    <details><summary>I don’t know who my competitors are.</summary><p>No problem. We derive your field from your website and find three companies offering comparable products or services. If we get it wrong, tell us and we will leave them out next time.</p></details>
+    <details><summary>Is the legal check a replacement for a lawyer?</summary><p>No. It is an automated check of the publicly available page against twelve points of EU consumer and data protection law. It warns you about risks early; for serious findings we recommend consulting a lawyer.</p></details>
+    <details><summary>I sell outside the EU. Does the legal check apply to me?</summary><p>The monthly check follows EU law. If you sell elsewhere, reply to any report email and we will check your website against the rules of your country as part of your subscription.</p></details>
+    <details><summary>What exactly do you check?</summary><p>The homepage of the address you enter. Information shown only on other pages (terms, contact) is not taken into account.</p></details>
+    <details><summary>Will I get an invoice?</summary><p>Yes, a receipt arrives by email after every payment and is also available in the customer portal.</p></details>
   </div>
 </section>
 
 <footer>
-  <a href="/">KAI Tech</a>
-  <a href="https://kaitechinvest.com/vop.html">Obchodní podmínky</a>
-  <a href="https://kaitechinvest.com/gdpr.html">Ochrana osobních údajů</a>
-  <a href="#" data-cookie-settings>Nastavení cookies</a>
+  <a href="/en/">KAI Tech</a>
+  <a href="/en/terms.html">Terms of Service</a>
+  <a href="/en/privacy.html">Privacy Policy</a>
+  <a href="#" data-cookie-settings>Cookie settings</a>
+  <a href="/hlidac.html">Česky</a>
   <span>info@kaitechinvest.com</span>
 </footer>
 
