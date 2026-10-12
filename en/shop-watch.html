@@ -43,6 +43,10 @@ h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.7rem);letter-spacing:-.04em;li
 .btn-g{display:inline-block;padding:.85rem 1.85rem;font-size:.95rem;font-weight:500;border:1px solid var(--border);color:var(--gray2);border-radius:7px;text-decoration:none;}
 .btn-g:hover{border-color:rgba(100,140,255,.35);color:var(--white);}
 .proof{margin-top:1.1rem;font-size:.82rem;color:var(--gray);position:relative;}
+.trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem 1.4rem;margin:1.25rem auto 0;max-width:980px;position:relative;}
+.trust li{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--gray);}
+.trust li::before{content:'✓';color:#4ade80;font-weight:700;}
+.trust a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 
 .s{padding:4.5rem 1.5rem;max-width:1080px;margin:0 auto;}
 .s-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.8rem;}
@@ -55,6 +59,7 @@ h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.7rem);letter-spacing:-.04em;li
 .freq.m{background:rgba(124,92,252,.15);color:#a78bfa;}
 .w h3{font-size:1.05rem;}
 .w p{font-size:.88rem;color:var(--gray);}
+.w p.zisk{color:var(--white);font-weight:600;font-size:.92rem;}
 
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:2.5rem;counter-reset:krok;}
 .step{border-top:1px solid var(--border);padding-top:1.1rem;}
@@ -89,6 +94,10 @@ td.free{color:var(--green);font-weight:500;}
 .sample b{display:block;margin-bottom:.3rem;}
 .sample span{font-size:.86rem;color:var(--gray);}
 .sample em{display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;color:var(--cyan);}
+.sample i{display:block;margin-top:.55rem;font-style:normal;font-size:.8rem;color:var(--gray);}
+.zaver{text-align:center;padding:4rem 1.5rem 4.5rem;border-top:1px solid var(--border);}
+.zaver h2{margin-bottom:.6rem;}
+.zaver p{color:var(--gray);margin-bottom:1.6rem;}
 
 .faq{margin-top:2rem;display:grid;gap:.6rem;max-width:760px;}
 details{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;}
@@ -118,10 +127,11 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <div class="nav-links">
     <a href="#what">What we watch</a>
     <a href="#how">How it works</a>
+    <a href="#sample">Sample</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <a href="/hlidac.html" class="lang" lang="cs">CZ</a>
-    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="nav-cta">Start watching →</a>
+    <a href="#pricing" class="nav-cta">Start watching →</a>
   </div>
 </nav>
 
@@ -129,12 +139,19 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <div class="hero-bg"></div>
   <div class="badge">Shop Watch · subscription</div>
   <h1>We watch your online store,<br><span class="grad">so you don’t have to</span></h1>
-  <p class="hero-sub">Every week we compare your competitors, every month we check your store for legal compliance and conversion barriers. What changed lands in your inbox.</p>
+  <p class="hero-sub">For online store owners who have no time to watch competitors, laws and their own website. We compare your competitors every week, check legal compliance and conversion every month, and every email tells you what to do first.</p>
+  <p class="hero-sub" style="margin-top:-.4rem"><strong>Right after payment you get your first competitor report and a Full Store Review.</strong></p>
   <div class="actions">
-    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">Start for $89 a month</a>
-    <a href="#pricing" class="btn-g">$890 a year</a>
+    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">Start watching →</a>
+    <a href="#sample" class="btn-g">See a sample</a>
   </div>
-  <p class="proof">First reports right after payment · cancel anytime yourself · no sign-up or installation</p>
+  <p class="proof">$89 a month, or $890 a year (two months free)</p>
+  <ul class="trust" aria-label="Guarantees">
+    <li><a href="/en/terms.html"><strong>Report can’t be delivered? Full refund</strong></a></li>
+    <li>First reports right after payment</li>
+    <li>No sign-up or installation</li>
+    <li>Cancel your subscription anytime yourself</li>
+  </ul>
 </section>
 
 <section class="s" id="what">
@@ -145,16 +162,19 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <div class="w">
       <span class="freq">every week</span>
       <h3>Competitors</h3>
-      <p>We find up to three competitors for you, or you enter them yourself. We compare what they communicate on their homepage with what you do and flag what changed since last time.</p>
+      <p class="zisk">You learn about a competitor’s discount or free shipping before your customers do.</p>
+      <p>We find up to three competitors for you, or you enter them yourself. We compare what they communicate on their homepage with what you do and flag what changed since last time, such as new free shipping or a discount.</p>
     </div>
     <div class="w">
       <span class="freq m">every month</span>
       <h3>Legal compliance</h3>
-      <p>Twelve points of EU consumer and data protection law where online stores most often fail: discounts, reviews, cookies, mandatory information. Each finding comes with the legal reference and a fix. Selling outside the EU? We check the rules of your country on request.</p>
+      <p class="zisk">You find problems before a consumer authority does.</p>
+      <p>Twelve points of EU consumer and data protection law where online stores most often fail: discounts, reviews, cookies, mandatory information. For widespread infringements, national fines can reach 4% of annual turnover. Each finding comes with the legal reference and a fix. Selling outside the EU? We check the rules of your country on request.</p>
     </div>
     <div class="w">
       <span class="freq m">every month</span>
       <h3>Conversion barriers</h3>
+      <p class="zisk">You know what to fix first so that visitors buy.</p>
       <p>A CRO audit of your homepage: what keeps customers from buying, proposed fixes and the order in which to make them.</p>
     </div>
   </div>
@@ -164,21 +184,45 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <div class="s-tag">How it works</div>
   <h2 class="s-title">From payment to your first reports in minutes</h2>
   <div class="steps">
-    <div class="step"><h3>Enter your store address</h3><p>You enter the address at checkout. You can add competitors, but you don’t have to.</p></div>
+    <div class="step"><h3>Enter your store address</h3><p>On the Stripe checkout page you enter your email and store address, nothing more. You can add competitors, but you don’t have to. No installation.</p></div>
     <div class="step"><h3>Get your first reports</h3><p>Right after payment you receive the competitor report and the Full Store Review by email.</p></div>
     <div class="step"><h3>We keep watching</h3><p>A competitor report every Monday, the legal and conversion check on the first day of every month.</p></div>
     <div class="step"><h3>You stay in control</h3><p>Manage your card, invoices and cancellation in the customer portal. The link is in every email.</p></div>
   </div>
 </section>
 
+<section class="s" id="sample">
+  <div class="s-tag">Sample</div>
+  <h2 class="s-title">This is how we checked our own website</h2>
+  <p class="s-sub">Real reports from October 2026, not illustrations. How we changed the website based on them is described in a <a href="/en/case-study-kaitech.html" style="color:var(--cyan)">case study</a>.</p>
+  <div class="samples">
+    <a class="sample" href="https://kaitechinvest.com/cro-reports/muzlclyqcbri.html">
+      <b>Full Store Review of kaitechinvest.com/en/</b>
+      <span>Conversion score 40/100, ten conversion barriers with screenshots and proposed fixes, legal check with no findings.</span>
+      <i>Start with “Start with these this week”: the three fixes with the biggest impact.</i>
+      <em>Open the full report in your browser →</em>
+    </a>
+    <a class="sample" href="https://kaitechinvest.com/cro-reports/p9-muzk3d42tdhmob-internikaitech.html">
+      <b>Competitor analysis</b>
+      <span>Three competitors found for us and five differences, with a recommendation on what to change.</span>
+      <i>Start with “What to do”: steps ordered by priority.</i>
+      <em>Open the full report in your browser →</em>
+    </a>
+  </div>
+  <div class="actions" style="margin-top:1.8rem">
+    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">I want this for my store →</a>
+  </div>
+</section>
+
 <section class="s" id="pricing">
   <div class="s-tag">Pricing</div>
   <h2 class="s-title">One subscription for all three checks</h2>
+  <p class="s-sub" style="margin-top:.4rem">Monthly if you want to try Shop Watch. Yearly if you know you want it long term, and you save two months.</p>
   <div class="plans">
     <div class="plan featured">
       <h3>Monthly</h3>
       <div class="price">$89 <small>/ month</small></div>
-      <p class="note">cancel anytime</p>
+      <p class="note">final price, no VAT added · cancel anytime</p>
       <ul>
         <li>Competitor report every week</li>
         <li>Full Store Review every month</li>
@@ -188,17 +232,18 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     </div>
     <div class="plan">
       <h3>Yearly</h3>
+      <p class="note">for stores that want to be watched all year</p>
       <div class="price">$890 <small>/ year</small></div>
-      <p class="note">two months free compared to monthly billing</p>
+      <p class="note">two months free: you save $178 compared to monthly billing</p>
       <ul>
         <li>Everything in the monthly plan</li>
         <li>One payment and one invoice per year</li>
-        <li>Cancellation takes effect at the end of the year</li>
+        <li>Cancel anytime, Shop Watch runs until the end of the paid year</li>
       </ul>
       <a href="https://buy.stripe.com/aFadR9c0R8s9fPA30xcAo0d" data-plan="shopwatch-yearly" data-value="890" data-currency="USD" class="btn-g">Start yearly</a>
     </div>
   </div>
-  <p class="foot">Prices are final; the provider is not registered for VAT. Card payment via Stripe, the receipt arrives by email. The checks cover the homepage of the address you enter and are an automated technical check, not legal advice from a lawyer. Cancellation and refunds are described in the <a href="/en/terms.html">Terms of Service</a>.</p>
+  <p class="foot">Prices are final: the provider is not VAT registered, so no VAT is added. Card payment via Stripe, the receipt arrives by email. The checks cover the homepage of the address you enter and are an automated technical check, not legal advice from a lawyer. Cancellation and refunds are described in the <a href="/en/terms.html">Terms of Service</a>.</p>
 </section>
 
 <section class="s" id="faq">
@@ -210,7 +255,17 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <details><summary>Is the legal check a replacement for a lawyer?</summary><p>No. It is an automated check of the publicly available page against twelve points of EU consumer and data protection law. It warns you about risks early; for serious findings we recommend consulting a lawyer.</p></details>
     <details><summary>I sell outside the EU. Does the legal check apply to me?</summary><p>The monthly check follows EU law. If you sell elsewhere, reply to any report email and we will check your website against the rules of your country as part of your subscription.</p></details>
     <details><summary>What exactly do you check?</summary><p>The homepage of the address you enter. Information shown only on other pages (terms, contact) is not taken into account.</p></details>
+    <details><summary>Does it work with Shopify, WooCommerce or other platforms?</summary><p>Yes. We check the public page of your website, so the platform does not matter and you install nothing. The exception are websites that assemble their content only in the visitor’s browser. If that is your case, the report will tell you.</p></details>
     <details><summary>Will I get an invoice?</summary><p>Yes, a receipt arrives by email after every payment and is also available in the customer portal.</p></details>
+  </div>
+</section>
+
+<section class="zaver">
+  <h2 class="s-title">Be the first to know what changed</h2>
+  <p>Your first competitor report and Full Store Review arrive right after payment. Cancel anytime yourself.</p>
+  <div class="actions">
+    <a href="https://buy.stripe.com/8x2cN58OF5fX1YKeJfcAo0c" data-plan="shopwatch-monthly" data-value="89" data-currency="USD" class="btn-p">Start watching for $89 a month →</a>
+    <a href="#pricing" class="btn-g">Compare plans</a>
   </div>
 </section>
 
@@ -221,6 +276,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <a href="#" data-cookie-settings>Cookie settings</a>
   <a href="/hlidac.html">Česky</a>
   <span>info@kaitechinvest.com</span>
+  <span>Ctibor Klíma — KAI Tech · Company ID 02235471 · Renneská třída 765/42, 639 00 Brno-Štýřice, Czech Republic</span>
 </footer>
 
 <script src="/cookies.js" defer></script>
