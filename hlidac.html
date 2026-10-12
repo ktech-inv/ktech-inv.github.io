@@ -41,6 +41,11 @@ h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.7rem);letter-spacing:-.04em;li
 .btn-g{display:inline-block;padding:.85rem 1.85rem;font-size:.95rem;font-weight:500;border:1px solid var(--border);color:var(--gray2);border-radius:7px;text-decoration:none;}
 .btn-g:hover{border-color:rgba(100,140,255,.35);color:var(--white);}
 .proof{margin-top:1.1rem;font-size:.82rem;color:var(--gray);position:relative;}
+.trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem 1.4rem;margin:1.25rem auto 0;max-width:980px;position:relative;}
+.trust li{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--gray);}
+.trust li::before{content:'✓';color:#4ade80;font-weight:700;}
+.trust a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+.sample i{display:block;margin-top:.55rem;font-style:normal;font-size:.8rem;color:var(--gray);}
 
 .s{padding:4.5rem 1.5rem;max-width:1080px;margin:0 auto;}
 .s-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.8rem;}
@@ -116,7 +121,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <a href="#cena">Cena</a>
     <a href="#otazky">Otázky</a>
     <a href="/en/shop-watch.html" lang="en" style="font-size:.78rem;border:1px solid var(--border);border-radius:5px;padding:.2rem .5rem;">EN</a>
-    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="nav-cta">Začít hlídat →</a>
+    <a href="#cena" class="nav-cta">Začít hlídat →</a>
   </div>
 </nav>
 
@@ -124,12 +129,18 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <div class="hero-bg"></div>
   <div class="badge">Hlídač e-shopu · předplatné</div>
   <h1>Hlídáme váš e-shop,<br><span class="grad">abyste nemuseli vy</span></h1>
-  <p class="hero-sub">Každý týden porovnáme vaši konkurenci, každý měsíc zkontrolujeme právní soulad a konverzní bariéry. Co se změnilo, vám přijde e-mailem.</p>
+  <p class="hero-sub">Každý týden porovnáme vaši konkurenci, každý měsíc zkontrolujeme právní soulad a konverzní bariéry. V e-mailu vždy najdete, co se změnilo, proč na tom záleží a co udělat jako první.</p>
   <div class="actions">
-    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="btn-p">Začít za 1 990 Kč měsíčně</a>
-    <a href="#cena" class="btn-g">Ročně za 19 900 Kč</a>
+    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="btn-p">Začít hlídat →</a>
+    <a href="#ukazka" class="btn-g">Prohlédnout ukázku</a>
   </div>
-  <p class="proof">První reporty hned po zaplacení · zrušíte kdykoli sami · bez registrace a instalace</p>
+  <p class="proof">1 990 Kč měsíčně, nebo 19 900 Kč ročně (dva měsíce zdarma)</p>
+  <ul class="trust" aria-label="Jistoty">
+    <li>První reporty hned po zaplacení</li>
+    <li>Bez registrace a instalace</li>
+    <li><a href="https://kaitechinvest.com/vop.html#odstoupeni">Nedoručíme do 48 hodin? Vrátíme peníze</a></li>
+    <li>Předplatné zrušíte kdykoli sami</li>
+  </ul>
 </section>
 
 <section class="s" id="co-hlidame">
@@ -140,12 +151,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <div class="w">
       <span class="freq">každý týden</span>
       <h3>Konkurence</h3>
-      <p>Až tři konkurenty dohledáme za vás, nebo je zadáte sami. Porovnáme, co na domovské stránce komunikují oni a co vy, a upozorníme na změny od minula.</p>
+      <p>Až tři konkurenty dohledáme za vás, nebo je zadáte sami. Porovnáme, co na domovské stránce komunikují oni a co vy, a upozorníme na změny od minula, třeba novou dopravu zdarma nebo slevu.</p>
     </div>
     <div class="w">
       <span class="freq m">každý měsíc</span>
       <h3>Právní soulad</h3>
-      <p>Dvanáct bodů, na kterých firmy v Česku nejčastěji narážejí u ČOI: slevy, recenze, cookies, povinné údaje. U každého nálezu paragraf a návod, co změnit. Navíc hlídáme připravenost na tlačítko pro odstoupení od smlouvy, které novela zavádí pravděpodobně od ledna 2027.</p>
+      <p>Dvanáct bodů, na kterých firmy v Česku nejčastěji narážejí u ČOI: slevy, recenze, cookies, povinné údaje. Za porušení hrozí pokuta ČOI až 5 milionů Kč. U každého nálezu paragraf a návod, co změnit. Navíc hlídáme připravenost na tlačítko pro odstoupení od smlouvy, které novela zavádí pravděpodobně od ledna 2027.</p>
     </div>
     <div class="w">
       <span class="freq m">každý měsíc</span>
@@ -159,28 +170,33 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <div class="s-tag">Jak to funguje</div>
   <h2 class="s-title">Od platby k prvním reportům za pár minut</h2>
   <div class="steps">
-    <div class="step"><h3>Zadáte adresu e-shopu</h3><p>Při platbě vyplníte adresu. Konkurenty zadat můžete, ale nemusíte.</p></div>
+    <div class="step"><h3>Zadáte adresu e-shopu</h3><p>Při platbě vyplníte e-mail a adresu e-shopu, nic víc. Konkurenty zadat můžete, ale nemusíte. Nic neinstalujete.</p></div>
     <div class="step"><h3>Přijdou první reporty</h3><p>Hned po zaplacení dostanete e-mailem report konkurence a Kompletní prověrku.</p></div>
     <div class="step"><h3>Hlídáme dál</h3><p>Každé pondělí report konkurence, první den v měsíci právní a konverzní kontrola.</p></div>
     <div class="step"><h3>Spravujete sami</h3><p>Kartu, faktury i zrušení si řešíte v zákaznickém portálu. Odkaz je v každém e-mailu.</p></div>
   </div>
 </section>
 
-<section class="s">
+<section class="s" id="ukazka">
   <div class="s-tag">Ukázka</div>
   <h2 class="s-title">Takhle jsme zkontrolovali vlastní web</h2>
-  <p class="s-sub">Skutečné reporty z 29. září 2026, ne ilustrace. Podle nich jsme náš web hned opravili.</p>
+  <p class="s-sub">Skutečné reporty z 8. října 2026, ne ilustrace. Jak jsme podle nich web upravovali, popisuje <a href="/pripadova-studie-kaitech.html" style="color:var(--cyan)">případová studie</a>.</p>
   <div class="samples">
-    <a class="sample" href="https://kaitechinvest.com/cro-reports/mummvqf74e6p.html">
+    <a class="sample" href="https://kaitechinvest.com/cro-reports/muzk2uaj1nbk.html">
       <b>Kompletní prověrka kaitechinvest.com</b>
-      <span>Conversion score 40/100, deset konverzních bariér a pět právních nálezů.</span>
+      <span>Conversion score 81/100, devět konverzních bariér se screenshoty a návrhem opravy, právní kontrola bez nálezu.</span>
+      <i>Začněte blokem „Tento týden začněte těmito“: tři opravy s největším dopadem.</i>
       <em>Otevřít report →</em>
     </a>
-    <a class="sample" href="https://kaitechinvest.com/cro-reports/p9-mummvq61g20ll2-cusvlhe5xd7rrwgv3.html">
+    <a class="sample" href="https://kaitechinvest.com/cro-reports/p9-muzllfnmf3nl6o-internikaitech.html">
       <b>Konkurenční analýza</b>
-      <span>Tři dohledaní konkurenti a osm rozdílů proti nám, s doporučením, co doplnit.</span>
+      <span>Tři dohledaní konkurenti, srovnání v tabulce a doporučení, co doplnit.</span>
+      <i>Začněte blokem „Co udělat“: kroky seřazené podle priority.</i>
       <em>Otevřít report →</em>
     </a>
+  </div>
+  <div class="actions" style="margin-top:1.8rem">
+    <a href="https://buy.stripe.com/8x25kD7KB4bTfPAasZcAo09" data-plan="hlidac-mesicne" data-value="1990" data-currency="CZK" class="btn-p">Chci tohle pro svůj e-shop →</a>
   </div>
 </section>
 
@@ -198,6 +214,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
       </tbody>
     </table>
   </div>
+  <p class="s-sub" style="margin-top:1.6rem">Měsíčně, když si Hlídače chcete vyzkoušet. Ročně, když víte, že chcete hlídat dlouhodobě, a ušetříte dva měsíce.</p>
   <div class="plans">
     <div class="plan featured">
       <h3>Měsíčně</h3>
@@ -217,7 +234,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
       <ul>
         <li>Vše z měsíční varianty</li>
         <li>Jedna platba a faktura za rok</li>
-        <li>Zrušení platí ke konci roku</li>
+        <li>Zrušit můžete kdykoli, Hlídač doběhne do konce zaplaceného roku</li>
       </ul>
       <a href="https://buy.stripe.com/9B628r7KB9wddHseJfcAo0a" data-plan="hlidac-rocne" data-value="19900" data-currency="CZK" class="btn-g">Začít ročně</a>
     </div>
@@ -233,6 +250,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
     <details><summary>Nevím, kdo je moje konkurence.</summary><p>Nevadí. Z vašeho webu odvodíme obor a dohledáme tři firmy, které nabízejí srovnatelné zboží nebo služby. Když se netrefíme, napište nám a příště je vynecháme.</p></details>
     <details><summary>Je právní kontrola náhrada advokáta?</summary><p>Ne. Je to automatická kontrola veřejně dostupné stránky proti dvanácti bodům, které ČOI kontroluje nejčastěji. Upozorní vás na riziko včas, u závažných nálezů doporučujeme konzultaci s advokátem.</p></details>
     <details><summary>Co přesně kontrolujete?</summary><p>Domovskou stránku adresy, kterou zadáte. Údaje uvedené jen na jiných podstránkách (obchodní podmínky, kontakty) do výsledku nevstupují.</p></details>
+    <details><summary>Funguje to se Shoptetem, WooCommerce nebo Shopify?</summary><p>Ano. Kontrolujeme veřejnou stránku vašeho webu, takže na platformě nezáleží a nic neinstalujete. Výjimkou jsou weby, které obsah skládají až v prohlížeči. Pokud je to váš případ, report vám to řekne.</p></details>
     <details><summary>Dostanu fakturu?</summary><p>Ano, daňový doklad přijde e-mailem po každé platbě a najdete ho i v zákaznickém portálu.</p></details>
   </div>
 </section>
@@ -243,6 +261,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offs
   <a href="https://kaitechinvest.com/gdpr.html">Ochrana osobních údajů</a>
   <a href="#" data-cookie-settings>Nastavení cookies</a>
   <span>info@kaitechinvest.com</span>
+  <span>Ctibor Klíma — KAI Tech · IČO 02235471 · Renneská třída 765/42, 639 00 Brno-Štýřice</span>
 </footer>
 
 <script src="/cookies.js" defer></script>

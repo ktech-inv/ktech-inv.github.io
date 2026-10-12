@@ -10,6 +10,12 @@
   begin_checkout (GA4), ale jen když návštěvník souhlasil. Hodnotu berou
   z atributů data-plan, data-value a data-currency u odkazu.
 
+  Počítadlo bez cookies (od 12. 10. 2026): příchod z kampaně (adresa s utm_source)
+  a klik na platební odkaz pošle n8n (webhook navsteva) jen akci, web, stránku,
+  UTM, jazyk a tarif. Nic se neukládá do prohlížeče a neposílá se žádný
+  identifikátor, proto běží bez souhlasu (zásady, oddíl 8). Důvod: Pixel a GA4
+  po souhlasu viděly ze 33 kliků z reklamy jen 2 zobrazení stránky.
+
   Na stránku stačí <script src="/cookies.js" defer></script> a v patičce odkaz
   s atributem data-cookie-settings, který lištu znovu otevře. Subdomény (konkurence.)
   ho načítají z https://kaitechinvest.com/cookies.js, proto jsou odkazy absolutní.
@@ -19,6 +25,19 @@
   var GA_ID = 'G-TK6W3SX28Y';
   var FB_ID = '1799620708055955';
   var EN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
+  var POCITADLO = 'https://ck01.app.n8n.cloud/webhook/navsteva';
+  function zapocitej(akce, plan) {
+    try {
+      var q = new URLSearchParams(location.search);
+      var p = new URLSearchParams({ akce: akce, web: location.hostname, stranka: location.pathname, jazyk: EN ? 'en' : 'cs' });
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (k) {
+        if (q.get(k)) p.set(k, q.get(k).slice(0, 60));
+      });
+      if (plan) p.set('plan', plan.slice(0, 40));
+      fetch(POCITADLO + '?' + p.toString(), { mode: 'no-cors', keepalive: true, credentials: 'omit', referrerPolicy: 'no-referrer' });
+    } catch (e) { /* pocitadlo nesmi rozbit stranku */ }
+  }
+  try { if (new URLSearchParams(location.search).get('utm_source')) zapocitej('navsteva'); } catch (e) {}
   var T = EN ? {
     nadpis: 'Cookies and traffic measurement',
     text: 'We always use cookies that are technically necessary for the site to work. ' +
@@ -129,6 +148,7 @@
       return;
     }
     if ((a.getAttribute('href') || '').indexOf('https://buy.stripe.com/') !== 0) return;
+    zapocitej('pokladna', a.getAttribute('data-plan') || '');
     var plan = a.getAttribute('data-plan') || '';
     var hodnota = parseFloat(a.getAttribute('data-value')) || undefined;
     var mena = a.getAttribute('data-currency') || 'CZK';
