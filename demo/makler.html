@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI asistent realitní makléřky — ukázka · KAI Tech</title>
+<meta name="description" content="Ukázka AI asistenta, který odpovídá zájemcům o nemovitosti, zjistí rozpočet a domluví prohlídku.">
+<link rel="icon" href="/logo-kai.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* Ukázka pro schůzku s realitní makléřkou (13. 10. 2026). Nabídky jsou vymyšlené
+   a musí odpovídat poli NABIDKY v n8n workflow 'KAI Tech Realitní asistent — ukázka'
+   (repo kai-workflows, workflows/realitni-asistent-demo.json). Rozhovor drží jen
+   prohlížeč; workflow ho neukládá. */
+:root{
+  --navy:#060b1a; --navy2:#0a1228; --navy3:#0f1a35;
+  --blue:#1e6bff; --cyan:#00c2ff; --green:#4ade80;
+  --white:#ffffff; --gray:#7a8fad; --gray2:#b8cae0;
+  --border:rgba(100,140,255,0.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;}
+h1,h2,h3{font-family:'Syne','DM Sans',sans-serif;}
+header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);text-decoration:none;}
+.logo span{color:var(--cyan);}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,194,255,.25);border-radius:100px;padding:.25rem .7rem;}
+.intro{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem .6rem;}
+.intro h1{font-size:clamp(1.5rem,3.4vw,2.2rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem;}
+.intro p{color:var(--gray2);max-width:680px;font-size:.95rem;}
+main{max-width:1180px;margin:0 auto;padding:1rem 1.5rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:1.25rem;align-items:start;}
+.panel{background:var(--navy2);border:1px solid var(--border);border-radius:14px;}
+.chat{display:flex;flex-direction:column;height:min(640px,78vh);}
+.chat-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;font-size:.9rem;}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15);}
+.msgs{flex:1;overflow-y:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.65rem;}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:12px;font-size:.92rem;white-space:pre-wrap;word-wrap:break-word;}
+.msg.a{background:var(--navy3);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px;}
+.msg.u{background:var(--blue);align-self:flex-end;border-bottom-right-radius:4px;}
+.msg.err{background:rgba(255,120,90,.12);border:1px solid rgba(255,120,90,.35);color:#ffb4a2;align-self:flex-start;}
+.typing{align-self:flex-start;color:var(--gray);font-size:.85rem;padding:.2rem .3rem;}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;padding:.2rem 1.1rem .8rem;}
+.chip{font:inherit;font-size:.8rem;color:var(--gray2);background:transparent;border:1px solid var(--border);border-radius:100px;padding:.35rem .75rem;cursor:pointer;}
+.chip:hover{border-color:rgba(100,140,255,.4);color:var(--white);}
+form{display:flex;gap:.5rem;padding:.8rem 1rem;border-top:1px solid var(--border);}
+input[type=text]{flex:1;min-width:0;font:inherit;font-size:.95rem;color:var(--white);background:var(--navy);border:1px solid var(--border);border-radius:9px;padding:.65rem .8rem;}
+input[type=text]:focus{outline:2px solid var(--cyan);outline-offset:1px;}
+button.send{font:inherit;font-weight:500;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:.65rem 1.1rem;cursor:pointer;}
+button.send:disabled{opacity:.5;cursor:default;}
+.side{display:grid;gap:1.25rem;}
+.card{padding:1.1rem 1.2rem;}
+.card h2{font-size:1rem;margin-bottom:.7rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+.empty{color:var(--gray);font-size:.88rem;}
+.karta-tab{width:100%;border-collapse:collapse;font-size:.88rem;}
+.karta-tab td{padding:.38rem 0;border-bottom:1px solid var(--border);vertical-align:top;}
+.karta-tab td:first-child{color:var(--gray);width:38%;padding-right:.6rem;}
+.sent{font-size:.72rem;font-weight:600;color:var(--green);border:1px solid rgba(74,222,128,.35);border-radius:100px;padding:.15rem .55rem;white-space:nowrap;}
+.listing{padding:.7rem 0;border-bottom:1px solid var(--border);}
+.listing:last-child{border-bottom:0;padding-bottom:0;}
+.listing b{display:block;font-size:.9rem;}
+.listing span{font-size:.8rem;color:var(--gray);}
+.listing .cena{color:var(--cyan);font-size:.85rem;font-weight:500;}
+footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:.78rem;color:var(--gray);}
+footer a{color:var(--gray);}
+@media(max-width:860px){main{grid-template-columns:1fr;}.chat{height:70vh;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">KAI<span>Tech</span></a>
+  <span class="tag">Ukázka</span>
+</header>
+
+<section class="intro">
+  <h1>AI asistent realitní makléřky</h1>
+  <p>Zkuste se zeptat jako zájemce o některou z nemovitostí vpravo. Asistent odpoví, zjistí, co hledáte, a nabídne prohlídku. Karta zájemce se ukáže vedle chatu, přesně takhle by přišla makléřce. Nabídky jsou vymyšlené a rozhovor se nikde neukládá.</p>
+</section>
+
+<main>
+  <section class="panel chat" aria-label="Chat s asistentem">
+    <div class="chat-head"><span class="dot" aria-hidden="true"></span><b>Asistent makléřky</b><span style="color:var(--gray)">· odpovídá nonstop</span></div>
+    <div class="msgs" id="msgs" aria-live="polite">
+      <div class="msg a">Dobrý den, jsem asistent makléřky. S čím vám můžu pomoct? Ptejte se na kteroukoli nabídku nebo mi řekněte, co hledáte.</div>
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip" type="button">Je byt 3+kk na Lesné ještě volný?</button>
+      <button class="chip" type="button">Hledám byt do 6,5 milionu</button>
+      <button class="chip" type="button">Máte něco k pronájmu?</button>
+    </div>
+    <form id="form">
+      <input type="text" id="vstup" placeholder="Napište dotaz…" maxlength="600" autocomplete="off" aria-label="Váš dotaz">
+      <button class="send" id="send" type="submit">Odeslat</button>
+    </form>
+  </section>
+
+  <div class="side">
+    <section class="panel card" aria-label="Karta zájemce">
+      <h2><span>Karta zájemce</span><span class="sent" id="sent" hidden>Odesláno makléřce e-mailem ✓</span></h2>
+      <div id="karta"><p class="empty">Zatím prázdná. Jakmile zájemce řekne, o kterou nemovitost jde, kolik má peněz a jak bude platit, asistent ji začne vyplňovat.</p></div>
+    </section>
+    <section class="panel card" aria-label="Nabídka makléřky">
+      <h2>Nabídka makléřky</h2>
+      <div id="nabidky"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  Ukázka KAI Tech · <a href="https://kaitechinvest.com">kaitechinvest.com</a> · info@kaitechinvest.com<br>
+  Ctibor Klíma — KAI Tech · IČO 02235471 · Renneská třída 765/42, 639 00 Brno-Štýřice
+</footer>
+
+<script>
+(function () {
+  var URL_ASISTENT = 'https://ck01.app.n8n.cloud/webhook/realitni-demo';
+  // Stejné nabídky jako v n8n workflow (pole NABIDKY v nodu 'Připrav rozhovor').
+  var NABIDKY = [
+    { nazev: 'Byt 3+kk, Brno-Lesná', cena: '7 490 000 Kč', info: '72 m², balkon, sklep · energetická třída C · ihned' },
+    { nazev: 'Byt 2+kk s terasou, Brno-Královo Pole', cena: '6 290 000 Kč', info: '54 m², terasa 12 m², garážové stání · novostavba 2021 · od 1. 12.' },
+    { nazev: 'Byt 4+1 po rekonstrukci, Brno-Žabovřesky', cena: '9 850 000 Kč', info: '96 m², 2 lodžie · rekonstrukce 2024 · po dohodě' },
+    { nazev: 'Rodinný dům 5+1, Šlapanice', cena: '12 900 000 Kč', info: '148 m², pozemek 620 m², dvojgaráž · od ledna 2027' },
+    { nazev: 'Byt 1+kk k pronájmu, Brno-střed', cena: '14 500 Kč/měs. + služby', info: '32 m², zařízený · od 1. 11.' },
+    { nazev: 'Stavební pozemek, Kuřim', cena: '4 290 000 Kč', info: '812 m², sítě na hranici · ihned' }
+  ];
+  var msgs = document.getElementById('msgs');
+  var form = document.getElementById('form');
+  var vstup = document.getElementById('vstup');
+  var send = document.getElementById('send');
+  var historie = [];
+  var uzOdeslano = false;
+  var bezi = false;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  NABIDKY.forEach(function (n) {
+    var d = el('div', 'listing');
+    d.appendChild(el('b', null, n.nazev));
+    d.appendChild(el('div', 'cena', n.cena));
+    d.appendChild(el('span', null, n.info));
+    document.getElementById('nabidky').appendChild(d);
+  });
+
+  function pridej(role, text) {
+    var m = el('div', 'msg ' + role, text);
+    msgs.appendChild(m);
+    msgs.scrollTop = msgs.scrollHeight;
+    return m;
+  }
+
+  function ukazKartu(k) {
+    if (!k) return;
+    var radky = [['Nemovitost', k.nemovitost], ['Jméno', k.jmeno], ['Kontakt', k.kontakt], ['Rozpočet', k.rozpocet],
+      ['Financování', k.financovani], ['Kdy', k.horizont], ['Co je důležité', k.preference], ['Prohlídka', k.prohlidka],
+      ['Otázky pro makléřku', (k.otazky || []).join(' · ')], ['Doporučení', k.doporuceni]].filter(function (r) { return r[1]; });
+    if (!radky.length) return;
+    var t = el('table', 'karta-tab');
+    radky.forEach(function (r) {
+      var tr = el('tr'); tr.appendChild(el('td', null, r[0])); tr.appendChild(el('td', null, r[1])); t.appendChild(tr);
+    });
+    var box = document.getElementById('karta');
+    box.innerHTML = '';
+    box.appendChild(t);
+  }
+
+  function posli(text) {
+    text = String(text || '').trim();
+    if (!text || bezi) return;
+    bezi = true; send.disabled = true;
+    document.getElementById('chips').hidden = true;
+    pridej('u', text);
+    var psani = el('div', 'typing', 'Asistent píše…');
+    msgs.appendChild(psani); msgs.scrollTop = msgs.scrollHeight;
+    // tělo jako text: jednoduchý požadavek bez CORS preflightu
+    fetch(URL_ASISTENT, { method: 'POST', body: JSON.stringify({ zprava: text, historie: historie.slice(-12), uz_odeslano: uzOdeslano }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        psani.remove();
+        var odp = (j && j.odpoved) || 'Omlouvám se, teď vám neumím odpovědět.';
+        pridej('a', odp);
+        historie.push({ role: 'user', text: text }, { role: 'assistant', text: odp });
+        ukazKartu(j && j.karta);
+        if (j && j.odeslano) { uzOdeslano = true; document.getElementById('sent').hidden = false; }
+      })
+      .catch(function () { psani.remove(); pridej('err', 'Spojení se nepodařilo, zkuste to prosím znovu.'); })
+      .then(function () { bezi = false; send.disabled = false; vstup.focus(); });
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); var t = vstup.value; vstup.value = ''; posli(t); });
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (c) {
+    c.addEventListener('click', function () { posli(c.textContent); });
+  });
+})();
+</script>
+</body>
+</html>
