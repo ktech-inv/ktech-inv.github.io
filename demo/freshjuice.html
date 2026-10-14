@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI poradce pro freshjuice.cz — ukázka · KAI Tech</title>
+<meta name="description" content="Ukázka AI poradce, který zákazníkovi e-shopu pomůže vybrat odšťavňovač, citrusovač nebo mixér z aktuální nabídky.">
+<link rel="icon" href="/logo-kai.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* Ukázka pro schůzku s majitelem freshjuice.cz (14. 10. 2026). Katalog a fakta
+   o obchodě jsou v demo/data/freshjuice.json; čte je n8n workflow 'KAI Tech
+   Poradce e-shopu — ukázka' (repo kai-workflows, workflows/eshop-poradce-demo.json).
+   Rozhovor drží jen prohlížeč; workflow ho neukládá. */
+:root{
+  --navy:#060b1a; --navy2:#0a1228; --navy3:#0f1a35;
+  --blue:#1e6bff; --cyan:#00c2ff; --green:#4ade80; --amber:#fbbf24;
+  --white:#ffffff; --gray:#7a8fad; --gray2:#b8cae0;
+  --border:rgba(100,140,255,0.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;}
+h1,h2,h3{font-family:'Syne','DM Sans',sans-serif;}
+header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);text-decoration:none;}
+.logo span{color:var(--cyan);}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,194,255,.25);border-radius:100px;padding:.25rem .7rem;}
+.intro{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem .6rem;}
+.intro h1{font-size:clamp(1.5rem,3.4vw,2.2rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem;}
+.intro p{color:var(--gray2);max-width:720px;font-size:.95rem;}
+.intro .pozn{color:var(--gray);font-size:.8rem;margin-top:.5rem;}
+main{max-width:1180px;margin:0 auto;padding:1rem 1.5rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:1.25rem;align-items:start;}
+.panel{background:var(--navy2);border:1px solid var(--border);border-radius:14px;}
+.chat{display:flex;flex-direction:column;height:min(680px,80vh);}
+.chat-head{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;font-size:.9rem;}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(74,222,128,.15);}
+.msgs{flex:1;overflow-y:auto;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.65rem;}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:12px;font-size:.92rem;white-space:pre-wrap;word-wrap:break-word;}
+.msg.a{background:var(--navy3);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px;}
+.msg.u{background:var(--blue);align-self:flex-end;border-bottom-right-radius:4px;}
+.msg.err{background:rgba(255,120,90,.12);border:1px solid rgba(255,120,90,.35);color:#ffb4a2;align-self:flex-start;}
+.typing{align-self:flex-start;color:var(--gray);font-size:.85rem;padding:.2rem .3rem;}
+.produkty{align-self:stretch;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.55rem;max-width:100%;}
+.produkt{display:flex;flex-direction:column;gap:.15rem;background:var(--navy);border:1px solid var(--border);border-radius:11px;padding:.7rem .8rem;color:var(--white);text-decoration:none;font-size:.85rem;}
+.produkt:hover{border-color:rgba(0,194,255,.45);}
+.produkt b{font-size:.9rem;line-height:1.3;}
+.produkt .kat{color:var(--gray);font-size:.75rem;}
+.produkt .cena{color:var(--cyan);font-weight:500;}
+.produkt .cena s{color:var(--gray);font-weight:400;margin-left:.35rem;}
+.produkt .sklad{font-size:.75rem;color:var(--green);}
+.produkt .sklad.ne{color:var(--amber);}
+.produkt .barvy{font-size:.75rem;color:var(--gray2);}
+.produkt .odkaz{margin-top:auto;padding-top:.3rem;font-size:.78rem;color:var(--cyan);}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;padding:.2rem 1.1rem .8rem;}
+.chips[hidden]{display:none;}
+.chip{font:inherit;font-size:.8rem;color:var(--gray2);background:transparent;border:1px solid var(--border);border-radius:100px;padding:.35rem .75rem;cursor:pointer;}
+.chip:hover{border-color:rgba(100,140,255,.4);color:var(--white);}
+form{display:flex;gap:.5rem;padding:.8rem 1rem;border-top:1px solid var(--border);}
+input[type=text]{flex:1;min-width:0;font:inherit;font-size:.95rem;color:var(--white);background:var(--navy);border:1px solid var(--border);border-radius:9px;padding:.65rem .8rem;}
+input[type=text]:focus{outline:2px solid var(--cyan);outline-offset:1px;}
+button.send{font:inherit;font-weight:500;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:.65rem 1.1rem;cursor:pointer;}
+button.send:disabled{opacity:.5;cursor:default;}
+.side{display:grid;gap:1.25rem;}
+.card{padding:1.1rem 1.2rem;}
+.card h2{font-size:1rem;margin-bottom:.3rem;}
+.card .sub{color:var(--gray);font-size:.8rem;margin-bottom:.7rem;}
+.empty{color:var(--gray);font-size:.88rem;}
+.karta-tab{width:100%;border-collapse:collapse;font-size:.88rem;}
+.karta-tab td{padding:.38rem 0;border-bottom:1px solid var(--border);vertical-align:top;}
+.karta-tab td:first-child{color:var(--gray);width:42%;padding-right:.6rem;}
+.dotazy{list-style:none;display:grid;gap:.45rem;font-size:.88rem;}
+.dotazy li{padding-left:1.1rem;position:relative;}
+.dotazy li::before{content:'?';position:absolute;left:0;color:var(--amber);font-weight:700;}
+.umi{list-style:none;display:grid;gap:.4rem;font-size:.85rem;color:var(--gray2);}
+.umi li{padding-left:1.1rem;position:relative;}
+.umi li::before{content:'✓';position:absolute;left:0;color:var(--green);}
+footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:.78rem;color:var(--gray);}
+footer a{color:var(--gray);}
+@media(max-width:860px){main{grid-template-columns:1fr;}.chat{height:75vh;}.msg{max-width:92%;}}
+@media(max-width:480px){header,.intro,main{padding-left:1rem;padding-right:1rem;}.produkty{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">KAI<span>Tech</span></a>
+  <span class="tag">Ukázka</span>
+</header>
+
+<section class="intro">
+  <h1>AI poradce pro freshjuice.cz</h1>
+  <p>Zeptejte se jako zákazník, který vybírá odšťavňovač, citrusovač nebo mixér. Poradce se doptá na to podstatné a doporučí stroje z nabídky obchodu i s odkazem do e-shopu. Vpravo je vidět, co by se obchod z rozhovoru dozvěděl.</p>
+  <p class="pozn" id="pozn">Ukázka KAI Tech, nejde o oficiální chat obchodu. Rozhovor se nikde neukládá.</p>
+</section>
+
+<main>
+  <section class="panel chat" aria-label="Chat s poradcem">
+    <div class="chat-head"><span class="dot" aria-hidden="true"></span><b>Poradce freshjuice.cz</b><span style="color:var(--gray)">· odpovídá nonstop</span></div>
+    <div class="msgs" id="msgs" aria-live="polite">
+      <div class="msg a">Dobrý den, pomůžu vám vybrat odšťavňovač, citrusovač nebo mixér. Co byste chtěli připravovat?</div>
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip" type="button">Chci odšťavňovač na zeleninu domů</button>
+      <button class="chip" type="button">Hledám citrusovač do kavárny</button>
+      <button class="chip" type="button">Jaký je rozdíl mezi Hurom H 400 a H 320N?</button>
+      <button class="chip" type="button">Mixér na smoothie do 10 000 Kč</button>
+    </div>
+    <form id="form">
+      <input type="text" id="vstup" placeholder="Napište dotaz…" maxlength="600" autocomplete="off" aria-label="Váš dotaz">
+      <button class="send" id="send" type="submit">Odeslat</button>
+    </form>
+  </section>
+
+  <div class="side">
+    <section class="panel card" aria-label="Co poradce zjistil">
+      <h2>Co poradce zjistil</h2>
+      <p class="sub">Profil zákazníka, který by obchod dostal k objednávce nebo dotazu.</p>
+      <div id="profil"><p class="empty">Zatím nic. Jakmile zákazník řekne, k čemu stroj chce a kolik chce utratit, objeví se to tady.</p></div>
+    </section>
+    <section class="panel card" aria-label="Dotazy pro obchod">
+      <h2>Dotazy pro obchod</h2>
+      <p class="sub">Co poradce nevěděl a nevymýšlel si to. Takové dotazy by šly obchodu e-mailem.</p>
+      <div id="dotazy"><p class="empty">Zatím žádné. Zkuste se zeptat třeba na záruku nebo servis.</p></div>
+    </section>
+    <section class="panel card" aria-label="Co ukázka umí">
+      <h2>Na čem stojí</h2>
+      <ul class="umi">
+        <li>Zná jen to, co je v e-shopu: názvy, ceny, sklad, barvy a popisy.</li>
+        <li>Doporučí nejvýš tři stroje a vždy s odkazem na produkt.</li>
+        <li>Neslibuje slevy ani termíny dodání. Co neví, předá obchodu.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  Ukázka KAI Tech · <a href="https://kaitechinvest.com">kaitechinvest.com</a> · info@kaitechinvest.com<br>
+  Ctibor Klíma — KAI Tech · IČO 02235471 · Renneská třída 765/42, 639 00 Brno-Štýřice
+</footer>
+
+<script>
+(function () {
+  var URL_PORADCE = 'https://ck01.app.n8n.cloud/webhook/eshop-poradce-demo';
+  var OBCHOD = 'freshjuice';
+  var msgs = document.getElementById('msgs');
+  var form = document.getElementById('form');
+  var vstup = document.getElementById('vstup');
+  var send = document.getElementById('send');
+  var historie = [];
+  var bezi = false;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function kc(n) { return Number(n).toLocaleString('cs-CZ') + ' Kč'; }
+  function dolu() { msgs.scrollTop = msgs.scrollHeight; }
+
+  // počet strojů a datum katalogu ze stejného souboru, ze kterého čte poradce
+  fetch('/demo/data/' + OBCHOD + '.json').then(function (r) { return r.json(); }).then(function (d) {
+    if (d && d.katalog && d.stav_k) {
+      document.getElementById('pozn').textContent = 'Ukázka KAI Tech, nejde o oficiální chat obchodu. Poradce zná ' + d.katalog.length
+        + ' strojů z freshjuice.cz, ceny a sklad k ' + d.stav_k + '. Rozhovor se nikde neukládá.';
+    }
+  }).catch(function () {});
+
+  function pridej(role, text) { var m = el('div', 'msg ' + role, text); msgs.appendChild(m); dolu(); return m; }
+
+  function ukazProdukty(seznam) {
+    if (!seznam || !seznam.length) return;
+    var box = el('div', 'produkty');
+    seznam.forEach(function (p) {
+      var a = el('a', 'produkt');
+      a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+      a.appendChild(el('span', 'kat', String(p.kategorie || '').split(',')[0]));
+      a.appendChild(el('b', null, p.nazev));
+      if (p.cena_kc) {
+        var c = el('span', 'cena', kc(p.cena_kc));
+        if (p.puvodni_cena_kc && p.puvodni_cena_kc > p.cena_kc) c.appendChild(el('s', null, kc(p.puvodni_cena_kc)));
+        a.appendChild(c);
+      }
+      a.appendChild(el('span', 'sklad' + (p.skladem ? '' : ' ne'), p.skladem ? 'Skladem' : 'Momentálně není skladem'));
+      if (p.barvy && p.barvy.length > 1) a.appendChild(el('span', 'barvy', 'Barvy: ' + p.barvy.join(', ')));
+      a.appendChild(el('span', 'odkaz', 'Zobrazit v e-shopu ↗'));
+      box.appendChild(a);
+    });
+    msgs.appendChild(box); dolu();
+  }
+
+  function ukazProfil(radky) {
+    if (!radky || !radky.length) return;
+    var t = el('table', 'karta-tab');
+    radky.forEach(function (r) {
+      var tr = el('tr'); tr.appendChild(el('td', null, r.popis)); tr.appendChild(el('td', null, r.hodnota)); t.appendChild(tr);
+    });
+    var box = document.getElementById('profil'); box.innerHTML = ''; box.appendChild(t);
+  }
+
+  var vsechnyDotazy = [];
+  function ukazDotazy(nove) {
+    (nove || []).forEach(function (q) { if (vsechnyDotazy.indexOf(q) < 0) vsechnyDotazy.push(q); });
+    if (!vsechnyDotazy.length) return;
+    var ul = el('ul', 'dotazy');
+    vsechnyDotazy.forEach(function (q) { ul.appendChild(el('li', null, q)); });
+    var box = document.getElementById('dotazy'); box.innerHTML = ''; box.appendChild(ul);
+  }
+
+  function posli(text) {
+    text = String(text || '').trim();
+    if (!text || bezi) return;
+    bezi = true; send.disabled = true;
+    document.getElementById('chips').hidden = true;
+    pridej('u', text);
+    var psani = el('div', 'typing', 'Poradce píše…');
+    msgs.appendChild(psani); dolu();
+    // tělo jako text: jednoduchý požadavek bez CORS preflightu
+    fetch(URL_PORADCE, { method: 'POST', body: JSON.stringify({ obchod: OBCHOD, zprava: text, historie: historie.slice(-12) }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        psani.remove();
+        var odp = (j && j.odpoved) || 'Omlouvám se, teď vám neumím odpovědět.';
+        pridej('a', odp);
+        ukazProdukty(j && j.doporuceni);
+        historie.push({ role: 'user', text: text }, { role: 'assistant', text: odp });
+        ukazProfil(j && j.profil);
+        ukazDotazy(j && j.dotazy);
+      })
+      .catch(function () { psani.remove(); pridej('err', 'Spojení se nepodařilo, zkuste to prosím znovu.'); })
+      .then(function () { bezi = false; send.disabled = false; vstup.focus(); });
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); var t = vstup.value; vstup.value = ''; posli(t); });
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (c) {
+    c.addEventListener('click', function () { posli(c.textContent); });
+  });
+})();
+</script>
+</body>
+</html>
