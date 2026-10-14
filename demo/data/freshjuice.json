@@ -1,0 +1,545 @@
+{
+ "_poznamka": "Ukázka KAI Tech. Katalog = veřejné Store API freshjuice.cz (wp-json/wc/store/v1/products) k 14. 10. 2026, barevné varianty sloučené. Fakta o obchodě z titulní stránky freshjuice.cz. Čte to n8n workflow „KAI Tech Poradce e-shopu — ukázka“ (repo kai-workflows, workflows/eshop-poradce-demo.json).",
+ "obchod": "freshjuice.cz",
+ "sortiment": "odšťavňovače, citrusovače a mixéry pro domácnost i gastronomii",
+ "stav_k": "14. 10. 2026",
+ "zjistit": [
+  "domácnost, nebo provoz (kavárna, bar, hotel)",
+  "co chce zpracovávat (citrusy, tvrdé ovoce a zelenina, listová zelenina a byliny, smoothie)",
+  "kolik zhruba denně",
+  "rozpočet"
+ ],
+ "znalosti": [
+  "šnekový odšťavňovač lisuje pomalu a zvládne i listovou zeleninu a byliny",
+  "odstředivý odšťavňovač je rychlý na tvrdé ovoce a zeleninu",
+  "citrusovač je jen na citrusy",
+  "mixér dělá smoothie z celého ovoce"
+ ],
+ "fakta": [
+  "doprava zdarma nad 5 000 Kč",
+  "odborné poradenství, 20 let zkušeností v oboru",
+  "česká firma s osobním přístupem",
+  "stroje jde i pronajmout (stránka Pronájem na webu)",
+  "telefon +420 774 631 631"
+ ],
+ "profil": {
+  "pouziti": "Použití",
+  "suroviny": "Co chce zpracovávat",
+  "mnozstvi": "Kolik denně",
+  "rozpocet": "Rozpočet"
+ },
+ "katalog": [
+  {
+   "id": "915",
+   "nazev": "Hurom H 400",
+   "cena_kc": 13967,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom H400 přináší moderní design, který se stane ozdobou každé kuchyně. S inovativním automatickým systémem a extra velkým plnicím otvorem usnadňuje přípravu šťávy bez složité přípravy surovin. Variabilita v použití umožňuje snadné odšťavň",
+   "url": "https://www.freshjuice.cz/produkt/hurom-h-400-bily/",
+   "barvy": [
+    "bílý",
+    "černý",
+    "stříbrný"
+   ]
+  },
+  {
+   "id": "917",
+   "nazev": "Odšťavňovač Hurom H 320N",
+   "cena_kc": 12314,
+   "kategorie": "Odšťavňovače, Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom H320N je špičkový šnekový odšťavňovač navržený pro maximální výtěžnost a zachování živin. Díky kombinaci nízkých otáček a vysokého tlaku získáte tu nejčerstvější šťávu plnou vitamínů a přírodní chuti. Snadná údržba a moderní design za",
+   "url": "https://www.freshjuice.cz/produkt/odstavnovac-hurom-h-320n-bily/",
+   "barvy": [
+    "bílý",
+    "černý",
+    "tmavě zelený",
+    "stříbrný"
+   ]
+  },
+  {
+   "id": "1199",
+   "nazev": "Hurom E 30 ST",
+   "cena_kc": 6611,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Model HUROM E30ST spojuje výhody revolučního modelu H320N s osvědčenými technologiemi předchozích generací. Díky menší velikosti a kompaktnímu designu je ideálním řešením pro menší kuchyně, kde šetří místo, aniž by obětoval výkon. Tento odš",
+   "url": "https://www.freshjuice.cz/produkt/hurom-e-30-st/"
+  },
+  {
+   "id": "409",
+   "nazev": "Hurom H 201",
+   "cena_kc": 11975,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom H201 je moderní odšťavňovač, který spojuje elegantní design, jednoduché ovládání a špičkovou technologii. Díky velkému plnicímu otvoru a automatickému dávkovači surovin je příprava šťáv rychlá a pohodlná. Systém dvou do sebe zapadajíc",
+   "url": "https://www.freshjuice.cz/produkt/409/"
+  },
+  {
+   "id": "911",
+   "nazev": "Hurom H 310A",
+   "cena_kc": 7190,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom H310A je kompaktní odšťavňovač s moderním designem, který díky své malé velikosti skvěle zapadne i do menších kuchyní. Zvládne lisovat ovoce, zeleninu, bylinky i ořechy na rostlinná mléka. Ideální pro přípravu šťáv, smoothie i sorbetů",
+   "url": "https://www.freshjuice.cz/produkt/hurom-h-310a-bily/",
+   "barvy": [
+    "bílý",
+    "černý",
+    "lavender",
+    "blue sky"
+   ]
+  },
+  {
+   "id": "919",
+   "nazev": "Hurom GI Chef",
+   "cena_kc": 8256,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom GI Chef je všestranný pomocník, který kombinuje funkci odšťavňovače s možností přípravy široké škály zdravých pokrmů. Kromě odšťavňování zvládne i výrobu domácích těstovin, rostlinných mlék, sorbetů či zpracování bylinek. Díky své rob",
+   "url": "https://www.freshjuice.cz/produkt/hurom-gi-chef-cerny/",
+   "barvy": [
+    "černý",
+    "stříbrný"
+   ]
+  },
+  {
+   "id": "987",
+   "nazev": "Blender Omniblend TM 800A",
+   "cena_kc": 6197,
+   "kategorie": "Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "OmniBlend TM 800A je výkonný a cenově dostupný mixér, který nahradí většinu kuchyňských spotřebičů. Díky motoru s více než 30 000 otáčkami, nožům z japonské nerezové oceli a odolné 1,5l nádobě z polykarbonátu je ideální pro výrobu smoothies",
+   "url": "https://www.freshjuice.cz/produkt/blender-omniblend-tm-800a-cerveny/",
+   "barvy": [
+    "červený",
+    "bílý",
+    "černý"
+   ]
+  },
+  {
+   "id": "1260",
+   "nazev": "Komerční odšťavňovač Hurom CP50",
+   "cena_kc": 37475,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom CP 50 je první komerční odšťavňovač za studena navržený speciálně pro profesionální prostředí s 24hodinovým motorem , automatickým provozem na jeden dotek a velkokapacitní násypkou pro až 4 porce najednou. Díky pokročilé technologii p",
+   "url": "https://www.freshjuice.cz/produkt/komercni-odstavnovac-hurom-cp50/"
+  },
+  {
+   "id": "164",
+   "nazev": "Šnekový odšťavňovač Hurom HW Normal Commercial",
+   "cena_kc": 29900,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom HW Commercial je profesionální odšťavňovač navržený speciálně pro komerční provozy, jako jsou kavárny, restaurace či bary. Díky vysoce odolné konstrukci z nerezové oceli, velké kapacitě a výkonnému motoru zvládne nepřetržitý provoz a ",
+   "url": "https://www.freshjuice.cz/produkt/snekovy-odstavnovac-hurom-hw-2-generace/"
+  },
+  {
+   "id": "977",
+   "nazev": "CitroClean Imagine",
+   "cena_kc": 330,
+   "kategorie": "ostatní",
+   "skladem": true,
+   "popis": "Citroclean je profesionální čistič, který bezpečně a rychle odstraní i ty nejodolnější usazeniny z vašeho odšťavňovače, citrusovače nebo presovače. Bez zápachu, bez zbytků – jen dokonale čisté zařízení a skvělá chuť každé šťávy. Užívejte si",
+   "url": "https://www.freshjuice.cz/produkt/citroclean-imagine/"
+  },
+  {
+   "id": "860",
+   "nazev": "Citrusovač Citrocasa Fantastic M/SB",
+   "cena_kc": 109900,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrocasa Fantastic M/SB je špičkový citrusovač určený pro výrobu čerstvé šťávy s minimální námahou. Zpracuje až 25 pomerančů za minutu a zaručuje 100% čistou šťávu bez hořkosti díky své pokročilé technologii. Disponuje kompaktním designem,",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-fantastic-m-sb/"
+  },
+  {
+   "id": "853",
+   "nazev": "Citrusovač Citrocasa FANTASTIC M/AS",
+   "cena_kc": 99000,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrocasa Fantastic M/AS je moderní citrusovač navržený pro rychlou a efektivní výrobu čerstvé šťávy. Díky své robustní konstrukci a špičkové technologii zpracuje až 30 pomerančů za minutu. Nabízí snadnou obsluhu, hygienický provoz a atrakt",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-fantastic-m-as/"
+  },
+  {
+   "id": "1218",
+   "nazev": "Citrusovač Citrocasa FANTASTIC iMpress",
+   "cena_kc": 114900,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrocasa Fantastic iMpress je Prémiový citrusovač pro luxusní bary a kavárny. Zpracuje až 30 pomerančů za minutu a díky technologii zaručuje 100% čistou šťávu. Atraktivní design a viditelný proces lisování lákají zákazníky.",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-fantastic-impress/"
+  },
+  {
+   "id": "840",
+   "nazev": "Citrusovač Citrocasa FANTASTIC Expres",
+   "cena_kc": 149000,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrocasa Fantastic Express je moderní automatický citrusovač pro rychlou výrobu čerstvé pomerančové šťávy. Zpracuje až 40 pomerančů za minutu a díky technologii zaručuje 100% čistou šťávu. Disponuje dávkovacím košem s kapacitou 10 kg ovoce",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-fantastic-expres/"
+  },
+  {
+   "id": "830",
+   "nazev": "Citrusovač Citrocasa FANTASTIC Connect",
+   "cena_kc": 159000,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Profesionální automatický citrusovač Citrocasa Fantastic Connect přináší revoluci do světa čerstvých šťáv. Tento špičkový stroj s kapacitou 30 pomerančů za minutu nabízí pokročilé funkce, jako je automatické čištění sítka a připojení k Citr",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-fantastic-conect/"
+  },
+  {
+   "id": "815",
+   "nazev": "Citrusovač Citrocasa REVOLUTION Advence",
+   "cena_kc": 74900,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrusovač Citrocasa Revolution je kompaktní, vysoce výkonný přístroj, ideální pro rychlou a hygienickou výrobu čerstvé ovocné šťávy. Díky svým technologickým inovacím, jako je systém Soft Cutting System (SCS) a automatické nastavení tlaku,",
+   "url": "https://www.freshjuice.cz/produkt/citrusovac-citrocasa-revolution-advence/"
+  },
+  {
+   "id": "802",
+   "nazev": "Vitamix 3500i nerez",
+   "cena_kc": 23958,
+   "kategorie": "Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Vitamix A3500i Ascent Series je nejpokročilejší model z řady Ascent, který kombinuje moderní design s pokročilými funkcemi. Nabízí 5 přednastavených programů, dotykové ovládání a možnost programování pro dokonalé výsledky při každém mixován",
+   "url": "https://www.freshjuice.cz/produkt/vitamix-3500i-nerez/"
+  },
+  {
+   "id": "779",
+   "nazev": "Angel Juicer 5500",
+   "cena_kc": 29744,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": false,
+   "popis": "Angel Juicer je prémiový dvouhřídelový šnekový odšťavňovač, který kombinuje nejmodernější technologie, jako je SHGTM, LSCSTM a MSETM, pro maximální výtěžnost šťávy a zachování všech živin. Přístroj je vyroben z antibakteriální nerezové ocel",
+   "url": "https://www.freshjuice.cz/produkt/angel-juicer-5500/"
+  },
+  {
+   "id": "793",
+   "nazev": "Angel Juicer 7500",
+   "cena_kc": 32397,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": false,
+   "popis": "Angel Juicer 7500 je prémiový dvouhřídelový odšťavňovač, který kombinuje špičkové technologie pro maximální výtěžnost a kvalitu šťávy. Tento model se pyšní automatickým zpětným chodem, který chrání přístroj před poškozením. Vyroben je z odo",
+   "url": "https://www.freshjuice.cz/produkt/angel-juicer-7500/"
+  },
+  {
+   "id": "761",
+   "nazev": "Vitamix 2500i",
+   "cena_kc": 18173,
+   "kategorie": "Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Vitamix A2500i je vysoce výkonný mixér profesionální série Ascent, vybavený třemi přednastavenými programy (smoothies, mražené dezerty, horké polévky) a revoluční bezdrátovou technologií (NFC). Nabízí všestranné využití, od přípravy šťáv po",
+   "url": "https://www.freshjuice.cz/produkt/vitamix-2500i/"
+  },
+  {
+   "id": "738",
+   "nazev": "Vitamix A2300i",
+   "cena_kc": 15694,
+   "kategorie": "Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Vitamix A2300i je vysoce výkonný mixér z profesionální série Ascent, který kombinuje elegantní design s revoluční bezdrátovou technologií (NFC). Nabízí auto detekční technologii, magnetickou bezpečnostní pojistku a volitelné otáčky s pulsní",
+   "url": "https://www.freshjuice.cz/produkt/vitamix-a2300i/"
+  },
+  {
+   "id": "727",
+   "nazev": "Mixér Santos barový N 62",
+   "cena_kc": 34790,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Santos N 62 je výkonný profesionální mixér ideální pro přípravu koktejlů, smoothies, mléčných koktejlů, frappé a dalších nápojů. Nabízí 30 předprogramovaných receptů, variabilní rychlost a pulsní tlačítko. Díky protihlukovému krytu a patent",
+   "url": "https://www.freshjuice.cz/produkt/mixer-santos-barovy-n-62/"
+  },
+  {
+   "id": "716",
+   "nazev": "Mixér Santos barový  N 66",
+   "cena_kc": 23980,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Santos N 66 je profesionální barový mixér ideální pro přípravu smoothie, koktejlů, ledových káv a dalších nápojů. Nabízí 9 optimalizovaných programů a dotykový ovládací panel s LCD displejem. Díky bezuhlíkovému motoru je tichý, energeticky ",
+   "url": "https://www.freshjuice.cz/produkt/mixer-santos-barovy-n-66/"
+  },
+  {
+   "id": "707",
+   "nazev": "Mixér Santos N 33",
+   "cena_kc": 9290,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Santos N 33 je kompaktní a účinný barový mixér ideální pro přípravu koktejlů, smoothies a mléčných nápojů. Nabízí dvě rychlosti (13 000 a 16 000 ot./min.) a motor s ochranou proti přehřátí. Nádoba s objemem 1,25 l má stupnici a víko s plníc",
+   "url": "https://www.freshjuice.cz/produkt/mixer-santos-n-33/"
+  },
+  {
+   "id": "697",
+   "nazev": "Hamilton Summit Edge",
+   "cena_kc": 55315,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Hamilton Summit Edge je výkonný mixér ideální pro profesionální bary, restaurace a kasina. Nabízí 36 mixovacích cyklů v 11 jazycích, což usnadňuje přípravu různých nápojů. Technologie Quiet Blend™ a Quiet Shield™ zajišťují ultra tichý provo",
+   "url": "https://www.freshjuice.cz/produkt/hamilton-summit-edge/"
+  },
+  {
+   "id": "694",
+   "nazev": "Hamilton Tempes Blender",
+   "cena_kc": 35990,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Hamilton Tempest Blender je výkonný mixér ideální pro přípravu koktejlů a drinků v rušných barech a restauracích. Systém Wave ~ Action™ zajišťuje hladké výsledky bez zbytků, zatímco časovač a dvě rychlosti s pulsní funkcí umožňují přesné mi",
+   "url": "https://www.freshjuice.cz/produkt/hamilton-tempes-blender/"
+  },
+  {
+   "id": "685",
+   "nazev": "Hamilton Tango Blender",
+   "cena_kc": 19151,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Hamilton Tango Blender je vysoce výkonný mixér ideální pro přípravu barových drinků a koktejlů. Díky výkonu 1 790 W, pulsnímu systému a dvěma rychlostem je perfektním pomocníkem do rušných barů a restaurací. Nastavitelný časovač automaticky",
+   "url": "https://www.freshjuice.cz/produkt/hamilton-tango-blender/"
+  },
+  {
+   "id": "676",
+   "nazev": "Hamilton Rio Blender",
+   "cena_kc": 11900,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Hamilton Rio Blender je výkonný a spolehlivý mixér ideální pro přípravu koktejlů, jako jsou margarita, daiquiri nebo piña colada. Díky dvěma rychlostem, pulsnímu systému a výkonu 1 193 W je perfektní volbou pro rušné bary a restaurace. Plas",
+   "url": "https://www.freshjuice.cz/produkt/hamilton-rio-blender/"
+  },
+  {
+   "id": "665",
+   "nazev": "Hamilton Bar Blender",
+   "cena_kc": 7990,
+   "kategorie": "Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Hamilton Bar Blender je špičkový mixér navržený speciálně pro rychlou přípravu koktejlů, jako jsou piña colada nebo daiquiri. Díky dvěma rychlostem a výkonnému motoru zvládne rozmixovat 0,5 margarity za pouhých 30 sekund. Je vybaven odolným",
+   "url": "https://www.freshjuice.cz/produkt/hamilton-bar-blender/"
+  },
+  {
+   "id": "651",
+   "nazev": "Mini blender DIVA",
+   "cena_kc": 2058,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "Miniblender Diva je kompaktní mixér ideální pro přípravu smoothie, koktejlů a dalších nápojů. Je vybaven výkonným motorem a odolnou nádobou vhodnou i na cestování. Snadné ovládání jedním tlačítkem a designové provedení z něj dělají praktick",
+   "url": "https://www.freshjuice.cz/produkt/mini-blender-diva/"
+  },
+  {
+   "id": "627",
+   "nazev": "VB 8010 vakuový mixér Catler",
+   "cena_kc": 5689,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "Catler VB 8010 je vysoce rychlostní vakuový mixér s robustním kovovým tělem, speciálně navržený pro mixování a uchování potravin ve vakuovém prostředí. Nabízí 10 rychlostí, 5 automatických programů a max. 26 500 otáček/min. Tritanová 1,5 l ",
+   "url": "https://www.freshjuice.cz/produkt/vb-8010-vakuovy-mixer-catler/"
+  },
+  {
+   "id": "612",
+   "nazev": "Stolní mixér SAGE BBL 405",
+   "cena_kc": 3499,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "SAGE BBL405BAL je stolní mixér s 1,5l nádobou z Tritanu™ (BPA free), ideální pro mixování, sekání, drcení ledu a přípravu pokrmů. Nožový systém Mini Kinetix® zajišťuje rovnoměrné zpracování surovin. Nabízí 4 rychlosti, program Smoothie, fun",
+   "url": "https://www.freshjuice.cz/produkt/stolni-mixer-sage-bbl-405/"
+  },
+  {
+   "id": "603",
+   "nazev": "Mixér SAGE SBL920",
+   "cena_kc": 15999,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "SAGE SBL 920 je vysoce výkonný super mixér s příkonem 2400 W, který zvládne drcení ledu, mixování, mletí i přípravu polévek. Nabízí dvě nádoby z Tritanu™ (2,0 l a 0,7 l) a 12 rychlostí pro přesné nastavení. Díky 5 přednastaveným programům, ",
+   "url": "https://www.freshjuice.cz/produkt/mixer-sage-sbl920/"
+  },
+  {
+   "id": "590",
+   "nazev": "SAGE SBL 820",
+   "cena_kc": 11999,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "SAGE SBL 820 je výkonný stolní supermixér s příkonem 2400 W, ideální pro mixování ovoce, zeleniny, ořechů, drcení ledu i přípravu polévek. Je vybaven 2,0 l nádobou BPA free a speciálně tvarovanými noži z nerezové oceli. Nabízí 5 rychlostí, ",
+   "url": "https://www.freshjuice.cz/produkt/sage-sbl-820/"
+  },
+  {
+   "id": "585",
+   "nazev": "SAGE SBL 620SIL",
+   "cena_kc": 6999,
+   "kategorie": "Mixéry pro domácnost",
+   "skladem": true,
+   "popis": "SAGE SBL 620SIL je stolní mixér s výkonem 1300 W, ideální pro přípravu jemných smoothies, sekání, mixování a drcení ledu. Nádoba z Tritanu™ o objemu 1,5 l se systémem Kinetix® zajišťuje 100% výsledky mixování. Nože z chirurgické oceli posky",
+   "url": "https://www.freshjuice.cz/produkt/sage-sbll-620sil/"
+  },
+  {
+   "id": "569",
+   "nazev": "Mixér Blendtec SpaceSaver 825",
+   "cena_kc": 28911,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Blendtec SpaceSaver 825 je kompaktní a výkonný profesionální mixér, který nabízí 30 přednastavených programů a hladké ovládání pomocí LED displeje. V balení obsahuje mixovací nádobu FourSide s víčkem Latching Lid. Díky tiché a vysoce výkonn",
+   "url": "https://www.freshjuice.cz/produkt/569/"
+  },
+  {
+   "id": "556",
+   "nazev": "Mixér barový Blendtec STEALTH 885 +2xWildSide DBR nádoba + protihlukový kryt",
+   "cena_kc": 39900,
+   "kategorie": "Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Blendtec Stealth 885 je nejtišší barový mixér na světě, ideální pro náročné provozovny. Nabízí 42 přednastavených programů, bublinkovou klávesnici a digitální LED displej. Součástí balení jsou dvě nádoby WildSide z Tritanu bez BPA a protihl",
+   "url": "https://www.freshjuice.cz/produkt/mixer-barovy-blendtec-stealth-885-2xwildside-dbr-nadoba-protihlukovy-kryt/"
+  },
+  {
+   "id": "530",
+   "nazev": "Blender Happycall Axlerim Z",
+   "cena_kc": 8181,
+   "kategorie": "Mixéry a blendery, Mixéry pro domácnost, Mixéry pro gastronomii",
+   "skladem": true,
+   "popis": "Happycall Axlerim Z je výkonný mixér, který překoná vaše očekávání. S výkonem motoru 3600 W a 28 000 otáčkami za minutu zvládne mixovat, sekat, drtit i vyrábět polévky či zmrzlinu. Jeho dvoulitrová nádoba z Tritanu a nože z japonské nerezov",
+   "url": "https://www.freshjuice.cz/produkt/blender-happycall-axlerim-z/"
+  },
+  {
+   "id": "520",
+   "nazev": "Profi Citrusovač Citrocasa Fantastic Connect",
+   "cena_kc": 192390,
+   "kategorie": "Citrusovače, Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Automatický citrusovač Citrocasa Fantastic Connect je perfektní řešení pro rychlou, hygienickou a snadnou výrobu čerstvé pomerančové šťávy. Díky svým pokročilým funkcím a špičkovému zpracování je ideální volbou pro gastronomii, hotely, kavá",
+   "url": "https://www.freshjuice.cz/produkt/profi-citrusovac-citrocasa-fantastic-connect/"
+  },
+  {
+   "id": "509",
+   "nazev": "Profi Citrusovač Citrocasa 8000 XB – advance",
+   "cena_kc": 139900,
+   "kategorie": "Citrusovače, Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrocasa 8000 XB je profesionální automatický odšťavňovač s vysokým výkonem a kapacitou až 40 pomerančů za minutu. Ideální pro bary, restaurace, hotely i samoobslužné provozy, kde je požadována efektivita a kvalita. Nabízí hygienické a sna",
+   "url": "https://www.freshjuice.cz/produkt/profi-citrusovac-citrocasa-8000-xb-advance/"
+  },
+  {
+   "id": "496",
+   "nazev": "PROFI Odstředivý odšťavňovač Ceado ES 900",
+   "cena_kc": 58600,
+   "kategorie": "Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Odšťavňovač Ceado ES 900 je vysoce výkonný profesionální přístroj určený pro provozy s vysokou spotřebou ovoce a zeleniny, jako jsou freshbary, restaurace či hotely. Nabízí extrémně tichý provoz a výkon až 2 litry šťávy za minutu, což zaruč",
+   "url": "https://www.freshjuice.cz/produkt/profi-odstredivy-odstavnovac-ceado-es-900/"
+  },
+  {
+   "id": "471",
+   "nazev": "PROFI Lis na citrusy Santos N 10C",
+   "cena_kc": 17170,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Lis na citrusy Santos N 10 C je stolní elektrický přístroj určený pro rychlou a snadnou přípravu čerstvé šťávy z citronů, limetek, pomerančů a grapefruitů. Je vybaven přítlačnou pákou s nerezovým ochranným víkem, které zabraňuje vystříknutí",
+   "url": "https://www.freshjuice.cz/produkt/profi-lis-na-citrusy-santos-n-10c/"
+  },
+  {
+   "id": "461",
+   "nazev": "PROFI Lis na citrusy Santos N 10",
+   "cena_kc": 14120,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Lis na citrusy Santos N 10 je spolehlivý elektrický přístroj navržený pro snadnou přípravu čerstvé šťávy z citrusových plodů, jako jsou citrony, pomeranče, limetky a grapefruity. Díky přítlačné kloubové páce s ochranným nerezovým víkem a mi",
+   "url": "https://www.freshjuice.cz/produkt/profi-lis-na-citrusy-santos-n-10/"
+  },
+  {
+   "id": "456",
+   "nazev": "PROFI Odstředivý odšťavňovač Robot Coupe J100",
+   "cena_kc": 54890,
+   "kategorie": "Odšťavňovače, Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Automatický odšťavňovač Robot Coupe J 100 je profesionální zařízení navržené pro intenzivní používání ve fresh barech a gastronomických provozech. Patentovaný automatický plnící otvor s průměrem 79 mm umožňuje snadné vkládání celých kusů ov",
+   "url": "https://www.freshjuice.cz/produkt/profi-odstredivy-odstavnovac-robot-coupe-j100/"
+  },
+  {
+   "id": "234",
+   "nazev": "Profi Citrusovač Citrocasa 8000 SB – advance",
+   "cena_kc": 179900,
+   "kategorie": "Citrusovače, Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Citrusovač Citrocasa 8000 SB je špičkový automatický lis na citrusy vhodný pro samoobslužný provoz. Dokáže zpracovat až 40 pomerančů za minutu a nabízí stoprocentně čistou šťávu bez námahy. Jednoduché sestavení a čištění zaručuje pohodlné p",
+   "url": "https://www.freshjuice.cz/produkt/profi-citrusovac-citrocasa-8000-sb-advance/"
+  },
+  {
+   "id": "188",
+   "nazev": "Ruční citrusovač Lis na citrusy barový Turbo profi",
+   "cena_kc": 6900,
+   "kategorie": "Citrusovače pro gastronomii",
+   "skladem": true,
+   "popis": "Stolní provedení velkého barového mechanického lisu na grepy a jiné citrusy",
+   "url": "https://www.freshjuice.cz/produkt/rucni-citrusovac-lis-na-citrusy-barovy-turbo-profi/"
+  },
+  {
+   "id": "187",
+   "nazev": "Lis na citrusy SAGE 800CP",
+   "cena_kc": 4958,
+   "kategorie": "Citrusovače pro domácnosti",
+   "skladem": true,
+   "popis": "Lis na citrusy SAGE 800 CP je ideální pomocník pro snadnou a rychlou přípravu čerstvých citrusových šťáv. Díky patentovanému sklopnému ramenu nabízí maximální výtěžnost šťávy, zatímco nerezové filtry zajistí správnou konzistenci nápoje. Bez",
+   "url": "https://www.freshjuice.cz/produkt/lis-na-citrusy-sage-800cp/"
+  },
+  {
+   "id": "185",
+   "nazev": "Barový drtič ledu Remida RP2",
+   "cena_kc": 14907,
+   "kategorie": "ostatní",
+   "skladem": true,
+   "popis": "Profesionální model v robustním celonerezovém provedení s velkým výkonem a možností plnění ledové drtě přímo do skla. Foto pouze ilustrační. Nerezová misky s perforovaným dnem pro odvod vody není v ceně zařízení…",
+   "url": "https://www.freshjuice.cz/produkt/barovy-drtic-ledu-remida-rp2/"
+  },
+  {
+   "id": "182",
+   "nazev": "PROFI Odstředivý odšťavňovač Ceado ES 700",
+   "cena_kc": 53380,
+   "kategorie": "Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Odšťavňovač Ceado ES 700 je profesionální velkokapacitní přístroj, ideální pro freshbary, restaurace, hotely a další provozovny s vysokou spotřebou ovoce a zeleniny. Nabízí tichý provoz a výkon až 2 litry šťávy za minutu, čímž zajišťuje ryc",
+   "url": "https://www.freshjuice.cz/produkt/odstredivy-odstavnovac-ceado-es-700/"
+  },
+  {
+   "id": "178",
+   "nazev": "PROFI Odstředivý odšťavňovač Ceado ES 500",
+   "cena_kc": 42300,
+   "kategorie": "Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Odšťavňovač Ceado ES 500 je ideální pro malé a střední provozovny s denní spotřebou ovoce a zeleniny do 50 kg. Nabízí tichý provoz, který zajišťuje příjemné prostředí pro zákazníky i obsluhu. Robustní konstrukce z hliníkové slitiny a nerezo",
+   "url": "https://www.freshjuice.cz/produkt/odstredivy-odstavnovac-ceado-es-500/"
+  },
+  {
+   "id": "175",
+   "nazev": "Odšťavňovač šnekový NUTRISANTOS N 65",
+   "cena_kc": 96350,
+   "kategorie": "Šněkové odšťavňovače",
+   "skladem": true,
+   "popis": "Nutrisantos N65 je profesionální šnekový odšťavňovač od francouzského výrobce SANTOS, ideální pro přípravu čerstvých šťáv lisovaných za studena. Tento šetrný způsob odšťavňování zachovává maximum vitamínů, enzymů a živin, a je ideální pro d",
+   "url": "https://www.freshjuice.cz/produkt/odstavnovac-snekovy-nutrisantos-n-65/"
+  },
+  {
+   "id": "172",
+   "nazev": "PROFI  Odstředivý odšťavňovač SANTOS N 68",
+   "cena_kc": 63930,
+   "kategorie": "Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Santos N68 je profesionální odšťavňovač ideální pro ovocné bary, restaurace, hotely či obchody se zdravou výživou. Díky výkonnému a tichému asynchronnímu motoru zvládne zpracovat více než 1 litr šťávy za minutu. Extra široká násypka umožňuj",
+   "url": "https://www.freshjuice.cz/produkt/odstredivy-odstavnovac-santos-n-68/"
+  },
+  {
+   "id": "167",
+   "nazev": "PROFI Odstředivý odšťavňovač Robot Coupe J80",
+   "cena_kc": 39775,
+   "kategorie": "Odšťavňovače, Odstředivé odšťavňovače",
+   "skladem": true,
+   "popis": "Automatický odšťavňovač Robot Coupe J 80 je profesionální zařízení ideální pro fresh bary a provozy s intenzivním používáním. Patentovaný automatický plnící otvor umožňuje nepřetržité a snadné vkládání ovoce a zeleniny bez nutnosti krájení ",
+   "url": "https://www.freshjuice.cz/produkt/odstredivy-odstavnovac-robot-coupe-j80-2/"
+  },
+  {
+   "id": "159",
+   "nazev": "Odstředivý odšťavňovač Robot Coupe J80",
+   "cena_kc": 39775,
+   "kategorie": "Odšťavňovače",
+   "skladem": true,
+   "popis": "",
+   "url": "https://www.freshjuice.cz/produkt/odstredivy-odstavnovac-robot-coupe-j80/"
+  }
+ ]
+}
