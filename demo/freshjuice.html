@@ -163,7 +163,9 @@ footer a{color:var(--gray);}
     }
   }).catch(function () {});
 
-  function pridej(role, text) { var m = el('div', 'msg ' + role, text); msgs.appendChild(m); dolu(); return m; }
+  // cena se nesmí zlomit na dva řádky („6“ / „611 Kč“): mezery v číslech a před Kč nezlomitelné
+  function ceny(t) { return String(t).replace(/(\d)[  ](?=\d{3}(?!\d))/g, '$1 ').replace(/(\d) (Kč|tis)/g, '$1 $2'); }
+  function pridej(role, text) { var m = el('div', 'msg ' + role, role === 'a' ? ceny(text) : text); msgs.appendChild(m); dolu(); return m; }
 
   function ukazProdukty(seznam) {
     if (!seznam || !seznam.length) return;
