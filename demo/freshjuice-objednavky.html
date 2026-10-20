@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Objednávky ovoce zprávou — ukázka pro FreshJuice · KAI Tech</title>
+<meta name="description" content="Ukázka: restaurace objedná ovoce přes odkaz ve zprávě a FreshJuice volá jen těm, kdo neodpoví.">
+<link rel="icon" href="/logo-kai.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* Ukázka pro schůzku s majitelem freshjuice.cz (20. 10. 2026): FreshJuice dnes
+   restauracím s odšťavňovačem v pronájmu volá a objednávky ovoce sbírá po
+   telefonu. Ukázka varianty „zpráva místo telefonu“ běží celá v prohlížeči,
+   nic neodesílá ani neukládá; restaurace a množství jsou vymyšlené. */
+:root{
+  --navy:#060b1a; --navy2:#0a1228; --navy3:#0f1a35;
+  --blue:#1e6bff; --cyan:#00c2ff; --green:#4ade80; --amber:#fbbf24; --orange:#f97316;
+  --white:#ffffff; --gray:#7a8fad; --gray2:#b8cae0;
+  --border:rgba(100,140,255,0.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;}
+h1,h2{font-family:'Syne','DM Sans',sans-serif;}
+header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);text-decoration:none;}
+.logo span{color:var(--cyan);}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,194,255,.25);border-radius:100px;padding:.25rem .7rem;}
+.intro{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem .6rem;}
+.intro h1{font-size:clamp(1.5rem,3.4vw,2.2rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem;}
+.intro p{color:var(--gray2);max-width:760px;font-size:.95rem;}
+.kroky{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.8rem;font-size:.88rem;color:var(--gray2);counter-reset:k;}
+.kroky li{counter-increment:k;}
+.kroky li::before{content:counter(k);display:inline-grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:50%;background:rgba(0,194,255,.14);color:var(--cyan);font-size:.75rem;font-weight:700;margin-right:.45rem;}
+.intro .pozn{color:var(--gray);font-size:.8rem;margin-top:.7rem;}
+main{max-width:1180px;margin:0 auto;padding:1rem 1.5rem 2.5rem;display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:1.5rem;align-items:start;}
+.popis{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:.6rem;}
+
+/* telefon restaurace */
+.phone{background:#0b1020;border:1px solid var(--border);border-radius:38px;padding:11px;box-shadow:0 24px 60px rgba(0,0,0,.4);width:100%;max-width:380px;margin:0 auto;}
+.screen{background:#f4f6fa;border-radius:28px;overflow:hidden;height:620px;display:flex;flex-direction:column;color:#0f172a;}
+.sbar{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:#334155;padding:.55rem 1.2rem .2rem;}
+.shead{display:flex;align-items:center;gap:.6rem;padding:.35rem 1rem .65rem;border-bottom:1px solid #e2e8f0;background:#fff;}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8rem;flex:none;}
+.sname b{display:block;font-size:.92rem;line-height:1.2;}
+.sname span{font-size:.72rem;color:#64748b;}
+.chat{flex:1;overflow-y:auto;padding:1rem .9rem;display:flex;flex-direction:column;gap:.6rem;}
+.bub{max-width:88%;padding:.6rem .8rem;border-radius:16px;font-size:.88rem;line-height:1.45;background:#fff;border:1px solid #e2e8f0;align-self:flex-start;border-bottom-left-radius:5px;}
+.bub .cas{display:block;font-size:.68rem;color:#94a3b8;margin-top:.3rem;}
+.odkaz{display:block;margin-top:.55rem;font:inherit;font-weight:600;font-size:.88rem;background:var(--orange);color:#fff;border:0;border-radius:10px;padding:.55rem .8rem;cursor:pointer;width:100%;}
+.odkaz:disabled{background:#cbd5e1;color:#475569;cursor:default;}
+.lista{font-size:.72rem;color:#475569;text-align:center;padding:.4rem;background:#e2e8f0;}
+.form{flex:1;overflow-y:auto;padding:1rem .9rem;display:flex;flex-direction:column;gap:.6rem;}
+.form>*{flex-shrink:0;}
+.fhead b{display:block;font-size:1.02rem;}
+.fhead span{font-size:.8rem;color:#64748b;}
+.polozka{display:flex;align-items:center;justify-content:space-between;gap:.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:.5rem .6rem .5rem .8rem;}
+.polozka .n{font-size:.9rem;font-weight:500;}
+.polozka.nula .n{color:#94a3b8;}
+.step{display:flex;align-items:center;gap:.3rem;}
+.step button{width:36px;height:36px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;font-size:1.15rem;line-height:1;cursor:pointer;color:#0f172a;}
+.step output{min-width:56px;text-align:center;font-weight:600;font-size:.9rem;}
+.form select,.form textarea{font:inherit;font-size:.86rem;border:1px solid #cbd5e1;border-radius:10px;padding:.5rem .6rem;background:#fff;color:#0f172a;width:100%;}
+.form textarea{resize:none;height:3.2rem;}
+.btn{font:inherit;font-weight:600;border:0;border-radius:12px;padding:.75rem;cursor:pointer;background:var(--orange);color:#fff;width:100%;}
+.btn2{font:inherit;font-size:.84rem;background:none;border:0;color:#475569;text-decoration:underline;cursor:pointer;padding:.25rem;}
+.form .dole{display:flex;justify-content:space-between;gap:.5rem;}
+
+/* pohled FreshJuice */
+.side{display:grid;gap:1.1rem;}
+.panel{background:var(--navy2);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;}
+.panel h2{font-size:1rem;margin-bottom:.2rem;}
+.sub{color:var(--gray);font-size:.82rem;margin-bottom:.7rem;}
+.rest{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;padding:.6rem 0;border-bottom:1px solid var(--border);}
+.rest:last-child{border-bottom:0;}
+.rest b{display:block;font-size:.92rem;font-weight:600;}
+.rest .det{font-size:.8rem;color:var(--gray2);}
+.rest .tel{font-size:.72rem;color:var(--cyan);}
+.chip{font-size:.72rem;font-weight:600;border-radius:100px;padding:.16rem .6rem;white-space:nowrap;border:1px solid;flex:none;}
+.chip.objednano{color:var(--green);border-color:rgba(74,222,128,.4);}
+.chip.ceka{color:var(--gray2);border-color:rgba(184,202,224,.3);}
+.chip.nic{color:var(--gray);border-color:rgba(122,143,173,.35);}
+.chip.volat{color:#1a1200;background:var(--amber);border-color:var(--amber);}
+.akce{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;}
+.akce button{font:inherit;font-size:.84rem;font-weight:500;border-radius:9px;padding:.5rem .9rem;cursor:pointer;}
+.akce .hl{background:var(--blue);color:#fff;border:0;}
+.akce .vedl{background:transparent;color:var(--gray2);border:1px solid var(--border);}
+.akce button:disabled{opacity:.45;cursor:default;}
+.souhrn{width:100%;border-collapse:collapse;font-size:.88rem;}
+.souhrn td{padding:.35rem 0;border-bottom:1px solid var(--border);}
+.souhrn td:last-child{text-align:right;font-weight:600;}
+.souhrn tr.celkem td{border-bottom:0;color:var(--cyan);}
+.empty{color:var(--gray);font-size:.86rem;}
+.log{list-style:none;display:grid;gap:.35rem;font-size:.82rem;color:var(--gray2);max-height:12rem;overflow-y:auto;}
+.log time{color:var(--gray);margin-right:.4rem;font-variant-numeric:tabular-nums;}
+.volat-box{border-color:rgba(251,191,36,.45);}
+.volat-box[hidden]{display:none;}
+footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:.78rem;color:var(--gray);}
+footer a{color:var(--gray);}
+@media(max-width:900px){main{grid-template-columns:1fr;}}
+@media(max-width:480px){header,.intro,main{padding-left:1rem;padding-right:1rem;}.screen{height:580px;}.phone{border-radius:30px;padding:8px;}.screen{border-radius:23px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">KAI<span>Tech</span></a>
+  <span class="tag">Ukázka</span>
+</header>
+
+<section class="intro">
+  <h1>Objednávky ovoce zprávou místo telefonu</h1>
+  <p>Restaurace s odšťavňovačem v pronájmu dostane před rozvozem zprávu s odkazem a objedná jedním klepnutím. FreshJuice vidí souhrn pro nákup a po uzávěrce volá jen těm, kdo neodpověděli.</p>
+  <ol class="kroky">
+    <li>Klepněte v telefonu na „Otevřít objednávku“</li>
+    <li>Objednejte jako minule, nebo upravte množství</li>
+    <li>V pohledu FreshJuice klikněte na „Simulovat uzávěrku“</li>
+  </ol>
+  <p class="pozn">Ukázka KAI Tech pro FreshJuice. Restaurace i množství jsou vymyšlené, nic se neodesílá ani neukládá. Zprávu může poslat SMS, WhatsApp nebo e-mail, kanál vybereme podle restaurací.</p>
+</section>
+
+<main>
+  <section aria-label="Telefon restaurace">
+    <p class="popis">Telefon restaurace Bistro Zahrada</p>
+    <div class="phone">
+      <div class="screen" id="screen"></div>
+    </div>
+  </section>
+
+  <div class="side" aria-live="polite">
+    <section class="panel" aria-label="Pohled FreshJuice">
+      <p class="popis">Pohled FreshJuice</p>
+      <h2>Restaurace k rozvozu</h2>
+      <p class="sub" id="rozvozInfo"></p>
+      <div id="restaurace"></div>
+      <div class="akce">
+        <button type="button" class="hl" id="uzaverka">Simulovat uzávěrku</button>
+        <button type="button" class="vedl" id="reset">Začít znovu</button>
+      </div>
+    </section>
+    <section class="panel volat-box" id="volatBox" hidden aria-label="Zavolat">
+      <h2>Zavolat</h2>
+      <p class="sub">Restaurace, které do uzávěrky neodpověděly. Jen těm se volá.</p>
+      <div id="volat"></div>
+    </section>
+    <section class="panel" aria-label="Souhrn pro nákup">
+      <h2>Souhrn pro nákup</h2>
+      <p class="sub">Součet objednávek. Po uzávěrce by odešel e-mailem i s trasou rozvozu a fakturami do Pohody.</p>
+      <div id="souhrn"></div>
+    </section>
+    <section class="panel" aria-label="Co se stalo">
+      <h2>Co se stalo</h2>
+      <ul class="log" id="log"></ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  Ukázka KAI Tech · <a href="https://kaitechinvest.com">kaitechinvest.com</a> · info@kaitechinvest.com<br>
+  Ctibor Klíma — KAI Tech · IČO 02235471 · Renneská třída 765/42, 639 00 Brno-Štýřice
+</footer>
+
+<script>
+(function () {
+  var OVOCE = [['pomerance', 'Pomeranče'], ['citrony', 'Citrony'], ['limety', 'Limety'], ['grapefruity', 'Grapefruity'],
+    ['jablka', 'Jablka'], ['mrkev', 'Mrkev'], ['zazvor', 'Zázvor']];
+  var JMENO = {};
+  OVOCE.forEach(function (o) { JMENO[o[0]] = o[1]; });
+
+  // rozvoz = nejbližší čtvrtek aspoň dva dny dopředu, uzávěrka den předem (středa) ve 12:00
+  var dnes = new Date();
+  var posun = (4 - dnes.getDay() + 7) % 7;
+  if (posun < 2) posun += 7;
+  var rozvoz = new Date(dnes.getFullYear(), dnes.getMonth(), dnes.getDate() + posun);
+  var uzav = new Date(rozvoz.getFullYear(), rozvoz.getMonth(), rozvoz.getDate() - 1);
+  // nezlomitelné mezery, ať se datum na mobilu nerozdělí na dva řádky
+  function datum(d) { return d.getDate() + '. ' + (d.getMonth() + 1) + '.'; }
+  var ROZVOZ = 'čtvrtek ' + datum(rozvoz), ROZVOZ_VE = 've čtvrtek ' + datum(rozvoz);
+  var UZAVERKA = 'středa ' + datum(uzav) + ' ve 12:00', UZAVERKA_DO = 'do středy ' + datum(uzav) + ' ve 12:00';
+
+  var R, zpravy, log, poUzaverce, formular, formPozn, pohled, simMin;
+
+  function zacni() {
+    R = [
+      { id: 'zahrada', nazev: 'Bistro Zahrada', minule: { pomerance: 20, citrony: 5, grapefruity: 4 }, stav: 'ceka', demo: true },
+      { id: 'most', nazev: 'Kavárna U Mostu', minule: { pomerance: 12, limety: 3 }, stav: 'ceka' },
+      { id: 'panorama', nazev: 'Hotel Panorama, snídaně', minule: { pomerance: 30, grapefruity: 6, jablka: 10 }, stav: 'objednano', obj: { pomerance: 30, grapefruity: 6, jablka: 12 } },
+      { id: 'fresh', nazev: 'Fresh Bar Centrum', minule: { pomerance: 15, citrony: 4, mrkev: 8 }, stav: 'objednano', obj: { pomerance: 15, citrony: 4, mrkev: 8, zazvor: 1 } },
+      { id: 'roh', nazev: 'Restaurace Na Rohu', minule: { pomerance: 8, citrony: 2 }, stav: 'nic' }
+    ];
+    poUzaverce = false;
+    pohled = 'chat';
+    simMin = 11 * 60 + 5;
+    var z = najdi('zahrada');
+    zpravy = [{ text: 'Dobrý den, tady FreshJuice. Ovoce vezeme ' + ROZVOZ_VE + ' Objednávku prosím pošlete ' + UZAVERKA_DO
+      + '. Minule jste měli: ' + seznam(z.minule) + '.', odkaz: true, cas: '9:00' }];
+    log = [
+      { cas: '9:00', text: 'Zpráva s odkazem odešla 5 restauracím.' },
+      { cas: '9:12', text: 'Hotel Panorama: objednávka přijata.' },
+      { cas: '9:47', text: 'Restaurace Na Rohu: tento týden nic.' },
+      { cas: '10:40', text: 'Fresh Bar Centrum: objednávka přijata, navíc zázvor.' }
+    ];
+    vykresli();
+  }
+
+  function najdi(id) { return R.filter(function (r) { return r.id === id; })[0]; }
+  function seznam(o) {
+    return OVOCE.filter(function (f) { return o[f[0]] > 0; })
+      .map(function (f) { return f[1].toLowerCase() + ' ' + o[f[0]] + ' kg'; }).join(', ');
+  }
+  function stejne(a, b) {
+    return OVOCE.every(function (f) { return (a[f[0]] || 0) === (b[f[0]] || 0); });
+  }
+  // vymyšlené hodiny ukázky: akce restaurace jdou po 10:40 a vždy před uzávěrkou ve 12:00
+  function ted() { var t = simMin; simMin = Math.min(simMin + 7, 11 * 60 + 58); return Math.floor(t / 60) + ':' + ('0' + t % 60).slice(-2); }
+  function objednavek(n) { return n === 1 ? 'objednávka' : (n >= 2 && n <= 4 ? 'objednávky' : 'objednávek'); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  // ---------- telefon ----------
+  function vykresliTelefon() {
+    var s = document.getElementById('screen');
+    s.innerHTML = '';
+    var bar = el('div', 'sbar'); bar.appendChild(el('span', null, '9:41')); bar.appendChild(el('span', null, '4G  87 %'));
+    s.appendChild(bar);
+    var head = el('div', 'shead');
+    head.appendChild(el('div', 'avatar', 'FJ'));
+    var nm = el('div', 'sname'); nm.appendChild(el('b', null, 'FreshJuice')); nm.appendChild(el('span', null, pohled === 'chat' ? 'zprávy' : 'objednávka ovoce'));
+    head.appendChild(nm);
+    s.appendChild(head);
+    if (pohled === 'chat') {
+      var chat = el('div', 'chat');
+      zpravy.forEach(function (m) {
+        var b = el('div', 'bub', m.text);
+        if (m.odkaz) {
+          var z = najdi('zahrada');
+          var btn = el('button', 'odkaz', poUzaverce ? 'Objednávky jsou uzavřené' : (z.stav === 'objednano' ? 'Změnit objednávku' : 'Otevřít objednávku'));
+          btn.type = 'button';
+          btn.disabled = poUzaverce;
+          btn.addEventListener('click', otevriFormular);
+          b.appendChild(btn);
+        }
+        b.appendChild(el('span', 'cas', m.cas));
+        chat.appendChild(b);
+      });
+      s.appendChild(chat);
+      chat.scrollTop = chat.scrollHeight;
+    } else {
+      s.appendChild(el('div', 'lista', 'Objednávka ovoce · FreshJuice'));
+      s.appendChild(vykresliFormular());
+    }
+  }
+
+  function otevriFormular() {
+    var z = najdi('zahrada');
+    var zaklad = z.stav === 'objednano' ? z.obj : z.minule;
+    formular = {};
+    OVOCE.forEach(function (f) { if (zaklad[f[0]]) formular[f[0]] = zaklad[f[0]]; });
+    formPozn = z.poznamka || '';
+    pohled = 'form';
+    vykresliTelefon();
+  }
+
+  function vykresliFormular() {
+    var z = najdi('zahrada');
+    var f = el('div', 'form');
+    var h = el('div', 'fhead');
+    h.appendChild(el('b', null, z.nazev));
+    h.appendChild(el('span', null, 'Rozvoz ' + ROZVOZ + ' · objednávka ' + UZAVERKA_DO));
+    f.appendChild(h);
+    OVOCE.forEach(function (o) {
+      if (!(o[0] in formular)) return;
+      var p = el('div', 'polozka' + (formular[o[0]] ? '' : ' nula'));
+      p.appendChild(el('span', 'n', o[1]));
+      var st = el('div', 'step');
+      var minus = el('button', null, '−'); minus.type = 'button'; minus.setAttribute('aria-label', 'Ubrat ' + o[1].toLowerCase());
+      var out = el('output', null, formular[o[0]] + ' kg');
+      var plus = el('button', null, '+'); plus.type = 'button'; plus.setAttribute('aria-label', 'Přidat ' + o[1].toLowerCase());
+      minus.addEventListener('click', function () { formular[o[0]] = Math.max(0, formular[o[0]] - 1); vykresliTelefon(); });
+      plus.addEventListener('click', function () { formular[o[0]] = Math.min(200, formular[o[0]] + 1); vykresliTelefon(); });
+      st.appendChild(minus); st.appendChild(out); st.appendChild(plus);
+      p.appendChild(st);
+      f.appendChild(p);
+    });
+    var zbyva = OVOCE.filter(function (o) { return !(o[0] in formular); });
+    if (zbyva.length) {
+      var sel = el('select'); sel.setAttribute('aria-label', 'Přidat další ovoce');
+      sel.appendChild(el('option', null, '+ Přidat další ovoce nebo zeleninu'));
+      zbyva.forEach(function (o) { var op = el('option', null, o[1]); op.value = o[0]; sel.appendChild(op); });
+      sel.addEventListener('change', function () { if (sel.value in JMENO) { formular[sel.value] = 1; vykresliTelefon(); } });
+      f.appendChild(sel);
+    }
+    var pozn = el('textarea'); pozn.id = 'poznamka'; pozn.placeholder = 'Poznámka k objednávce nebo pro řidiče (nepovinné)';
+    pozn.setAttribute('aria-label', 'Poznámka');
+    pozn.value = formPozn;
+    pozn.addEventListener('input', function () { formPozn = pozn.value; });
+    f.appendChild(pozn);
+    var zaklad = z.stav === 'objednano' ? z.obj : z.minule;
+    var vybrano = OVOCE.some(function (o) { return formular[o[0]] > 0; });
+    var odeslat = el('button', 'btn', !vybrano ? 'Tento týden nic' : (z.stav !== 'objednano' && stejne(formular, z.minule) ? 'Objednat jako minule' : (stejne(formular, zaklad) ? 'Potvrdit beze změny' : 'Odeslat objednávku')));
+    odeslat.type = 'button';
+    odeslat.addEventListener('click', function () { if (vybrano) objednej(formPozn); else nic(); });
+    f.appendChild(odeslat);
+    var dole = el('div', 'dole');
+    var zpet = el('button', 'btn2', '← Zpět na zprávy'); zpet.type = 'button';
+    zpet.addEventListener('click', function () { pohled = 'chat'; vykresliTelefon(); });
+    dole.appendChild(zpet);
+    if (vybrano) {
+      var bez = el('button', 'btn2', 'Tento týden nic'); bez.type = 'button';
+      bez.addEventListener('click', nic);
+      dole.appendChild(bez);
+    }
+    f.appendChild(dole);
+    return f;
+  }
+
+  function objednej(poznamka) {
+    var z = najdi('zahrada');
+    var obj = {};
+    OVOCE.forEach(function (o) { if (formular[o[0]] > 0) obj[o[0]] = formular[o[0]]; });
+    var zmena = z.stav === 'objednano';
+    z.stav = 'objednano'; z.obj = obj; z.poznamka = String(poznamka || '').trim();
+    var c = ted();
+    zpravy.push({ text: 'Děkujeme, objednávka je přijatá: ' + seznam(obj) + '. Vezeme ' + ROZVOZ_VE
+      + ' Změnit ji můžete ' + UZAVERKA_DO + ' přes stejný odkaz.', cas: c });
+    log.push({ cas: c, text: 'Bistro Zahrada: ' + (zmena ? 'objednávka změněna' : (stejne(obj, z.minule) ? 'objednávka jako minule' : 'objednávka přijata'))
+      + (z.poznamka ? ', s poznámkou.' : '.') });
+    pohled = 'chat';
+    vykresli();
+  }
+
+  function nic() {
+    var z = najdi('zahrada');
+    z.stav = 'nic'; z.obj = null;
+    var c = ted();
+    zpravy.push({ text: 'Rozumíme, tento týden nic. Ozveme se před dalším rozvozem.', cas: c });
+    log.push({ cas: c, text: 'Bistro Zahrada: tento týden nic.' });
+    pohled = 'chat';
+    vykresli();
+  }
+
+  function uzaverka() {
+    if (poUzaverce) return;
+    poUzaverce = true;
+    log.push({ cas: '12:00', text: 'Uzávěrka objednávek.' });
+    R.forEach(function (r) {
+      if (r.stav === 'ceka') {
+        r.stav = 'volat';
+        log.push({ cas: '12:00', text: r.nazev + ': bez odpovědi, přidáno k zavolání.' });
+        if (r.demo) zpravy.push({ text: 'Uzávěrka objednávek proběhla. Zavoláme vám, ať na rozvoz nezapomeneme.', cas: '12:01' });
+      }
+    });
+    pohled = 'chat';
+    vykresli();
+  }
+
+  // ---------- pohled FreshJuice ----------
+  var STAV = { objednano: 'Objednáno', ceka: 'Čeká na odpověď', nic: 'Tento týden nic', volat: 'Zavolat' };
+
+  function vykresliPanel() {
+    document.getElementById('rozvozInfo').textContent = 'Rozvoz ' + ROZVOZ + ' · uzávěrka ' + UZAVERKA;
+    var box = document.getElementById('restaurace');
+    box.innerHTML = '';
+    R.forEach(function (r) {
+      var row = el('div', 'rest');
+      var t = el('div');
+      t.appendChild(el('b', null, r.nazev));
+      var det = r.stav === 'objednano' ? seznam(r.obj) + (r.poznamka ? ' · poznámka: ' + r.poznamka : '')
+        : (r.stav === 'nic' ? 'tento týden bez ovoce' : 'minule: ' + seznam(r.minule));
+      t.appendChild(el('div', 'det', det));
+      if (r.demo) t.appendChild(el('div', 'tel', 'Tahle restaurace je v telefonu'));
+      row.appendChild(t);
+      row.appendChild(el('span', 'chip ' + r.stav, STAV[r.stav]));
+      box.appendChild(row);
+    });
+    document.getElementById('uzaverka').disabled = poUzaverce;
+
+    var volat = R.filter(function (r) { return r.stav === 'volat'; });
+    var vb = document.getElementById('volatBox');
+    vb.hidden = !volat.length;
+    var vl = document.getElementById('volat');
+    vl.innerHTML = '';
+    volat.forEach(function (r) {
+      var row = el('div', 'rest');
+      var t = el('div');
+      t.appendChild(el('b', null, r.nazev));
+      t.appendChild(el('div', 'det', 'minule: ' + seznam(r.minule)));
+      row.appendChild(t);
+      row.appendChild(el('span', 'chip volat', 'Zavolat'));
+      vl.appendChild(row);
+    });
+
+    var soucet = {}, celkem = 0;
+    R.forEach(function (r) {
+      if (r.stav !== 'objednano') return;
+      Object.keys(r.obj).forEach(function (k) { soucet[k] = (soucet[k] || 0) + r.obj[k]; celkem += r.obj[k]; });
+    });
+    var sb = document.getElementById('souhrn');
+    sb.innerHTML = '';
+    if (!celkem) { sb.appendChild(el('p', 'empty', 'Zatím žádná objednávka.')); }
+    else {
+      var tab = el('table', 'souhrn');
+      OVOCE.forEach(function (o) {
+        if (!soucet[o[0]]) return;
+        var tr = el('tr'); tr.appendChild(el('td', null, o[1])); tr.appendChild(el('td', null, soucet[o[0]] + ' kg')); tab.appendChild(tr);
+      });
+      var n = R.filter(function (r) { return r.stav === 'objednano'; }).length;
+      var tc = el('tr', 'celkem'); tc.appendChild(el('td', null, 'Celkem, ' + n + ' ' + objednavek(n))); tc.appendChild(el('td', null, celkem + ' kg'));
+      tab.appendChild(tc);
+      sb.appendChild(tab);
+    }
+
+    var ul = document.getElementById('log');
+    ul.innerHTML = '';
+    log.slice().reverse().forEach(function (l) {
+      var li = el('li'); li.appendChild(el('time', null, l.cas)); li.appendChild(document.createTextNode(l.text)); ul.appendChild(li);
+    });
+  }
+
+  function vykresli() { vykresliTelefon(); vykresliPanel(); }
+
+  document.getElementById('uzaverka').addEventListener('click', uzaverka);
+  document.getElementById('reset').addEventListener('click', zacni);
+  zacni();
+})();
+</script>
+</body>
+</html>
