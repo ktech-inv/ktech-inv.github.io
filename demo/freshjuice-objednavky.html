@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Objednávky ovoce zprávou — ukázka pro FreshJuice · KAI Tech</title>
-<meta name="description" content="Ukázka: restaurace objedná ovoce přes odkaz ve zprávě a FreshJuice volá jen těm, kdo neodpoví.">
+<meta name="description" content="Ukázka: restaurace objedná ovoce přes odkaz ve zprávě a FreshJuice vidí, kdo ještě neobjednal.">
 <link rel="icon" href="/logo-kai.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -126,7 +126,7 @@ footer a{color:var(--gray);}
 
 <section class="intro">
   <h1>Objednávky ovoce zprávou místo telefonu</h1>
-  <p>Restaurace s odšťavňovačem v pronájmu dostane před rozvozem zprávu s odkazem a objedná jedním klepnutím. FreshJuice vidí souhrn pro nákup a po uzávěrce volá jen těm, kdo neodpověděli.</p>
+  <p>Restaurace s odšťavňovačem v pronájmu dostane před rozvozem zprávu s odkazem a objedná jedním klepnutím. FreshJuice vidí souhrn pro nákup a rozvoz a po uzávěrce i to, kdo ještě neobjednal.</p>
   <ol class="kroky">
     <li>Klepněte v telefonu na „Otevřít objednávku“</li>
     <li>Objednejte jako minule, nebo upravte množství</li>
@@ -159,9 +159,9 @@ footer a{color:var(--gray);}
         <button type="button" class="vedl" id="reset">Začít znovu</button>
       </div>
     </section>
-    <section class="panel volat-box" id="volatBox" hidden aria-label="Zavolat">
-      <h2>Zavolat</h2>
-      <p class="sub">Restaurace, které do uzávěrky neodpověděly. Jen těm se volá.</p>
+    <section class="panel volat-box" id="volatBox" hidden aria-label="Ještě neobjednali">
+      <h2>Ještě neobjednali</h2>
+      <p class="sub">Restaurace, které do uzávěrky neobjednaly. Můžete jim poslat připomínku, nebo to nechat na nich.</p>
       <div id="volat"></div>
     </section>
     <section class="panel" aria-label="Souhrn pro nákup">
@@ -372,8 +372,8 @@ footer a{color:var(--gray);}
     R.forEach(function (r) {
       if (r.stav === 'ceka') {
         r.stav = 'volat';
-        log.push({ cas: '12:00', text: r.nazev + ': bez odpovědi, přidáno k zavolání.' });
-        if (r.demo) zpravy.push({ text: 'Uzávěrka objednávek proběhla. Zavoláme vám, ať na rozvoz nezapomeneme.', cas: '12:01' });
+        log.push({ cas: '12:00', text: r.nazev + ': do uzávěrky neobjednali.' });
+        if (r.demo) zpravy.push({ text: 'Uzávěrka objednávek proběhla. Kdybyste přece jen něco potřebovali, napište nám.', cas: '12:01' });
       }
     });
     pohled = 'chat';
@@ -381,7 +381,7 @@ footer a{color:var(--gray);}
   }
 
   // ---------- pohled FreshJuice ----------
-  var STAV = { objednano: 'Objednáno', ceka: 'Čeká na odpověď', nic: 'Tento týden nic', volat: 'Zavolat' };
+  var STAV = { objednano: 'Objednáno', ceka: 'Čeká na odpověď', nic: 'Tento týden nic', volat: 'Neobjednáno' };
 
   function vykresliPanel() {
     document.getElementById('rozvozInfo').textContent = 'Rozvoz ' + ROZVOZ + ' · uzávěrka ' + UZAVERKA;
@@ -412,7 +412,7 @@ footer a{color:var(--gray);}
       t.appendChild(el('b', null, r.nazev));
       t.appendChild(el('div', 'det', 'minule: ' + seznam(r.minule)));
       row.appendChild(t);
-      row.appendChild(el('span', 'chip volat', 'Zavolat'));
+      row.appendChild(el('span', 'chip volat', 'Neobjednáno'));
       vl.appendChild(row);
     });
 
