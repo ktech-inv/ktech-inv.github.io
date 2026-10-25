@@ -1,0 +1,192 @@
+{
+ "_poznamka": "Ukázka KAI Tech. Katalog z produktových stránek hurom.cz (sitemap, Shoptet) k 25. 10. 2026. Znalosti z průvodce „Jak vybrat správný typ odšťavňovače“ a popisů produktů, fakta z FAQ a stránky Vyzkoušejte Hurom. Čte to n8n workflow „KAI Tech Poradce e-shopu — ukázka“ (repo kai-workflows, workflows/eshop-poradce-demo.json).",
+ "obchod": "hurom.cz",
+ "sortiment": "šnekové odšťavňovače Hurom pro domácnost i provoz, mixéry a příslušenství; oficiální distributor Hurom v Česku",
+ "stav_k": "25. 10. 2026",
+ "zjistit": [
+  "jakou šťávu chce: čirou bez dužiny, s kousky dužiny, nebo i smoothie a sorbety",
+  "co hlavně odšťavňuje: ovoce, tvrdou zeleninu, listovou zeleninu a bylinky",
+  "pro kolik lidí, nebo jestli do provozu (kavárna, bar, restaurace)",
+  "jak důležité je rychlé čištění",
+  "rozpočet"
+ ],
+ "znalosti": [
+  "H 320 N dává nejčistší šťávu bez dužiny díky nerezovému sítku, má velký inteligentní zásobník na celé ovoce a Hurom ho nazývá svou vlajkovou lodí",
+  "H 310 A je pro milovníky smoothie a hustších šťáv: nemá sítka, čištění je jen opláchnutí šneku a komory, je menší a hodí se pro malé domácnosti, z mraženého ovoce udělá sorbet bez záslepky",
+  "H 400 funguje podobně jako H 310 A bez sítek, ale má mnohem větší zásobník a hodí se pro větší domácnosti; šťáva je méně hustá než z H 310 A",
+  "H 201 dává šťávu s jemnými kousky dužiny, má dvě plastová sítka (oranžové na ovoce, černé na tvrdou zeleninu a bylinky, ne na měkké ovoce), čistí se snadno a zásobník pojme celé suroviny",
+  "E 30 ST spojuje výhody H 320 N s osvědčenými technologiemi a je menší a kompaktní",
+  "CP50 a HW Normal Hopper Commercial jsou komerční odšťavňovače pro provoz (CP50 má motor na 24hodinový provoz)"
+ ],
+ "fakta": [
+  "doprava po ČR zdarma při objednávce nad 5 000 Kč, na Slovensko 250 Kč a 4 pracovní dny",
+  "objednávky ve všední den do 12:00 se vyřizují týž den, po Brně je doručení následující pracovní den",
+  "osobní odběr Brno-Modřice, Nádražní 326",
+  "splátky přes Cofidis a Twisto na třetiny (od 1 500 Kč)",
+  "Hurom jde nejdřív vyzkoušet: půjčovné 1 000 Kč měsíčně, při koupi se odečte z ceny",
+  "telefon 774 631 631, e-mail info@hurom.cz"
+ ],
+ "profil": {
+  "pouziti": "Pro koho",
+  "stava": "Jakou šťávu chce",
+  "suroviny": "Co odšťavňuje",
+  "rozpocet": "Rozpočet"
+ },
+ "katalog": [
+  {
+   "id": "43",
+   "nazev": "Odšťavňovač H 201",
+   "cena_kc": 14490,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Šnekový odšťavnovač Hurom H 201 rozšiřuje rodinu pomaloběžných odšťavňovačů na trhu. Jedná se o další uživatelsky příjemný model od společnosti Hurom.",
+   "url": "https://www.hurom.cz/odstavnovac-h-201/",
+   "barvy": [
+    "tmavě šedý"
+   ]
+  },
+  {
+   "id": "49",
+   "nazev": "Ultra lehká termo láhev",
+   "cena_kc": 500,
+   "kategorie": "Dárky 2",
+   "skladem": true,
+   "popis": "Ultra lehká termo láhev.",
+   "url": "https://www.hurom.cz/ultra-lehka-termo-lahev/"
+  },
+  {
+   "id": "52",
+   "nazev": "Odšťavňovač H 310 A",
+   "cena_kc": 8700,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Šnekový odšťavňovač Hurom H 310 A je určený především pro milovníky smoothies a hustějších šťáv. Svou menší velikostí uspokojí i majitele malé kuchyně. Jedná se o další uživatelsky příjemný model od společnosti Hurom.",
+   "url": "https://www.hurom.cz/odstavnovac-h-310-a/",
+   "barvy": [
+    "Lavender",
+    "Mushroom",
+    "bílý",
+    "černý"
+   ]
+  },
+  {
+   "id": "55",
+   "nazev": "Mixér Mini Blender Diva",
+   "cena_kc": 2490,
+   "kategorie": "Mixéry",
+   "skladem": true,
+   "popis": "Kompaktní - výkonný - bezpečný - inteligentní! V našem mini blenderu naleznete spoustu inovativních řešení. Od výkonného motoru , bezpečnostních prvků, intuitivního ovládání až po dokonalý design . To vše nabízí náš super praktický a super mini mixér, ideální pro každou moderní domácnost.",
+   "url": "https://www.hurom.cz/mixer-mini-blender-diva/",
+   "barvy": [
+    "červený"
+   ]
+  },
+  {
+   "id": "61",
+   "nazev": "Odšťavňovač HW Normal Hopper Commercial",
+   "cena_kc": 32561,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom HW Normal Hopper Commercial je navržen tak, aby dokázal uspokojit i ty nejnáročnější zákazníky a obstál i v rušných podmínkách komerčního provozu.",
+   "url": "https://www.hurom.cz/odstavnovac-hw-normal-hopper-commercial/",
+   "barvy": [
+    "stříbrný"
+   ]
+  },
+  {
+   "id": "67",
+   "nazev": "Odšťavňovač H 320 N",
+   "cena_kc": 14900,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Model H320 N kombinuje výhody revolučního modelu H 200 a osvědčených modelů předchozích generací . Má všechny přednosti a inovace modelu H 200, především velkokapacitní inteligentní zásobník a je vybaven klasickým děrovaným nerezovým sítkem , stejně jako předchozí modely. Díky tomu je šťáva více čir",
+   "url": "https://www.hurom.cz/odstavnovac-h-320-n/",
+   "barvy": [
+    "bílý",
+    "stříbrný",
+    "tmavě zelený",
+    "černý"
+   ]
+  },
+  {
+   "id": "73",
+   "nazev": "Odšťavňovač H 400",
+   "cena_kc": 16900,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Odšťavňovač Hurom H400 Easy Clean Slow Juicer je další z řady pomaloběžných odšťavňovačů, který maximalizuje výtěžnost šťávy a zároveň minimalizuje dužinu ve šťávě. Snadno se čistí a pyšní se velmi elegantním designem. H400 je výkonným doplňkem každé kuchyně.",
+   "url": "https://www.hurom.cz/odstavnovac-h-400/",
+   "barvy": [
+    "bílý",
+    "stříbrný",
+    "černý"
+   ]
+  },
+  {
+   "id": "76",
+   "nazev": "Záslepka na výrobu zmrzliny a sorbetu H 201",
+   "cena_kc": 500,
+   "kategorie": "Doplňky",
+   "skladem": false,
+   "popis": "Záslepka na výrobu zmrzliny a sorbetu k odšťavňovači Hurom H 201.",
+   "url": "https://www.hurom.cz/zaslepka-na-vyrobu-zmrzliny-a-sorbetu/"
+  },
+  {
+   "id": "89",
+   "nazev": "Průvodce odšťavňováním",
+   "cena_kc": 590,
+   "kategorie": "Doplňky",
+   "skladem": true,
+   "popis": "Průvodce odšťavňováním je kniha plná rad, tipů a receptů, vytvořená přímo pro odšťavňovače HUROM. Kniha je v elektronické podobě .",
+   "url": "https://www.hurom.cz/pruvodce-odstavnovanim/"
+  },
+  {
+   "id": "90",
+   "nazev": "Záslepka na výrobu zmrzliny a sorbetu H 320N",
+   "cena_kc": 750,
+   "kategorie": "Doplňky",
+   "skladem": true,
+   "popis": "Záslepka na výrobu zmrzliny a sorbetu k odšťavňovači Hurom H 320 N.",
+   "url": "https://www.hurom.cz/zaslepka-na-vyrobu-zmrzliny-a-sorbetu-2/"
+  },
+  {
+   "id": "97",
+   "nazev": "SET Hurom H 201 + MINIBLENDER",
+   "cena_kc": 15990,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Sada šnekového odšťavnovače Hurom H 201 a Miniblederu je skvělé COMBO pro přípravu smoothies, zmrzlin a dezertů.",
+   "url": "https://www.hurom.cz/set-hurom-h-201-miniblender/"
+  },
+  {
+   "id": "100",
+   "nazev": "CITROCLEAN",
+   "cena_kc": 399,
+   "kategorie": "Doplňky",
+   "skladem": true,
+   "popis": "Imagin CitroClean čisticí prostředek na odšťavňovače a presovače 1 kg",
+   "url": "https://www.hurom.cz/citroclean/"
+  },
+  {
+   "id": "103",
+   "nazev": "Odšťavňovač E 30 ST",
+   "cena_kc": 7999,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Model HUROM E30ST spojuje výhody revolučního modelu H320N s osvědčenými technologiemi předchozích generací. Díky menší velikosti a kompaktnímu designu je ideálním řešením pro menší kuchyně, kde šetří místo, aniž by obětoval výkon. Tento odšťavňovač nabízí inteligentní zásobník, který umožňuje odšťav",
+   "url": "https://www.hurom.cz/odstavnovac-e-30-st/",
+   "barvy": [
+    "bílý"
+   ]
+  },
+  {
+   "id": "106",
+   "nazev": "Komerční odšťavňovač Hurom CP50",
+   "cena_kc": 45345,
+   "kategorie": "Šnekové odšťavňovače",
+   "skladem": true,
+   "popis": "Hurom CP 50 je první komerční odšťavňovač za studena navržený speciálně pro profesionální prostředí s 24hodinovým motorem , automatickým provozem na jeden dotek a velkokapacitní násypkou pro až 4 porce najednou. Díky pokročilé technologii pomalého lisování a snadnému čištění maximalizuje efektivitu ",
+   "url": "https://www.hurom.cz/komercni-odstavnovac-hurom-cp50/"
+  }
+ ]
+}
