@@ -128,6 +128,28 @@ h1 .grad{
   text-decoration:none;
 }
 
+.grid-h{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin-top:3rem;scroll-margin-top:90px;}
+.grid-h small{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--gray);letter-spacing:0;}
+.grid-sub{font-size:.9rem;color:var(--gray2);max-width:640px;margin-top:.35rem;font-weight:300;}
+.grid-h + .products-grid,.grid-sub + .products-grid{margin-top:1.25rem;}
+.pop{margin-top:2rem;background:var(--navy);border:1px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr 1.4fr;gap:2rem;scroll-margin-top:90px;}
+@media(max-width:760px){.pop{grid-template-columns:1fr;padding:1.5rem;}}
+.pop h3{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem;}
+.pop p{font-size:.88rem;color:var(--gray2);}
+.pop-pole{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.pop-pole .cele{grid-column:1 / -1;}
+@media(max-width:520px){.pop-pole{grid-template-columns:1fr;}}
+.pop label{display:block;font-size:.76rem;color:var(--gray);margin-bottom:.3rem;}
+.pop input,.pop select,.pop textarea{width:100%;padding:.7rem .9rem;border-radius:7px;border:1px solid var(--border);background:var(--navy2);color:var(--white);font:inherit;font-size:.9rem;}
+.pop textarea{min-height:120px;resize:vertical;}
+.pop button{padding:.75rem 1.4rem;border:0;border-radius:7px;background:var(--blue);color:#fff;font:inherit;font-weight:500;cursor:pointer;}
+.pop button:disabled{opacity:.6;cursor:default;}
+.pop-info{font-size:.76rem;color:var(--gray);line-height:1.5;margin-top:.7rem;}
+.pop-info a{color:var(--cyan);}
+.plan .pro{font-size:.74rem;color:var(--cyan);margin-bottom:.35rem;}
+.cta-mira{margin-top:1.25rem;font-size:.88rem;color:var(--gray2);}
+.cta-mira a{color:var(--cyan);}
+
 /* CENIK */
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;margin-top:3rem;align-items:stretch;}
 .plan{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;transition:border-color .2s;}
@@ -271,6 +293,7 @@ footer{
   </a>
   <div class="nav-links">
     <a href="#products">Products</a>
+    <a href="#custom">Custom</a>
     <a href="#process">How we work</a>
     <a href="#why-ai">Why AI</a>
     <a href="#pricing">Pricing</a>
@@ -292,7 +315,7 @@ footer{
 
   <div class="hero-actions">
     <a href="/en/shop-watch.html" class="btn-p">Shop Watch →</a>
-    <a href="#products" class="btn-g">See our products</a>
+    <a href="#custom" class="btn-g">Custom automation</a>
   </div>
   <p class="hero-proof">Competitors every week · legal and conversion checks every month · $89 a month</p>
 
@@ -353,6 +376,7 @@ footer{
     <h2 class="s-title">Ready-made products and custom automation</h2>
     <p class="s-sub">Ready-made products are ordered online and you have the result within minutes. Other automations we deploy at your company, connected to your systems.</p>
 
+    <h3 class="grid-h">Ready-made products <small>· order online now</small></h3>
     <div class="products-grid">
 
       <!-- LIVE -->
@@ -388,82 +412,172 @@ footer{
         <a href="mailto:info@kaitechinvest.com?subject=English%20report%3A%20Competitor%20analysis" class="card-cta">Request in English →</a>
       </div>
 
-      <!-- CUSTOM DEPLOYMENT -->
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(0,194,255,.08);">▶️</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">Video &amp; YouTube automation</div>
-        <div class="card-desc">Automatic generation of short videos (AI talking head + subtitles), scheduling and publishing on YouTube, without manual work.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20Video%20%26amp%3B%20YouTube%20automation" class="card-cta">Ask for a quote →</a>
-      </div>
+    </div>
+
+    <h3 class="grid-h" id="custom">Custom deployment <small>· on request</small></h3>
+    <p class="grid-sub">We build the automation and connect it to the systems you already use. Tell us what you want to solve and we will get back to you with a proposed approach and a price.</p>
+    <div class="products-grid">
 
       <div class="product-card live">
-        <div class="card-icon" style="background:rgba(0,194,255,.08);">📱</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">Social media on autopilot</div>
-        <div class="card-desc">An AI agent that generates, schedules and publishes content on Instagram, Facebook and LinkedIn according to a preset strategy.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20Social%20media%20on%20autopilot" class="card-cta">Ask for a quote →</a>
+        <div class="card-icon" style="background:rgba(34,197,94,.08);">🧾</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Orders from regular B2B customers</div>
+        <div class="card-desc">Restaurants and other regular customers order with one tap from a message (SMS, WhatsApp or email), “same as last time”, or adjust the quantities. Orders add up into a summary for purchasing and delivery, and the customer gets a confirmation.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Orders from regular B2B customers">Ask for a quote →</a>
       </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(34,197,94,.08);">💬</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">AI customer support</div>
-        <div class="card-desc">A chatbot trained on your data that handles 80% of customer questions 24/7, connectable to your online store, CRM or email.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20AI%20customer%20support" class="card-cta">Ask for a quote →</a>
-      </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(251,191,36,.08);">🏠</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">AI assistant for real estate agents</div>
-        <div class="card-desc">A chatbot for real estate agents that qualifies prospects, answers questions about properties and schedules viewings automatically.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20AI%20assistant%20for%20real%20estate%20agents" class="card-cta">Ask for a quote →</a>
-      </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(124,92,252,.1);">🎯</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">Lead qualification &amp; scoring</div>
-        <div class="card-desc">An AI agent that analyses incoming leads, scores them by how likely they are to convert and prepares the background for your sales rep.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20Lead%20qualification%20%26amp%3B%20scoring" class="card-cta">Ask for a quote →</a>
-      </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(0,194,255,.08);">✍️</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">LinkedIn content creation</div>
-        <div class="card-desc">An automated pipeline for LinkedIn posts: AI writes content in your style, you only approve or edit it before publishing.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20LinkedIn%20content%20creation" class="card-cta">Ask for a quote →</a>
-      </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(239,68,68,.08);">📧</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">Email sequences on autopilot</div>
-        <div class="card-desc">AI writes and sends onboarding and sales email sequences tailored to each recipient’s behaviour.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20Email%20sequences%20on%20autopilot" class="card-cta">Ask for a quote →</a>
-      </div>
-
-      <div class="product-card live">
-        <div class="card-icon" style="background:rgba(34,197,94,.08);">🤝</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">AI onboarding for SaaS</div>
-        <div class="card-desc">An interactive AI guide that walks new users through your product and increases activation without your team writing onboarding by hand.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20AI%20onboarding%20for%20SaaS" class="card-cta">Ask for a quote →</a>
-      </div>
-
       <div class="product-card live">
         <div class="card-icon" style="background:rgba(251,191,36,.08);">⚙️</div>
-        <div class="card-tag tag-soon">Custom deployment</div>
-        <div class="card-title">Invoicing &amp; admin with AI</div>
-        <div class="card-desc">Automatic generation of invoices, payment reminders and reports from your data. Saves hours of admin every month.</div>
-        <a href="mailto:info@kaitechinvest.com?subject=Deployment%3A%20Invoicing%20%26amp%3B%20admin%20with%20AI" class="card-cta">Ask for a quote →</a>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Invoices from your store to accounting</div>
+        <div class="card-desc">An invoice is issued automatically when the order status changes and goes to the customer by email. Invoices, advance invoices and credit notes are transferred to your accounting software. We test the connection with your accountant.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Invoices from your store to accounting">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(34,197,94,.08);">💬</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">AI chat for online stores</div>
+        <div class="card-desc">Answers customers in the evening and at weekends, trained on your catalogue and materials. Complex questions are handed over to you. On store platforms we set up a ready-made app, elsewhere we build a custom advisor.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="AI chat for online stores">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(30,107,255,.12);">📈</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">PPC campaign management</div>
+        <div class="card-desc">Your Google Ads budget is redistributed every week by search volume, clicks and purchases. The monthly spend never exceeds the limit you set, and larger changes are sent to you for approval first. A monthly overview of what the ads brought in.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="PPC campaign management">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(239,68,68,.08);">📰</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Newsletter with videos</div>
+        <div class="card-desc">A regular newsletter with fixed sections in your branding and YouTube video thumbnails. Each issue is sent to you for approval and then goes out from your own domain. Double opt-in sign-up, one-click unsubscribe.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Newsletter with videos">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(124,92,252,.1);">🛠️</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Store fixes from the review</div>
+        <div class="card-desc">We implement the fixes a Full Store Review finds directly on your website: a clear message at the top, a trust bar, “Add to cart” on product cards, mandatory company details and consistent product photos.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Store fixes from the review">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(0,194,255,.08);">▶️</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Video &amp; YouTube automation</div>
+        <div class="card-desc">Automatic generation of short videos (AI talking head + subtitles), scheduling and publishing on YouTube, without manual work.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Video & YouTube automation">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(0,194,255,.08);">📱</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Social media on autopilot</div>
+        <div class="card-desc">An AI agent that generates, schedules and publishes content on Instagram, Facebook and LinkedIn according to a preset strategy.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Social media on autopilot">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(239,68,68,.08);">📧</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Email sequences on autopilot</div>
+        <div class="card-desc">AI writes and sends onboarding and sales email sequences tailored to each recipient’s behaviour.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Email sequences on autopilot">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(124,92,252,.1);">🎯</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">Lead qualification &amp; scoring</div>
+        <div class="card-desc">An AI agent that analyses incoming leads, scores them by how likely they are to convert and prepares the background for your sales rep.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="Lead qualification & scoring">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(0,194,255,.08);">✍️</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">LinkedIn content creation</div>
+        <div class="card-desc">An automated pipeline for LinkedIn posts: AI writes content in your style, you only approve or edit it before publishing.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="LinkedIn content creation">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(251,191,36,.08);">🏠</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">AI assistant for real estate agents</div>
+        <div class="card-desc">A chatbot for real estate agents that qualifies prospects, answers questions about properties and schedules viewings automatically.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="AI assistant for real estate agents">Ask for a quote →</a>
+      </div>
+      <div class="product-card live">
+        <div class="card-icon" style="background:rgba(34,197,94,.08);">🤝</div>
+        <div class="card-tag tag-soon">On request</div>
+        <div class="card-title">AI onboarding for SaaS</div>
+        <div class="card-desc">An interactive AI guide that walks new users through your product and increases activation without your team writing onboarding by hand.</div>
+        <a href="#inquiry" class="card-cta" data-oblast="AI onboarding for SaaS">Ask for a quote →</a>
       </div>
 
     </div>
+
+    <form class="pop" id="inquiry" novalidate>
+      <div>
+        <h3>Request a custom deployment</h3>
+        <p>Describe what you want to automate and which tools you use (online store, accounting, CRM, email). We will reply by email with a proposed approach and a price.</p>
+      </div>
+      <div>
+        <div class="pop-pole">
+          <div><label for="pop-email">Email *</label><input id="pop-email" type="email" name="email" autocomplete="email" required></div>
+          <div><label for="pop-web">Website or store</label><input id="pop-web" type="text" name="web" placeholder="optional" autocomplete="url"></div>
+          <div class="cele"><label for="pop-oblast">What do you want to solve</label><select id="pop-oblast" name="oblast">
+            <option value="">Choose an area</option>
+            <option>Orders from regular B2B customers</option>
+            <option>Invoices from your store to accounting</option>
+            <option>AI chat for online stores</option>
+            <option>PPC campaign management</option>
+            <option>Newsletter with videos</option>
+            <option>Store fixes from the review</option>
+            <option>Video &amp; YouTube automation</option>
+            <option>Social media on autopilot</option>
+            <option>Email sequences on autopilot</option>
+            <option>Lead qualification &amp; scoring</option>
+            <option>LinkedIn content creation</option>
+            <option>AI assistant for real estate agents</option>
+            <option>AI onboarding for SaaS</option>
+            <option>Something else</option>
+          </select></div>
+          <div class="cele"><label for="pop-popis">Description *</label><textarea id="pop-popis" name="popis" required placeholder="For example: restaurants send us orders by text message and we want them in one place."></textarea></div>
+        </div>
+        <div class="nl-hp" aria-hidden="true"><label>Note <input type="text" name="pozn" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit" style="margin-top:.9rem;">Send request</button>
+        <p class="pop-info">We use your details only to handle your request, see the <a href="/en/privacy.html#inquiries">privacy policy</a>.</p>
+        <p class="nl-msg" id="pop-msg" role="status"></p>
+      </div>
+    </form>
   </div>
 </div>
+<script>
+(function () {
+  var f = document.getElementById('inquiry'), m = document.getElementById('pop-msg');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-oblast]');
+    if (a) f.oblast.value = a.getAttribute('data-oblast');
+  });
+  function msg(t, ok) { m.textContent = t; m.className = 'nl-msg ' + (ok ? 'ok' : 'err'); }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = f.email.value.trim(), popis = f.popis.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return msg('Please enter a valid email address so we can get back to you.', false);
+    if (popis.length < 10) return msg('Please write a few sentences about what you want to automate.', false);
+    var b = f.querySelector('button'); b.disabled = true; msg('Sending…', true);
+    var data = new URLSearchParams({ email: email, web: f.web.value.trim(), oblast: f.oblast.value, popis: popis,
+      pozn: f.pozn.value, jazyk: 'en', stranka: location.pathname });
+    fetch('https://ck01.app.n8n.cloud/webhook/poptavka', { method: 'POST', body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          msg('Thank you, your request has arrived. We will reply by email with a proposed approach.', true); f.reset();
+          if (window.gtag) window.gtag('event', 'generate_lead', { lead_source: 'custom-deployment' });
+          if (window.fbq) window.fbq('track', 'Lead');
+        } else { msg((j && j.chyba) || 'Something went wrong, please try again.', false); }
+      })
+      .catch(function () { msg('Something went wrong. Please email us at info@kaitechinvest.com.', false); })
+      .then(function () { b.disabled = false; });
+  });
+})();
+</script>
 
 <!-- CASE STUDIES -->
 <section class="s" id="case-studies">
@@ -496,6 +610,7 @@ footer{
     <div class="plan featured">
       <span class="plan-tag">Best value</span>
       <h3>Shop Watch</h3>
+      <p class="pro">For stores without an in-house analyst</p>
       <p class="desc">Competitors every week, a legal check and a CRO audit every month.</p>
       <div class="price">$89 <small>/ month</small></div>
       <div class="price-note">or $890 a year</div>
@@ -512,6 +627,7 @@ footer{
 
     <div class="plan">
       <h3>CRO Audit</h3>
+      <p class="pro">For a check before a campaign or after a redesign</p>
       <p class="desc">Why your visitors leave without buying.</p>
       <div class="price">1,990 <small>CZK</small></div>
       <div class="price-note">one-off · ordered in Czech, English on request</div>
@@ -527,6 +643,7 @@ footer{
 
     <div class="plan">
       <h3>Full Store Review</h3>
+      <p class="pro">For a first check of a new or acquired store</p>
       <p class="desc">For online stores that want to tackle conversions and legal compliance at once.</p>
       <div class="price">2,490 <small>CZK</small></div>
       <div class="price-note">one-off · 490 CZK less than ordering both · English on request</div>
@@ -542,6 +659,7 @@ footer{
 
     <div class="plan">
       <h3>Online store legal check</h3>
+      <p class="pro">For stores focused on EU consumer and privacy rules</p>
       <p class="desc">Legal compliance only: 12 check points.</p>
       <div class="price">990 <small>CZK</small></div>
       <div class="price-note">one-off · English on request</div>
@@ -590,7 +708,7 @@ footer{
       <div class="step-t">We scale</div>
       <p class="step-p">What works we develop into another product or add to an existing one as a new feature.</p>
     </div>
-    <p class="grid-note">Custom deployment: tell us what you want to automate and which tools you use (online store, CRM, email, calendar). We will get back to you with a proposed solution and a price.</p>
+    <p class="grid-note">Custom deployment: <a href="#inquiry" style="color:var(--cyan)">tell us</a> what you want to automate and which tools you use (online store, CRM, email, calendar). We will get back to you with a proposed solution and a price.</p>
   </div>
 </section>
 
@@ -670,6 +788,7 @@ footer{
     <a href="/en/shop-watch.html" class="btn-p">Start watching →</a>
     <a href="#pricing" class="btn-g">One-off reports</a>
   </div>
+  <p class="cta-mira">Need a custom automation? <a href="#inquiry">Tell us</a></p>
 </div>
 
 <footer>
