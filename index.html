@@ -149,6 +149,18 @@ h1 .grad{
 .cta-mira{margin-top:1.25rem;font-size:.88rem;color:var(--gray2);}
 .cta-mira a{color:var(--cyan);}
 
+.router{margin-top:2.25rem;}
+.router-h{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;}
+.router-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;}
+@media(max-width:900px){.router-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.router-tile:last-child{grid-column:1 / -1;}}
+@media(max-width:480px){.router-grid{grid-template-columns:1fr;}}
+.router-tile{display:flex;flex-direction:column;gap:.3rem;padding:1rem 1.1rem;border:1px solid var(--border);border-radius:10px;background:var(--navy2);text-decoration:none;color:inherit;transition:border-color .2s,transform .15s;}
+.router-tile:hover{border-color:rgba(0,194,255,.45);transform:translateY(-1px);}
+.router-tile .kdyz{font-size:.8rem;color:var(--gray2);line-height:1.4;}
+.router-tile b{font-family:'Syne',sans-serif;font-size:.95rem;color:var(--white);margin-top:.15rem;}
+.router-tile .za{font-size:.76rem;color:var(--cyan);}
+.router + .plans{margin-top:1.75rem;}
+
 /* CENIK */
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;margin-top:3rem;align-items:stretch;}
 .plan{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;transition:border-color .2s;}
@@ -604,6 +616,17 @@ footer{
   <div class="s-tag">Ceník</div>
   <h2 class="s-title">Jednorázový report, nebo pravidelné hlídání</h2>
   <p class="s-sub">Nejvýhodnější je nechat e-shop hlídat pořád. Jednorázové reporty zůstávají, když potřebujete jen jeden snímek.</p>
+
+  <div class="router" aria-label="Rychlá volba produktu">
+    <div class="router-h">Co chcete vyřešit?</div>
+    <div class="router-grid">
+      <a class="router-tile" href="https://buy.stripe.com/7sYdR9c0R37Pbzk6cJcAo00" data-plan="cro" data-value="1990" data-currency="CZK"><span class="kdyz">Chci vědět, proč návštěvníci nenakupují</span><b>CRO Audit</b><span class="za">1 990 Kč jednorázově →</span></a>
+      <a class="router-tile" href="https://buy.stripe.com/eVqbJ1fd337Pavg44BcAo03" data-plan="compliance" data-value="990" data-currency="CZK"><span class="kdyz">Chci mít jistotu před ČOI a kvůli GDPR</span><b>Právní kontrola e-shopu</b><span class="za">990 Kč jednorázově →</span></a>
+      <a class="router-tile" href="https://buy.stripe.com/aFa28rfd3cIpavg9oVcAo04" data-plan="bundle" data-value="2490" data-currency="CZK"><span class="kdyz">Chci obojí v jednom reportu</span><b>Kompletní prověrka</b><span class="za">2 490 Kč jednorázově →</span></a>
+      <a class="router-tile" href="/hlidac.html"><span class="kdyz">Chci mít e-shop pod dohledem pořád</span><b>Hlídač e-shopu</b><span class="za">1 990 Kč měsíčně →</span></a>
+      <a class="router-tile" href="#poptavka"><span class="kdyz">Chci automatizaci napojenou na své systémy</span><b>Nasazení na míru</b><span class="za">na poptání →</span></a>
+    </div>
+  </div>
 
   <div class="plans">
 
