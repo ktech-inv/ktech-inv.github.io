@@ -142,6 +142,7 @@ h1 .grad{
 .pop label{display:block;font-size:.76rem;color:var(--gray);margin-bottom:.3rem;}
 .pop input,.pop select,.pop textarea{width:100%;padding:.7rem .9rem;border-radius:7px;border:1px solid var(--border);background:var(--navy2);color:var(--white);font:inherit;font-size:.9rem;}
 .pop textarea{min-height:120px;resize:vertical;}
+.pop .chyba{border-color:#ff9a7a;box-shadow:0 0 0 2px rgba(255,154,122,.25);}
 .pop button{padding:.75rem 1.4rem;border:0;border-radius:7px;background:var(--blue);color:#fff;font:inherit;font-weight:500;cursor:pointer;}
 .pop button:disabled{opacity:.6;cursor:default;}
 .pop-info{font-size:.76rem;color:var(--gray);line-height:1.5;margin-top:.7rem;}
@@ -550,7 +551,7 @@ footer{
             <option>AI onboarding for SaaS</option>
             <option>Something else</option>
           </select></div>
-          <div class="cele"><label for="pop-popis">Description *</label><textarea id="pop-popis" name="popis" required placeholder="For example: restaurants send us orders by text message and we want them in one place."></textarea></div>
+          <div class="cele"><label for="pop-popis">Description * (a few words)</label><textarea id="pop-popis" name="popis" required placeholder="For example: restaurants send us orders by text message and we want them in one place."></textarea></div>
         </div>
         <div class="nl-hp" aria-hidden="true"><label>Note <input type="text" name="pozn" tabindex="-1" autocomplete="off"></label></div>
         <button type="submit" style="margin-top:.9rem;">Send request</button>
@@ -571,8 +572,9 @@ footer{
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = f.email.value.trim(), popis = f.popis.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return msg('Please enter a valid email address so we can get back to you.', false);
-    if (popis.length < 10) return msg('Please write a few sentences about what you want to automate.', false);
+    f.email.classList.remove('chyba'); f.popis.classList.remove('chyba');
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { f.email.classList.add('chyba'); f.email.focus(); return msg('Please enter a valid email address so we can get back to you.', false); }
+    if (popis.length < 10) { f.popis.classList.add('chyba'); f.popis.focus(); return msg('The description is too short. Please write a few words about what you want to automate (at least 10 characters).', false); }
     var b = f.querySelector('button'); b.disabled = true; msg('Sending…', true);
     var data = new URLSearchParams({ email: email, web: f.web.value.trim(), oblast: f.oblast.value, popis: popis,
       pozn: f.pozn.value, jazyk: 'en', stranka: location.pathname });
