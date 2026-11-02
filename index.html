@@ -141,6 +141,7 @@ h1 .grad{
 .pop label{display:block;font-size:.76rem;color:var(--gray);margin-bottom:.3rem;}
 .pop input,.pop select,.pop textarea{width:100%;padding:.7rem .9rem;border-radius:7px;border:1px solid var(--border);background:var(--navy2);color:var(--white);font:inherit;font-size:.9rem;}
 .pop textarea{min-height:120px;resize:vertical;}
+.pop .chyba{border-color:#ff9a7a;box-shadow:0 0 0 2px rgba(255,154,122,.25);}
 .pop button{padding:.75rem 1.4rem;border:0;border-radius:7px;background:var(--blue);color:#fff;font:inherit;font-weight:500;cursor:pointer;}
 .pop button:disabled{opacity:.6;cursor:default;}
 .pop-info{font-size:.76rem;color:var(--gray);line-height:1.5;margin-top:.7rem;}
@@ -549,7 +550,7 @@ footer{
             <option>AI onboarding pro SaaS</option>
             <option>Něco jiného</option>
           </select></div>
-          <div class="cele"><label for="pop-popis">Popis *</label><textarea id="pop-popis" name="popis" required placeholder="Například: restaurace nám posílají objednávky SMS a chceme je mít pohromadě."></textarea></div>
+          <div class="cele"><label for="pop-popis">Popis * (aspoň pár slov)</label><textarea id="pop-popis" name="popis" required placeholder="Například: restaurace nám posílají objednávky SMS a chceme je mít pohromadě."></textarea></div>
         </div>
         <div class="nl-hp" aria-hidden="true"><label>Poznámka <input type="text" name="pozn" tabindex="-1" autocomplete="off"></label></div>
         <button type="submit" style="margin-top:.9rem;">Odeslat poptávku</button>
@@ -570,8 +571,9 @@ footer{
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = f.email.value.trim(), popis = f.popis.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) return hlaska('Vyplňte prosím platný e-mail, ať se vám můžeme ozvat.', false);
-    if (popis.length < 10) return hlaska('Napište prosím pár vět o tom, co chcete automatizovat.', false);
+    f.email.classList.remove('chyba'); f.popis.classList.remove('chyba');
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { f.email.classList.add('chyba'); f.email.focus(); return hlaska('Vyplňte prosím platný e-mail, ať se vám můžeme ozvat.', false); }
+    if (popis.length < 10) { f.popis.classList.add('chyba'); f.popis.focus(); return hlaska('Popis je moc krátký. Napište prosím aspoň pár slov o tom, co chcete automatizovat (alespoň 10 znaků).', false); }
     var b = f.querySelector('button'); b.disabled = true; hlaska('Odesílám…', true);
     var data = new URLSearchParams({ email: email, web: f.web.value.trim(), oblast: f.oblast.value, popis: popis,
       pozn: f.pozn.value, jazyk: 'cs', stranka: location.pathname });
